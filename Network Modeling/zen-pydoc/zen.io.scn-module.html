@@ -1,0 +1,407 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>zen.io.scn</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="zen-module.html">Package&nbsp;zen</a> ::
+        <a href="zen.io-module.html">Package&nbsp;io</a> ::
+        Module&nbsp;scn
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="zen.io.scn-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module scn</h1><p class="nomargin-top"></p>
+<pre class="literalblock">
+
+The ``zen.io.scn`` module (available as ``zen.scn``) supports the reading and writing of graph data in a simple, concise network (SCN) format designed for quick parsing that resembles the :doc:`edgelist format &lt;edgelist&gt;`.
+
+Description of the format
+-------------------------
+
+In general, each line of the file specifies either a node or an edge.  Networks are specified 
+in two parts.  First nodes are specified, then edges are specified.  The sections are divided
+by a line consisting of the character ``=``.
+
+        * A node definition has the following format: ``&lt;node name&gt; &lt;prop1&gt; &lt;prop2&gt; ... &lt;propN&gt;``
+
+        * An edge definition has the following format: ``&lt;src&gt; &lt;dest&gt; &lt;prop1&gt; &lt;prop2&gt; ... &lt;propN&gt;``
+
+Other rules:
+        * The first line in the file consists of two numbers: the number of properties nodes have and edges have
+        * Node names and properties must not contain spaces and cannot start with an ``=`` sign
+        * Lines that contain any text must start with that text (no leading whitespace)
+        * The separator between entries on a line is *exactly* one space
+        
+Functions
+---------
+
+.. autofunction:: zen.io.scn.read(filename[,node_obj_fxn=str,directed=False,ignore_duplicate_edges=False,merge_graph=None,weighted=False,max_line_len=500])
+
+.. autofunction:: zen.io.scn.write(G,filename[,num_node_props=0,num_edge_props=0,use_node_indices=False,node_data_fxn=None,edge_data_fxn=None])
+        
+
+</pre>
+
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="__inner_write"></a><span class="summary-sig-name">__inner_write</span>(<span class="summary-sig-arg">...</span>)</span></td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="zen.io.scn-module.html#read" class="summary-sig-name">read</a>(<span class="summary-sig-arg">...</span>)</span><br />
+      Read a network from the file with name ``filename`` specified in the SCN format.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="zen.io.scn-module.html#write" class="summary-sig-name">write</a>(<span class="summary-sig-arg">...</span>)</span><br />
+      Write the graph, ``G``, to the file named ``filename`` in the SCN format.</td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="write_digraph_scn"></a><span class="summary-sig-name">write_digraph_scn</span>(<span class="summary-sig-arg">...</span>)</span></td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="write_graph_scn"></a><span class="summary-sig-name">write_graph_scn</span>(<span class="summary-sig-arg">...</span>)</span></td>
+          <td align="right" valign="top">
+            
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__all_"></a><span class="summary-name">__all_</span> = <code title="['read', 'write']"><code class="variable-group">[</code><code class="variable-quote">'</code><code class="variable-string">read</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">write</code><code class="variable-quote">'</code><code class="variable-group">]</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'zen.io'"><code class="variable-quote">'</code><code class="variable-string">zen.io</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__test__"></a><span class="summary-name">__test__</span> = <code title="{}"><code class="variable-group">{</code><code class="variable-group">}</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="read"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read</span>(<span class="sig-arg">...</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Read a network from the file with name ``filename`` specified in the SCN format.
+
+.. note: 
+        The standard weighted argument is not supported as SCN does not currently specify a way of assigning weights to edges.
+        
+**KwArgs**:
+
+        * ``node_obj_fxn [=str]``: the function that converts the string node identifier read from the file
+                into the node object
+        * ``directed [=False]`` (boolean): whether the edges should be interpreted as directed.
+        * ``ignore_duplicate_edges [=False]`` (boolean): ignore duplicate edges that may occur.  This incurs a performance
+                hit since every edge must be checked before being inserted.
+        * ``merge_graph [=None]`` (:py:class:`Graph` or :py:class:`DiGraph`): merge the edges read into the existing graph object provided. In this case,
+                the ``merge_graph`` is returned (rather than a new graph object).
+        * ``weighted [=False]`` (boolean): a third column of numbers will be expected in the file and will be interpreted 
+                as edge weights.
+        * ``max_line_len [=500]`` (int): this method is implemented in C for speed.  As part of the implementation, a fixed size buffer is used to minimize time
+                spent parsing each line.  By default, the buffer size is 500 characters.  This argument allows a different max size
+                buffer to be set.
+                
+
+**Returns**:
+        :py:class:`Graph` or :py:class:`DiGraph`. The graph constructed from the graph data read in SCN format.  If ``directed = True``, then a :py:class:`DiGraph` is built,
+        otherwise a :py:class:`Graph` is built.  In the graph object that is returned, node and edge properties are stored in a numpy array that is assigned to be the data
+        object of the respective node.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="write"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write</span>(<span class="sig-arg">...</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    >&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Write the graph, ``G``, to the file named ``filename`` in the SCN format.
+
+Writing a graph in this format requires a bit more user-involvement than other formats 
+due to the strict interpretation of how properties are written out.
+
+When called, the number of node/edge properties that will be stored *for each* node/edge
+is specified (if not specified, it is assumed that zero properties will be written).  The
+actual properties that will be written for a node and edge are produced by ``node_data_fxn``
+and ``edge_data_fxn``, respectively.  These are functions which return a tuple containing string 
+properties of a specific node/edge, each property string containing no spaces. The tuple must have exactly the number of 
+entries as properties expected.  The node_data_fxn accepts three arguments: the node index,
+the node object, and the node data object.  The edge_data_fxn accepts four arguments: the edge
+index, the first (source) node, the second (target) node, and the edge data object.
+
+There is one exception for nodes and edges.  If a node/edge has no properties, 
+the node/edge_data_fxn may return None, in which case no properties will be associated
+with the node/edge.
+
+**KwArgs**:
+
+        * ``num_node_props [=0]`` (int): the number of properties that will be written for each node.
+        * ``num_edge_props [=0]`` (int): the number of properties that will be written for each edge.
+        * ``use_node_indices [=False]`` (boolean): use the node index as its identifier rather than its object.
+        * ``node_data_fxn [=None]``: the function that will be used to generate the node properties
+          that will be written to the file. This is a function which returns a tuple containing the string 
+          properties of the specific node provided in the parameters. Each property string must contain no spaces. 
+          Furthermore, the tuple must have exactly ``num_node_props`` entries (the number of properties expected).  
+          The ``node_data_fxn`` accepts three arguments: the node index, the node object, and the node data object.
+        * ``edge_data_fxn [=None]``: the function that will be used to generate the edge properties
+          that will be written to the file. This is a function which returns a tuple containing the string 
+          properties of the specific edge provided in the parameters. Each property string must contain no spaces. 
+          Furthermore, the tuple must have exactly ``num_edge_props`` entries (the number of properties expected).  
+          The ``edge_data_fxn`` accepts four arguments: the edge index, the first (source) node index, the second 
+          (target) node index, and the edge data object.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Mar 14 14:30:07 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

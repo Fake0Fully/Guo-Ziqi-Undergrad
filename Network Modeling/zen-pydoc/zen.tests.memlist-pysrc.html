@@ -1,0 +1,361 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>zen.tests.memlist</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="zen-module.html">Package&nbsp;zen</a> ::
+        <a href="zen.tests-module.html">Package&nbsp;tests</a> ::
+        Module&nbsp;memlist
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="zen.tests.memlist-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="zen.tests.memlist-module.html">Module zen.tests.memlist</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package zen=zen-module.html"><a title="zen" class="py-name" href="#" onclick="return doclink('link-0', 'zen', 'link-0');">zen</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-1" class="py-name"><a title="zen" class="py-name" href="#" onclick="return doclink('link-1', 'zen', 'link-0');">zen</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Package zen.io=zen.io-module.html"><a title="zen.io" class="py-name" href="#" onclick="return doclink('link-2', 'io', 'link-2');">io</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module zen.io.memlist=zen.io.memlist-module.html,Module zen.tests.memlist=zen.tests.memlist-module.html"><a title="zen.io.memlist
+zen.tests.memlist" class="py-name" href="#" onclick="return doclink('link-3', 'memlist', 'link-3');">memlist</a></tt> <tt class="py-keyword">as</tt> <tt id="link-4" class="py-name"><a title="zen.io.memlist
+zen.tests.memlist" class="py-name" href="#" onclick="return doclink('link-4', 'memlist', 'link-3');">memlist</a></tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">unittest</tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt> <tt class="py-keyword">as</tt> <tt class="py-name">path</tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">tempfile</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"> </tt>
+<a name="MemListTestCase"></a><div id="MemListTestCase-def"><a name="L8"></a><tt class="py-lineno">  8</tt> <a class="py-toggle" href="#" id="MemListTestCase-toggle" onclick="return toggle('MemListTestCase');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="zen.tests.memlist.MemListTestCase-class.html">MemListTestCase</a><tt class="py-op">(</tt><tt class="py-base-class">unittest</tt><tt class="py-op">.</tt><tt class="py-base-class">TestCase</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MemListTestCase-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="MemListTestCase-expanded"><a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"> </tt>
+<a name="MemListTestCase.test_write_compact_undirected"></a><div id="MemListTestCase.test_write_compact_undirected-def"><a name="L10"></a><tt class="py-lineno"> 10</tt> <a class="py-toggle" href="#" id="MemListTestCase.test_write_compact_undirected-toggle" onclick="return toggle('MemListTestCase.test_write_compact_undirected');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.tests.memlist.MemListTestCase-class.html#test_write_compact_undirected">test_write_compact_undirected</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MemListTestCase.test_write_compact_undirected-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="MemListTestCase.test_write_compact_undirected-expanded"><a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line">                <tt class="py-name">G</tt> <tt class="py-op">=</tt> <tt id="link-5" class="py-name"><a title="zen" class="py-name" href="#" onclick="return doclink('link-5', 'zen', 'link-0');">zen</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Class zen.graph.Graph=zen.graph.Graph-class.html"><a title="zen.graph.Graph" class="py-name" href="#" onclick="return doclink('link-6', 'Graph', 'link-6');">Graph</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-7" class="py-name" targets="Method zen.digraph.DiGraph.add_nodes()=zen.digraph.DiGraph-class.html#add_nodes,Method zen.graph.Graph.add_nodes()=zen.graph.Graph-class.html#add_nodes"><a title="zen.digraph.DiGraph.add_nodes
+zen.graph.Graph.add_nodes" class="py-name" href="#" onclick="return doclink('link-7', 'add_nodes', 'link-7');">add_nodes</a></tt><tt class="py-op">(</tt><tt class="py-number">5</tt><tt class="py-op">)</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line">                <tt class="py-name">e1</tt> <tt class="py-op">=</tt> <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method zen.bipartite.BipartiteGraph.add_edge_()=zen.bipartite.BipartiteGraph-class.html#add_edge_,Method zen.digraph.DiGraph.add_edge_()=zen.digraph.DiGraph-class.html#add_edge_,Method zen.graph.Graph.add_edge_()=zen.graph.Graph-class.html#add_edge_,Method zen.hypergraph.HyperGraph.add_edge_()=zen.hypergraph.HyperGraph-class.html#add_edge_"><a title="zen.bipartite.BipartiteGraph.add_edge_
+zen.digraph.DiGraph.add_edge_
+zen.graph.Graph.add_edge_
+zen.hypergraph.HyperGraph.add_edge_" class="py-name" href="#" onclick="return doclink('link-8', 'add_edge_', 'link-8');">add_edge_</a></tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name"><a title="zen.bipartite.BipartiteGraph.add_edge_
+zen.digraph.DiGraph.add_edge_
+zen.graph.Graph.add_edge_
+zen.hypergraph.HyperGraph.add_edge_" class="py-name" href="#" onclick="return doclink('link-9', 'add_edge_', 'link-8');">add_edge_</a></tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt><tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line">                 </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line">                <tt class="py-comment"># this should succeed</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line">                <tt class="py-name">fd</tt><tt class="py-op">,</tt><tt class="py-name">fname</tt> <tt class="py-op">=</tt> <tt class="py-name">tempfile</tt><tt class="py-op">.</tt><tt class="py-name">mkstemp</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line">                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">close</tt><tt class="py-op">(</tt><tt class="py-name">fd</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line">                <tt id="link-10" class="py-name"><a title="zen.io.memlist
+zen.tests.memlist" class="py-name" href="#" onclick="return doclink('link-10', 'memlist', 'link-3');">memlist</a></tt><tt class="py-op">.</tt><tt id="link-11" class="py-name" targets="Function zen.io.bel.write()=zen.io.bel-module.html#write,Function zen.io.edgelist.write()=zen.io.edgelist-module.html#write,Function zen.io.gml.write()=zen.io.gml-module.html#write,Function zen.io.hedgelist.write()=zen.io.hedgelist-module.html#write,Function zen.io.memlist.write()=zen.io.memlist-module.html#write,Function zen.io.scn.write()=zen.io.scn-module.html#write"><a title="zen.io.bel.write
+zen.io.edgelist.write
+zen.io.gml.write
+zen.io.hedgelist.write
+zen.io.memlist.write
+zen.io.scn.write" class="py-name" href="#" onclick="return doclink('link-11', 'write', 'link-11');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">fname</tt><tt class="py-op">)</tt> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line">                 </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line">                <tt class="py-comment"># this should fail because the graph isn't compact</tt> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-12" class="py-name" targets="Method zen.digraph.DiGraph.rm_edge_()=zen.digraph.DiGraph-class.html#rm_edge_,Method zen.graph.Graph.rm_edge_()=zen.graph.Graph-class.html#rm_edge_,Method zen.hypergraph.HyperGraph.rm_edge_()=zen.hypergraph.HyperGraph-class.html#rm_edge_"><a title="zen.digraph.DiGraph.rm_edge_
+zen.graph.Graph.rm_edge_
+zen.hypergraph.HyperGraph.rm_edge_" class="py-name" href="#" onclick="return doclink('link-12', 'rm_edge_', 'link-12');">rm_edge_</a></tt><tt class="py-op">(</tt><tt class="py-name">e1</tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line">                        <tt id="link-13" class="py-name"><a title="zen.io.memlist
+zen.tests.memlist" class="py-name" href="#" onclick="return doclink('link-13', 'memlist', 'link-3');">memlist</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="zen.io.bel.write
+zen.io.edgelist.write
+zen.io.gml.write
+zen.io.hedgelist.write
+zen.io.memlist.write
+zen.io.scn.write" class="py-name" href="#" onclick="return doclink('link-14', 'write', 'link-11');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">fname</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">fail</tt><tt class="py-op">(</tt><tt class="py-string">'Writing an uncompact graph should raise an exception'</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt> <tt id="link-15" class="py-name"><a title="zen" class="py-name" href="#" onclick="return doclink('link-15', 'zen', 'link-0');">zen</a></tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Class zen.exceptions.ZenException=zen.exceptions.ZenException-class.html"><a title="zen.exceptions.ZenException" class="py-name" href="#" onclick="return doclink('link-16', 'ZenException', 'link-16');">ZenException</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line">                        <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line">                         </tt>
+<a name="MemListTestCase.test_write_compact_directed"></a><div id="MemListTestCase.test_write_compact_directed-def"><a name="L29"></a><tt class="py-lineno"> 29</tt> <a class="py-toggle" href="#" id="MemListTestCase.test_write_compact_directed-toggle" onclick="return toggle('MemListTestCase.test_write_compact_directed');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.tests.memlist.MemListTestCase-class.html#test_write_compact_directed">test_write_compact_directed</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MemListTestCase.test_write_compact_directed-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="MemListTestCase.test_write_compact_directed-expanded"><a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line">                <tt class="py-name">G</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="zen" class="py-name" href="#" onclick="return doclink('link-17', 'zen', 'link-0');">zen</a></tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Class zen.digraph.DiGraph=zen.digraph.DiGraph-class.html"><a title="zen.digraph.DiGraph" class="py-name" href="#" onclick="return doclink('link-18', 'DiGraph', 'link-18');">DiGraph</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="zen.digraph.DiGraph.add_nodes
+zen.graph.Graph.add_nodes" class="py-name" href="#" onclick="return doclink('link-19', 'add_nodes', 'link-7');">add_nodes</a></tt><tt class="py-op">(</tt><tt class="py-number">5</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line">                <tt class="py-name">e1</tt> <tt class="py-op">=</tt> <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-20" class="py-name"><a title="zen.bipartite.BipartiteGraph.add_edge_
+zen.digraph.DiGraph.add_edge_
+zen.graph.Graph.add_edge_
+zen.hypergraph.HyperGraph.add_edge_" class="py-name" href="#" onclick="return doclink('link-20', 'add_edge_', 'link-8');">add_edge_</a></tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name"><a title="zen.bipartite.BipartiteGraph.add_edge_
+zen.digraph.DiGraph.add_edge_
+zen.graph.Graph.add_edge_
+zen.hypergraph.HyperGraph.add_edge_" class="py-name" href="#" onclick="return doclink('link-21', 'add_edge_', 'link-8');">add_edge_</a></tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt><tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L34"></a><tt class="py-lineno"> 34</tt>  <tt class="py-line"> </tt>
+<a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">                <tt class="py-comment"># this should succeed</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line">                <tt class="py-name">fd</tt><tt class="py-op">,</tt><tt class="py-name">fname</tt> <tt class="py-op">=</tt> <tt class="py-name">tempfile</tt><tt class="py-op">.</tt><tt class="py-name">mkstemp</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line">                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">close</tt><tt class="py-op">(</tt><tt class="py-name">fd</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line">                <tt id="link-22" class="py-name"><a title="zen.io.memlist
+zen.tests.memlist" class="py-name" href="#" onclick="return doclink('link-22', 'memlist', 'link-3');">memlist</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name"><a title="zen.io.bel.write
+zen.io.edgelist.write
+zen.io.gml.write
+zen.io.hedgelist.write
+zen.io.memlist.write
+zen.io.scn.write" class="py-name" href="#" onclick="return doclink('link-23', 'write', 'link-11');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">fname</tt><tt class="py-op">)</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line">                <tt class="py-comment"># this should fail because the graph isn't compact</tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="zen.digraph.DiGraph.rm_edge_
+zen.graph.Graph.rm_edge_
+zen.hypergraph.HyperGraph.rm_edge_" class="py-name" href="#" onclick="return doclink('link-24', 'rm_edge_', 'link-12');">rm_edge_</a></tt><tt class="py-op">(</tt><tt class="py-name">e1</tt><tt class="py-op">)</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line">                <tt class="py-keyword">try</tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line">                        <tt id="link-25" class="py-name"><a title="zen.io.memlist
+zen.tests.memlist" class="py-name" href="#" onclick="return doclink('link-25', 'memlist', 'link-3');">memlist</a></tt><tt class="py-op">.</tt><tt id="link-26" class="py-name"><a title="zen.io.bel.write
+zen.io.edgelist.write
+zen.io.gml.write
+zen.io.hedgelist.write
+zen.io.memlist.write
+zen.io.scn.write" class="py-name" href="#" onclick="return doclink('link-26', 'write', 'link-11');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">fname</tt><tt class="py-op">)</tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">fail</tt><tt class="py-op">(</tt><tt class="py-string">'Writing an uncompact graph should raise an exception'</tt><tt class="py-op">)</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line">                <tt class="py-keyword">except</tt> <tt id="link-27" class="py-name"><a title="zen" class="py-name" href="#" onclick="return doclink('link-27', 'zen', 'link-0');">zen</a></tt><tt class="py-op">.</tt><tt id="link-28" class="py-name"><a title="zen.exceptions.ZenException" class="py-name" href="#" onclick="return doclink('link-28', 'ZenException', 'link-16');">ZenException</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line">                        <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"> </tt>
+<a name="MemListTestCase.test_write_undirected"></a><div id="MemListTestCase.test_write_undirected-def"><a name="L48"></a><tt class="py-lineno"> 48</tt> <a class="py-toggle" href="#" id="MemListTestCase.test_write_undirected-toggle" onclick="return toggle('MemListTestCase.test_write_undirected');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.tests.memlist.MemListTestCase-class.html#test_write_undirected">test_write_undirected</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MemListTestCase.test_write_undirected-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="MemListTestCase.test_write_undirected-expanded"><a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line">                 </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">                <tt class="py-name">G</tt> <tt class="py-op">=</tt> <tt id="link-29" class="py-name"><a title="zen" class="py-name" href="#" onclick="return doclink('link-29', 'zen', 'link-0');">zen</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="zen.graph.Graph" class="py-name" href="#" onclick="return doclink('link-30', 'Graph', 'link-6');">Graph</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="zen.digraph.DiGraph.add_nodes
+zen.graph.Graph.add_nodes" class="py-name" href="#" onclick="return doclink('link-31', 'add_nodes', 'link-7');">add_nodes</a></tt><tt class="py-op">(</tt><tt class="py-number">5</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name"><a title="zen.bipartite.BipartiteGraph.add_edge_
+zen.digraph.DiGraph.add_edge_
+zen.graph.Graph.add_edge_
+zen.hypergraph.HyperGraph.add_edge_" class="py-name" href="#" onclick="return doclink('link-32', 'add_edge_', 'link-8');">add_edge_</a></tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="zen.bipartite.BipartiteGraph.add_edge_
+zen.digraph.DiGraph.add_edge_
+zen.graph.Graph.add_edge_
+zen.hypergraph.HyperGraph.add_edge_" class="py-name" href="#" onclick="return doclink('link-33', 'add_edge_', 'link-8');">add_edge_</a></tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt><tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="zen.bipartite.BipartiteGraph.add_edge_
+zen.digraph.DiGraph.add_edge_
+zen.graph.Graph.add_edge_
+zen.hypergraph.HyperGraph.add_edge_" class="py-name" href="#" onclick="return doclink('link-34', 'add_edge_', 'link-8');">add_edge_</a></tt><tt class="py-op">(</tt><tt class="py-number">3</tt><tt class="py-op">,</tt><tt class="py-number">4</tt><tt class="py-op">)</tt> </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">                 </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">                <tt class="py-name">fd</tt><tt class="py-op">,</tt><tt class="py-name">fname</tt> <tt class="py-op">=</tt> <tt class="py-name">tempfile</tt><tt class="py-op">.</tt><tt class="py-name">mkstemp</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">close</tt><tt class="py-op">(</tt><tt class="py-name">fd</tt><tt class="py-op">)</tt> </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">                <tt id="link-35" class="py-name"><a title="zen.io.memlist
+zen.tests.memlist" class="py-name" href="#" onclick="return doclink('link-35', 'memlist', 'link-3');">memlist</a></tt><tt class="py-op">.</tt><tt id="link-36" class="py-name"><a title="zen.io.bel.write
+zen.io.edgelist.write
+zen.io.gml.write
+zen.io.hedgelist.write
+zen.io.memlist.write
+zen.io.scn.write" class="py-name" href="#" onclick="return doclink('link-36', 'write', 'link-11');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">fname</tt><tt class="py-op">)</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">                 </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">                <tt class="py-name">G2</tt> <tt class="py-op">=</tt> <tt id="link-37" class="py-name"><a title="zen.io.memlist
+zen.tests.memlist" class="py-name" href="#" onclick="return doclink('link-37', 'memlist', 'link-3');">memlist</a></tt><tt class="py-op">.</tt><tt id="link-38" class="py-name" targets="Function zen.io.bel.read()=zen.io.bel-module.html#read,Function zen.io.edgelist.read()=zen.io.edgelist-module.html#read,Function zen.io.gml.read()=zen.io.gml-module.html#read,Function zen.io.hedgelist.read()=zen.io.hedgelist-module.html#read,Function zen.io.memlist.read()=zen.io.memlist-module.html#read,Function zen.io.rdot.read()=zen.io.rdot-module.html#read,Function zen.io.scn.read()=zen.io.scn-module.html#read"><a title="zen.io.bel.read
+zen.io.edgelist.read
+zen.io.gml.read
+zen.io.hedgelist.read
+zen.io.memlist.read
+zen.io.rdot.read
+zen.io.scn.read" class="py-name" href="#" onclick="return doclink('link-38', 'read', 'link-38');">read</a></tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">,</tt><tt class="py-name">directed</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">                 </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">G2</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">G2</tt><tt class="py-op">.</tt><tt id="link-39" class="py-name" targets="Method zen.digraph.DiGraph.size()=zen.digraph.DiGraph-class.html#size,Method zen.graph.Graph.size()=zen.graph.Graph-class.html#size,Method zen.hypergraph.HyperGraph.size()=zen.hypergraph.HyperGraph-class.html#size"><a title="zen.digraph.DiGraph.size
+zen.graph.Graph.size
+zen.hypergraph.HyperGraph.size" class="py-name" href="#" onclick="return doclink('link-39', 'size', 'link-39');">size</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-40" class="py-name"><a title="zen.digraph.DiGraph.size
+zen.graph.Graph.size
+zen.hypergraph.HyperGraph.size" class="py-name" href="#" onclick="return doclink('link-40', 'size', 'link-39');">size</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">                 </tt>
+<a name="MemListTestCase.test_write_directed"></a><div id="MemListTestCase.test_write_directed-def"><a name="L65"></a><tt class="py-lineno"> 65</tt> <a class="py-toggle" href="#" id="MemListTestCase.test_write_directed-toggle" onclick="return toggle('MemListTestCase.test_write_directed');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.tests.memlist.MemListTestCase-class.html#test_write_directed">test_write_directed</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MemListTestCase.test_write_directed-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="MemListTestCase.test_write_directed-expanded"><a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line"> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">                <tt class="py-name">G</tt> <tt class="py-op">=</tt> <tt id="link-41" class="py-name"><a title="zen" class="py-name" href="#" onclick="return doclink('link-41', 'zen', 'link-0');">zen</a></tt><tt class="py-op">.</tt><tt id="link-42" class="py-name"><a title="zen.digraph.DiGraph" class="py-name" href="#" onclick="return doclink('link-42', 'DiGraph', 'link-18');">DiGraph</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name"><a title="zen.digraph.DiGraph.add_nodes
+zen.graph.Graph.add_nodes" class="py-name" href="#" onclick="return doclink('link-43', 'add_nodes', 'link-7');">add_nodes</a></tt><tt class="py-op">(</tt><tt class="py-number">5</tt><tt class="py-op">)</tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-44" class="py-name"><a title="zen.bipartite.BipartiteGraph.add_edge_
+zen.digraph.DiGraph.add_edge_
+zen.graph.Graph.add_edge_
+zen.hypergraph.HyperGraph.add_edge_" class="py-name" href="#" onclick="return doclink('link-44', 'add_edge_', 'link-8');">add_edge_</a></tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-45" class="py-name"><a title="zen.bipartite.BipartiteGraph.add_edge_
+zen.digraph.DiGraph.add_edge_
+zen.graph.Graph.add_edge_
+zen.hypergraph.HyperGraph.add_edge_" class="py-name" href="#" onclick="return doclink('link-45', 'add_edge_', 'link-8');">add_edge_</a></tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt><tt class="py-number">2</tt><tt class="py-op">)</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">                <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-46" class="py-name"><a title="zen.bipartite.BipartiteGraph.add_edge_
+zen.digraph.DiGraph.add_edge_
+zen.graph.Graph.add_edge_
+zen.hypergraph.HyperGraph.add_edge_" class="py-name" href="#" onclick="return doclink('link-46', 'add_edge_', 'link-8');">add_edge_</a></tt><tt class="py-op">(</tt><tt class="py-number">3</tt><tt class="py-op">,</tt><tt class="py-number">4</tt><tt class="py-op">)</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line"> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">                <tt class="py-name">fd</tt><tt class="py-op">,</tt><tt class="py-name">fname</tt> <tt class="py-op">=</tt> <tt class="py-name">tempfile</tt><tt class="py-op">.</tt><tt class="py-name">mkstemp</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">                <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">close</tt><tt class="py-op">(</tt><tt class="py-name">fd</tt><tt class="py-op">)</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                <tt id="link-47" class="py-name"><a title="zen.io.memlist
+zen.tests.memlist" class="py-name" href="#" onclick="return doclink('link-47', 'memlist', 'link-3');">memlist</a></tt><tt class="py-op">.</tt><tt id="link-48" class="py-name"><a title="zen.io.bel.write
+zen.io.edgelist.write
+zen.io.gml.write
+zen.io.hedgelist.write
+zen.io.memlist.write
+zen.io.scn.write" class="py-name" href="#" onclick="return doclink('link-48', 'write', 'link-11');">write</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">fname</tt><tt class="py-op">)</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line"> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                <tt class="py-name">G2</tt> <tt class="py-op">=</tt> <tt id="link-49" class="py-name"><a title="zen.io.memlist
+zen.tests.memlist" class="py-name" href="#" onclick="return doclink('link-49', 'memlist', 'link-3');">memlist</a></tt><tt class="py-op">.</tt><tt id="link-50" class="py-name"><a title="zen.io.bel.read
+zen.io.edgelist.read
+zen.io.gml.read
+zen.io.hedgelist.read
+zen.io.memlist.read
+zen.io.rdot.read
+zen.io.scn.read" class="py-name" href="#" onclick="return doclink('link-50', 'read', 'link-38');">read</a></tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">,</tt><tt class="py-name">directed</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line"> </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertTrue</tt><tt class="py-op">(</tt><tt class="py-name">G2</tt><tt class="py-op">.</tt><tt id="link-51" class="py-name" targets="Method zen.digraph.DiGraph.is_directed()=zen.digraph.DiGraph-class.html#is_directed,Method zen.graph.Graph.is_directed()=zen.graph.Graph-class.html#is_directed,Method zen.hypergraph.HyperGraph.is_directed()=zen.hypergraph.HyperGraph-class.html#is_directed"><a title="zen.digraph.DiGraph.is_directed
+zen.graph.Graph.is_directed
+zen.hypergraph.HyperGraph.is_directed" class="py-name" href="#" onclick="return doclink('link-51', 'is_directed', 'link-51');">is_directed</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">                 </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">G2</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">G2</tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="zen.digraph.DiGraph.size
+zen.graph.Graph.size
+zen.hypergraph.HyperGraph.size" class="py-name" href="#" onclick="return doclink('link-52', 'size', 'link-39');">size</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-53" class="py-name"><a title="zen.digraph.DiGraph.size
+zen.graph.Graph.size
+zen.hypergraph.HyperGraph.size" class="py-name" href="#" onclick="return doclink('link-53', 'size', 'link-39');">size</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line"> </tt>
+<a name="MemListTestCase.test_read_directed"></a><div id="MemListTestCase.test_read_directed-def"><a name="L84"></a><tt class="py-lineno"> 84</tt> <a class="py-toggle" href="#" id="MemListTestCase.test_read_directed-toggle" onclick="return toggle('MemListTestCase.test_read_directed');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.tests.memlist.MemListTestCase-class.html#test_read_directed">test_read_directed</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MemListTestCase.test_read_directed-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="MemListTestCase.test_read_directed-expanded"><a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">                <tt class="py-docstring">"""</tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line"><tt class="py-docstring">                Test to make sure the last character of the last line is read when a file does not</tt> </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line"><tt class="py-docstring">                end with a \n character.</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line"><tt class="py-docstring">                """</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">                <tt class="py-name">fname</tt> <tt class="py-op">=</tt> <tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">'test2.memlist'</tt><tt class="py-op">)</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">                <tt class="py-name">G</tt> <tt class="py-op">=</tt> <tt id="link-54" class="py-name"><a title="zen.io.memlist
+zen.tests.memlist" class="py-name" href="#" onclick="return doclink('link-54', 'memlist', 'link-3');">memlist</a></tt><tt class="py-op">.</tt><tt id="link-55" class="py-name"><a title="zen.io.bel.read
+zen.io.edgelist.read
+zen.io.gml.read
+zen.io.hedgelist.read
+zen.io.memlist.read
+zen.io.rdot.read
+zen.io.scn.read" class="py-name" href="#" onclick="return doclink('link-55', 'read', 'link-38');">read</a></tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">,</tt><tt class="py-name">directed</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line">                 </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-56" class="py-name"><a title="zen.digraph.DiGraph.size
+zen.graph.Graph.size
+zen.hypergraph.HyperGraph.size" class="py-name" href="#" onclick="return doclink('link-56', 'size', 'link-39');">size</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-number">4</tt><tt class="py-op">)</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">                 </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">                <tt class="py-comment"># Last line was read correctly. Don't know how to test for existence of nodes</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">                <tt class="py-comment"># since G.node_object will fail due to lack of node objects.</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertTrue</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-57" class="py-name" targets="Method zen.digraph.DiGraph.has_edge_()=zen.digraph.DiGraph-class.html#has_edge_,Method zen.graph.Graph.has_edge_()=zen.graph.Graph-class.html#has_edge_,Method zen.hypergraph.HyperGraph.has_edge_()=zen.hypergraph.HyperGraph-class.html#has_edge_"><a title="zen.digraph.DiGraph.has_edge_
+zen.graph.Graph.has_edge_
+zen.hypergraph.HyperGraph.has_edge_" class="py-name" href="#" onclick="return doclink('link-57', 'has_edge_', 'link-57');">has_edge_</a></tt><tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">,</tt><tt class="py-number">3</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> <tt class="py-comment"># Will raise Exception otherwise.</tt> </tt>
+</div><a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                 </tt>
+<a name="MemListTestCase.test_read_weighted"></a><div id="MemListTestCase.test_read_weighted-def"><a name="L98"></a><tt class="py-lineno"> 98</tt> <a class="py-toggle" href="#" id="MemListTestCase.test_read_weighted-toggle" onclick="return toggle('MemListTestCase.test_read_weighted');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.tests.memlist.MemListTestCase-class.html#test_read_weighted">test_read_weighted</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MemListTestCase.test_read_weighted-collapsed" style="display:none;" pad="+++" indent="++++++++++++"></div><div id="MemListTestCase.test_read_weighted-expanded"><a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">                <tt class="py-docstring">"""</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line"><tt class="py-docstring">                Test to verify if weights are being properly added to the graph.</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line"><tt class="py-docstring">                Copy of test1.elist with floating point weights between -125000 and 125000.</tt> </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line"><tt class="py-docstring">                """</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                <tt class="py-name">fname</tt> <tt class="py-op">=</tt> <tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">'test2_w.memlist'</tt><tt class="py-op">)</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                <tt class="py-name">G</tt> <tt class="py-op">=</tt> <tt id="link-58" class="py-name"><a title="zen.io.memlist
+zen.tests.memlist" class="py-name" href="#" onclick="return doclink('link-58', 'memlist', 'link-3');">memlist</a></tt><tt class="py-op">.</tt><tt id="link-59" class="py-name"><a title="zen.io.bel.read
+zen.io.edgelist.read
+zen.io.gml.read
+zen.io.hedgelist.read
+zen.io.memlist.read
+zen.io.rdot.read
+zen.io.scn.read" class="py-name" href="#" onclick="return doclink('link-59', 'read', 'link-38');">read</a></tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">,</tt><tt class="py-name">directed</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt><tt class="py-name">ignore_duplicate_edges</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">,</tt><tt class="py-name">weighted</tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line"> </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-number">4</tt><tt class="py-op">)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-60" class="py-name"><a title="zen.digraph.DiGraph.size
+zen.graph.Graph.size
+zen.hypergraph.HyperGraph.size" class="py-name" href="#" onclick="return doclink('link-60', 'size', 'link-39');">size</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-number">4</tt><tt class="py-op">)</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line"> </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">assertEqual</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-61" class="py-name" targets="Method zen.digraph.DiGraph.weight_()=zen.digraph.DiGraph-class.html#weight_,Method zen.graph.Graph.weight_()=zen.graph.Graph-class.html#weight_"><a title="zen.digraph.DiGraph.weight_
+zen.graph.Graph.weight_" class="py-name" href="#" onclick="return doclink('link-61', 'weight_', 'link-61');">weight_</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-62" class="py-name" targets="Method zen.digraph.DiGraph.edge_idx_()=zen.digraph.DiGraph-class.html#edge_idx_,Method zen.graph.Graph.edge_idx_()=zen.graph.Graph-class.html#edge_idx_,Method zen.hypergraph.HyperGraph.edge_idx_()=zen.hypergraph.HyperGraph-class.html#edge_idx_"><a title="zen.digraph.DiGraph.edge_idx_
+zen.graph.Graph.edge_idx_
+zen.hypergraph.HyperGraph.edge_idx_" class="py-name" href="#" onclick="return doclink('link-62', 'edge_idx_', 'link-62');">edge_idx_</a></tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-number">28299.769933</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line">                 </tt>
+<a name="L111"></a><tt class="py-lineno">111</tt>  <tt class="py-line"><tt class="py-keyword">if</tt> <tt id="link-63" class="py-name" targets="Variable zen.io.gml_codec.BasicGMLCodec.__name__=zen.io.gml_codec.BasicGMLCodec-class.html#__name__,Variable zen.io.gml_codec.Decoder.__name__=zen.io.gml_codec.Decoder-class.html#__name__,Variable zen.io.gml_codec.Encoder.__name__=zen.io.gml_codec.Encoder-class.html#__name__,Variable zen.io.gml_codec.ZenGMLCodec.__name__=zen.io.gml_codec.ZenGMLCodec-class.html#__name__"><a title="zen.io.gml_codec.BasicGMLCodec.__name__
+zen.io.gml_codec.Decoder.__name__
+zen.io.gml_codec.Encoder.__name__
+zen.io.gml_codec.ZenGMLCodec.__name__" class="py-name" href="#" onclick="return doclink('link-63', '__name__', 'link-63');">__name__</a></tt> <tt class="py-op">==</tt> <tt class="py-string">'__main__'</tt><tt class="py-op">:</tt> </tt>
+<a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-name">unittest</tt><tt class="py-op">.</tt><tt id="link-64" class="py-name" targets="Function zen.io.bel.main()=zen.io.bel-module.html#main,Function zen.util.benchmark.main()=zen.util.benchmark-module.html#main"><a title="zen.io.bel.main
+zen.util.benchmark.main" class="py-name" href="#" onclick="return doclink('link-64', 'main', 'link-64');">main</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Mar 14 14:30:09 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

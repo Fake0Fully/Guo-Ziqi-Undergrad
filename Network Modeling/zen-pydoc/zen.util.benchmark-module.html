@@ -1,0 +1,262 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>zen.util.benchmark</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="zen-module.html">Package&nbsp;zen</a> ::
+        <a href="zen.util-module.html">Package&nbsp;util</a> ::
+        Module&nbsp;benchmark
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="zen.util.benchmark-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module benchmark</h1><p class="nomargin-top"><span class="codelink"><a href="zen.util.benchmark-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+A core objective of Zen is to provide among the fastest network-based functionality available.  In order to do this, the Zen
+library includes a benchmarking class.  Much like a unit test, a benchmark subclass defines a set of methods that run code
+whose performance will be quantified.  Benchmarking is implicitly comparative - so the benchmark class is designed to make
+comparison between the performance of the different benchmark methods easy.  Textual and graphical output can be produced
+showing how the performance of the different benchmark functions performed.
+
+The remainder of this document explains how the ``zen.util.benchmark.Benchmark`` class should be subclassed and used.
+
+Initialization
+--------------
+
+A subclass should call the :py:meth:`Benchmark.__init__` function.
+
+.. automethod:: Benchmark.__init__(name,number=3)
+
+Setup and teardown
+------------------
+
+Prior to running the individual benchmarks, the ``Benchmark.setup()`` method is called.  Any work done in this
+method is not included in the timed computations.
+
+After the benchmarks have been run, the ``Benchmark.teardown()`` method is called.  This function can do any cleanup
+or releasing of resources that were allocated for the benchmarking functions.
+
+Benchmark methods
+-----------------
+
+A benchmark method has the form ``bm_&lt;name&gt;()``, where ``bm_`` is flags it as a benchmark method and ``&lt;name&gt;`` is the name
+of the specific item being benchmarked by this method.  The method accepts no arguments and returns no values.  Literally
+anything can be done inside the method since the benchmark class is only interested in how long it takes for the function
+to return.
+
+Typically more than one benchmark method will be defined per benchmark class in order to permit the comparison of 
+several different techniques, libraries, implementations, or algorithms.
+
+Command-line interface
+----------------------
+
+The ``zen.util.benchmark`` module provides a ``main()`` function that, when executed, finds 
+all ``Benchmark`` subclasses within the current namespace, and runs the the benchmarks according
+the the command-line arguments provided (note that the function accepts no arguments - all configuration
+is assumed to come through ``sys.argv``).
+
+Detailed instruction for the command-line interface can be found by providing the ``-h`` flag.  Of note,
+the interface supports generating two kinds of output:
+
+        * *Textual.* By default and in all cases, the tool will generate text output showing the results of
+          each benchmark run.
+        
+        * *Graphical.* When the ``plots`` or ``xplots`` commands are given, a histogram is generated for each
+          benchmark showing the relative performance of each benchmark method in a given benchmark.  The histogram
+          is saved in PNG format to the current working directory.
+        
+                * ``plots`` generates histograms in which the y-axis is the time taken by each benchmark method.
+                
+                * ``xplots`` generates histograms in which the y-axis is the order of improvement of each benchmark method
+                  relative to the slowest benchmark.
+        
+
+</pre>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="zen.util.benchmark.Benchmark-class.html" class="summary-name">Benchmark</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="main"></a><span class="summary-sig-name">main</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.util.benchmark-pysrc.html#main">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'zen.util'"><code class="variable-quote">'</code><code class="variable-string">zen.util</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Mar 14 14:30:07 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

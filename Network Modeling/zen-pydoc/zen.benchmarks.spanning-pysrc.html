@@ -1,0 +1,245 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>zen.benchmarks.spanning</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="zen-module.html">Package&nbsp;zen</a> ::
+        <a href="zen.benchmarks-module.html">Package&nbsp;benchmarks</a> ::
+        Module&nbsp;spanning
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="zen.benchmarks.spanning-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="zen.benchmarks.spanning-module.html">Module zen.benchmarks.spanning</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package zen=zen-module.html"><a title="zen" class="py-name" href="#" onclick="return doclink('link-0', 'zen', 'link-0');">zen</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package zen.util=zen.util-module.html"><a title="zen.util" class="py-name" href="#" onclick="return doclink('link-1', 'util', 'link-1');">util</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module zen.benchmark=zen.benchmark-module.html,Module zen.util.benchmark=zen.util.benchmark-module.html"><a title="zen.benchmark
+zen.util.benchmark" class="py-name" href="#" onclick="return doclink('link-2', 'benchmark', 'link-2');">benchmark</a></tt> <tt class="py-keyword">import</tt> <tt id="link-3" class="py-name" targets="Class zen.util.benchmark.Benchmark=zen.util.benchmark.Benchmark-class.html"><a title="zen.util.benchmark.Benchmark" class="py-name" href="#" onclick="return doclink('link-3', 'Benchmark', 'link-3');">Benchmark</a></tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">networkx</tt> <tt class="py-keyword">as</tt> <tt id="link-4" class="py-name" targets="Module zen.nx=zen.nx-module.html,Module zen.tests.nx=zen.tests.nx-module.html"><a title="zen.nx
+zen.tests.nx" class="py-name" href="#" onclick="return doclink('link-4', 'nx', 'link-4');">nx</a></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-5" class="py-name"><a title="zen" class="py-name" href="#" onclick="return doclink('link-5', 'zen', 'link-0');">zen</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">zn</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">igraph</tt> <tt class="py-keyword">as</tt> <tt class="py-name">ig</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Function zen.layout.random()=zen.layout-module.html#random"><a title="zen.layout.random" class="py-name" href="#" onclick="return doclink('link-6', 'random', 'link-6');">random</a></tt><tt class="py-op">,</tt> <tt class="py-name">math</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"> </tt>
+<a name="MinimumSpanningTreeBenchmark"></a><div id="MinimumSpanningTreeBenchmark-def"><a name="L8"></a><tt class="py-lineno"> 8</tt> <a class="py-toggle" href="#" id="MinimumSpanningTreeBenchmark-toggle" onclick="return toggle('MinimumSpanningTreeBenchmark');">-</a><tt class="py-line"><tt class="py-keyword">class</tt> <a class="py-def-name" href="zen.benchmarks.spanning.MinimumSpanningTreeBenchmark-class.html">MinimumSpanningTreeBenchmark</a><tt class="py-op">(</tt><tt class="py-base-class">Benchmark</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MinimumSpanningTreeBenchmark-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="MinimumSpanningTreeBenchmark-expanded"><a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line">         </tt>
+<a name="MinimumSpanningTreeBenchmark.__init__"></a><div id="MinimumSpanningTreeBenchmark.__init__-def"><a name="L10"></a><tt class="py-lineno">10</tt> <a class="py-toggle" href="#" id="MinimumSpanningTreeBenchmark.__init__-toggle" onclick="return toggle('MinimumSpanningTreeBenchmark.__init__');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.benchmarks.spanning.MinimumSpanningTreeBenchmark-class.html#__init__">__init__</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MinimumSpanningTreeBenchmark.__init__-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="MinimumSpanningTreeBenchmark.__init__-expanded"><a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line">                <tt id="link-7" class="py-name"><a title="zen.util.benchmark.Benchmark" class="py-name" href="#" onclick="return doclink('link-7', 'Benchmark', 'link-3');">Benchmark</a></tt><tt class="py-op">.</tt><tt id="link-8" class="py-name" targets="Method zen.algorithms.community.communityset.Community.__init__()=zen.algorithms.community.communityset.Community-class.html#__init__,Method zen.algorithms.community.communityset.CommunitySet.__init__()=zen.algorithms.community.communityset.CommunitySet-class.html#__init__,Method zen.algorithms.community.overlapping_communityset.OverlappingCommunitySet.__init__()=zen.algorithms.community.overlapping_communityset.OverlappingCommunitySet-class.html#__init__,Method zen.algorithms.max_weight_matching.UV.__init__()=zen.algorithms.max_weight_matching.UV-class.html#__init__,Method zen.algorithms.max_weight_matching.UV_.__init__()=zen.algorithms.max_weight_matching.UV_-class.html#__init__,Method zen.algorithms.max_weight_matching.dfs_iter.__init__()=zen.algorithms.max_weight_matching.dfs_iter-class.html#__init__,Method zen.algorithms.max_weight_matching.dfs_iter_.__init__()=zen.algorithms.max_weight_matching.dfs_iter_-class.html#__init__,Method zen.benchmarks.edgelist.NonRandomGraphBenchmark.__init__()=zen.benchmarks.edgelist.NonRandomGraphBenchmark-class.html#__init__,Method zen.benchmarks.graph.NonRandomGraphBenchmark.__init__()=zen.benchmarks.graph.NonRandomGraphBenchmark-class.html#__init__,Method zen.benchmarks.shortest_path.AllPairsBenchmark.__init__()=zen.benchmarks.shortest_path.AllPairsBenchmark-class.html#__init__,Method zen.benchmarks.shortest_path.UERDijkstraBenchmark.__init__()=zen.benchmarks.shortest_path.UERDijkstraBenchmark-class.html#__init__,Method zen.benchmarks.shortest_path.UERFloydWarshallBenchmark.__init__()=zen.benchmarks.shortest_path.UERFloydWarshallBenchmark-class.html#__init__,Method zen.benchmarks.shortest_path.UUERAPSPBenchmark.__init__()=zen.benchmarks.shortest_path.UUERAPSPBenchmark-class.html#__init__,Method zen.benchmarks.shortest_path.UUERSSSPBenchmark.__init__()=zen.benchmarks.shortest_path.UUERSSSPBenchmark-class.html#__init__,Method zen.benchmarks.spanning.MinimumSpanningTreeBenchmark.__init__()=zen.benchmarks.spanning.MinimumSpanningTreeBenchmark-class.html#__init__,Method zen.bipartite.BipartiteGraph.__init__()=zen.bipartite.BipartiteGraph-class.html#__init__,Method zen.bipartite.UVEdgeIterator.__init__()=zen.bipartite.UVEdgeIterator-class.html#__init__,Method zen.control.cacti.Cacti.__init__()=zen.control.cacti.Cacti-class.html#__init__,Method zen.control.cacti.Cycle.__init__()=zen.control.cacti.Cycle-class.html#__init__,Method zen.control.cacti.Stem.__init__()=zen.control.cacti.Stem-class.html#__init__,Method zen.digraph.DiGraph.__init__()=zen.digraph.DiGraph-class.html#__init__,Method zen.drawing.ubigraph.UbigraphRenderer.__init__()=zen.drawing.ubigraph.UbigraphRenderer-class.html#__init__,Method zen.graph.Graph.__init__()=zen.graph.Graph-class.html#__init__,Method zen.io.gml_interpreter.GMLInterpreter.__init__()=zen.io.gml_interpreter.GMLInterpreter-class.html#__init__,Method zen.io.gml_tokenizer.GMLTokenizer.__init__()=zen.io.gml_tokenizer.GMLTokenizer-class.html#__init__,Method zen.util.BeautifulSoup.BeautifulSoup.__init__()=zen.util.BeautifulSoup.BeautifulSoup-class.html#__init__,Method zen.util.BeautifulSoup.BeautifulStoneSoup.__init__()=zen.util.BeautifulSoup.BeautifulStoneSoup-class.html#__init__,Method zen.util.BeautifulSoup.ResultSet.__init__()=zen.util.BeautifulSoup.ResultSet-class.html#__init__,Method zen.util.BeautifulSoup.SoupStrainer.__init__()=zen.util.BeautifulSoup.SoupStrainer-class.html#__init__,Method zen.util.BeautifulSoup.Tag.__init__()=zen.util.BeautifulSoup.Tag-class.html#__init__,Method zen.util.BeautifulSoup.UnicodeDammit.__init__()=zen.util.BeautifulSoup.UnicodeDammit-class.html#__init__,Method zen.util.benchmark.Benchmark.__init__()=zen.util.benchmark.Benchmark-class.html#__init__,Method zen.util.bitvector.BitVector.__init__()=zen.util.bitvector.BitVector-class.html#__init__,Method zen.util.bitvector.BitVectorIterator.__init__()=zen.util.bitvector.BitVectorIterator-class.html#__init__,Method zen.view.View.__init__()=zen.view.View-class.html#__init__"><a title="zen.algorithms.community.communityset.Community.__init__
+zen.algorithms.community.communityset.CommunitySet.__init__
+zen.algorithms.community.overlapping_communityset.OverlappingCommunitySet.__init__
+zen.algorithms.max_weight_matching.UV.__init__
+zen.algorithms.max_weight_matching.UV_.__init__
+zen.algorithms.max_weight_matching.dfs_iter.__init__
+zen.algorithms.max_weight_matching.dfs_iter_.__init__
+zen.benchmarks.edgelist.NonRandomGraphBenchmark.__init__
+zen.benchmarks.graph.NonRandomGraphBenchmark.__init__
+zen.benchmarks.shortest_path.AllPairsBenchmark.__init__
+zen.benchmarks.shortest_path.UERDijkstraBenchmark.__init__
+zen.benchmarks.shortest_path.UERFloydWarshallBenchmark.__init__
+zen.benchmarks.shortest_path.UUERAPSPBenchmark.__init__
+zen.benchmarks.shortest_path.UUERSSSPBenchmark.__init__
+zen.benchmarks.spanning.MinimumSpanningTreeBenchmark.__init__
+zen.bipartite.BipartiteGraph.__init__
+zen.bipartite.UVEdgeIterator.__init__
+zen.control.cacti.Cacti.__init__
+zen.control.cacti.Cycle.__init__
+zen.control.cacti.Stem.__init__
+zen.digraph.DiGraph.__init__
+zen.drawing.ubigraph.UbigraphRenderer.__init__
+zen.graph.Graph.__init__
+zen.io.gml_interpreter.GMLInterpreter.__init__
+zen.io.gml_tokenizer.GMLTokenizer.__init__
+zen.util.BeautifulSoup.BeautifulSoup.__init__
+zen.util.BeautifulSoup.BeautifulStoneSoup.__init__
+zen.util.BeautifulSoup.ResultSet.__init__
+zen.util.BeautifulSoup.SoupStrainer.__init__
+zen.util.BeautifulSoup.Tag.__init__
+zen.util.BeautifulSoup.UnicodeDammit.__init__
+zen.util.benchmark.Benchmark.__init__
+zen.util.bitvector.BitVector.__init__
+zen.util.bitvector.BitVectorIterator.__init__
+zen.view.View.__init__" class="py-name" href="#" onclick="return doclink('link-8', '__init__', 'link-8');">__init__</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">,</tt><tt class="py-string">'Minimum Spanning Tree'</tt><tt class="py-op">)</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">NUM_NODES</tt> <tt class="py-op">=</tt> <tt class="py-number">2000</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">P</tt> <tt class="py-op">=</tt> <tt class="py-number">0.05</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">weights</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-op">]</tt> </tt>
+</div><a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line">                 </tt>
+<a name="MinimumSpanningTreeBenchmark.setup"></a><div id="MinimumSpanningTreeBenchmark.setup-def"><a name="L16"></a><tt class="py-lineno">16</tt> <a class="py-toggle" href="#" id="MinimumSpanningTreeBenchmark.setup-toggle" onclick="return toggle('MinimumSpanningTreeBenchmark.setup');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.benchmarks.spanning.MinimumSpanningTreeBenchmark-class.html#setup">setup</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MinimumSpanningTreeBenchmark.setup-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="MinimumSpanningTreeBenchmark.setup-expanded"><a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line">                <tt class="py-comment"># build a network</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ER_G</tt> <tt class="py-op">=</tt> <tt class="py-name">zn</tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Class zen.graph.Graph=zen.graph.Graph-class.html"><a title="zen.graph.Graph" class="py-name" href="#" onclick="return doclink('link-9', 'Graph', 'link-9');">Graph</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">NUM_NODES</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ER_G</tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method zen.bipartite.BipartiteGraph.add_node()=zen.bipartite.BipartiteGraph-class.html#add_node,Method zen.digraph.DiGraph.add_node()=zen.digraph.DiGraph-class.html#add_node,Method zen.graph.Graph.add_node()=zen.graph.Graph-class.html#add_node,Method zen.hypergraph.HyperGraph.add_node()=zen.hypergraph.HyperGraph-class.html#add_node"><a title="zen.bipartite.BipartiteGraph.add_node
+zen.digraph.DiGraph.add_node
+zen.graph.Graph.add_node
+zen.hypergraph.HyperGraph.add_node" class="py-name" href="#" onclick="return doclink('link-10', 'add_node', 'link-10');">add_node</a></tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">                <tt class="py-comment"># add edges</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">NUM_NODES</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">                        <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">range</tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">+</tt><tt class="py-number">1</tt><tt class="py-op">,</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">NUM_NODES</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">                                <tt class="py-name">r</tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name"><a title="zen.layout.random" class="py-name" href="#" onclick="return doclink('link-11', 'random', 'link-6');">random</a></tt><tt class="py-op">.</tt><tt id="link-12" class="py-name"><a title="zen.layout.random" class="py-name" href="#" onclick="return doclink('link-12', 'random', 'link-6');">random</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">                                <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name"><a title="zen.layout.random" class="py-name" href="#" onclick="return doclink('link-13', 'random', 'link-6');">random</a></tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="zen.layout.random" class="py-name" href="#" onclick="return doclink('link-14', 'random', 'link-6');">random</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">                                <tt class="py-keyword">if</tt> <tt class="py-name">r</tt> <tt class="py-op">&lt;</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">P</tt><tt class="py-op">:</tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">                                        <tt class="py-name">w</tt> <tt class="py-op">=</tt> <tt class="py-name">math</tt><tt class="py-op">.</tt><tt id="link-15" class="py-name" targets="Variable zen.control.cacti.ceil=zen.control.cacti-module.html#ceil,Variable zen.control.robustness.ceil=zen.control.robustness-module.html#ceil"><a title="zen.control.cacti.ceil
+zen.control.robustness.ceil" class="py-name" href="#" onclick="return doclink('link-15', 'ceil', 'link-15');">ceil</a></tt><tt class="py-op">(</tt><tt class="py-name">w</tt><tt class="py-op">*</tt><tt class="py-number">10.0</tt><tt class="py-op">)</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">                                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ER_G</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method zen.bipartite.BipartiteGraph.add_edge_()=zen.bipartite.BipartiteGraph-class.html#add_edge_,Method zen.digraph.DiGraph.add_edge_()=zen.digraph.DiGraph-class.html#add_edge_,Method zen.graph.Graph.add_edge_()=zen.graph.Graph-class.html#add_edge_,Method zen.hypergraph.HyperGraph.add_edge_()=zen.hypergraph.HyperGraph-class.html#add_edge_"><a title="zen.bipartite.BipartiteGraph.add_edge_
+zen.digraph.DiGraph.add_edge_
+zen.graph.Graph.add_edge_
+zen.hypergraph.HyperGraph.add_edge_" class="py-name" href="#" onclick="return doclink('link-16', 'add_edge_', 'link-16');">add_edge_</a></tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">,</tt><tt class="py-name">j</tt><tt class="py-op">,</tt> <tt id="link-17" class="py-name" targets="Method zen.digraph.DiGraph.weight()=zen.digraph.DiGraph-class.html#weight,Method zen.graph.Graph.weight()=zen.graph.Graph-class.html#weight"><a title="zen.digraph.DiGraph.weight
+zen.graph.Graph.weight" class="py-name" href="#" onclick="return doclink('link-17', 'weight', 'link-17');">weight</a></tt><tt class="py-op">=</tt><tt class="py-name">w</tt><tt class="py-op">)</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">                                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">weights</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name" targets="Method zen.util.BeautifulSoup.PageElement.append()=zen.util.BeautifulSoup.PageElement-class.html#append"><a title="zen.util.BeautifulSoup.PageElement.append" class="py-name" href="#" onclick="return doclink('link-18', 'append', 'link-18');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">w</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"> </tt>
+<a name="MinimumSpanningTreeBenchmark.bm_zen"></a><div id="MinimumSpanningTreeBenchmark.bm_zen-def"><a name="L33"></a><tt class="py-lineno">33</tt> <a class="py-toggle" href="#" id="MinimumSpanningTreeBenchmark.bm_zen-toggle" onclick="return toggle('MinimumSpanningTreeBenchmark.bm_zen');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.benchmarks.spanning.MinimumSpanningTreeBenchmark-class.html#bm_zen">bm_zen</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MinimumSpanningTreeBenchmark.bm_zen-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="MinimumSpanningTreeBenchmark.bm_zen-expanded"><a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">                <tt class="py-name">zn</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Module zen.algorithms.spanning=zen.algorithms.spanning-module.html,Module zen.benchmarks.spanning=zen.benchmarks.spanning-module.html,Module zen.tests.spanning=zen.tests.spanning-module.html"><a title="zen.algorithms.spanning
+zen.benchmarks.spanning
+zen.tests.spanning" class="py-name" href="#" onclick="return doclink('link-19', 'spanning', 'link-19');">spanning</a></tt><tt class="py-op">.</tt><tt id="link-20" class="py-name" targets="Function zen.algorithms.spanning.minimum_spanning_tree()=zen.algorithms.spanning-module.html#minimum_spanning_tree"><a title="zen.algorithms.spanning.minimum_spanning_tree" class="py-name" href="#" onclick="return doclink('link-20', 'minimum_spanning_tree', 'link-20');">minimum_spanning_tree</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ER_G</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"> </tt>
+<a name="MinimumSpanningTreeBenchmark.setup_networkx"></a><div id="MinimumSpanningTreeBenchmark.setup_networkx-def"><a name="L36"></a><tt class="py-lineno">36</tt> <a class="py-toggle" href="#" id="MinimumSpanningTreeBenchmark.setup_networkx-toggle" onclick="return toggle('MinimumSpanningTreeBenchmark.setup_networkx');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.benchmarks.spanning.MinimumSpanningTreeBenchmark-class.html#setup_networkx">setup_networkx</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MinimumSpanningTreeBenchmark.setup_networkx-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="MinimumSpanningTreeBenchmark.setup_networkx-expanded"><a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">nx_ER_G</tt> <tt class="py-op">=</tt> <tt id="link-21" class="py-name"><a title="zen.nx
+zen.tests.nx" class="py-name" href="#" onclick="return doclink('link-21', 'nx', 'link-4');">nx</a></tt><tt class="py-op">.</tt><tt id="link-22" class="py-name"><a title="zen.graph.Graph" class="py-name" href="#" onclick="return doclink('link-22', 'Graph', 'link-9');">Graph</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ER_G</tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Method zen.digraph.DiGraph.nodes_iter()=zen.digraph.DiGraph-class.html#nodes_iter,Method zen.graph.Graph.nodes_iter()=zen.graph.Graph-class.html#nodes_iter,Method zen.hypergraph.HyperGraph.nodes_iter()=zen.hypergraph.HyperGraph-class.html#nodes_iter"><a title="zen.digraph.DiGraph.nodes_iter
+zen.graph.Graph.nodes_iter
+zen.hypergraph.HyperGraph.nodes_iter" class="py-name" href="#" onclick="return doclink('link-23', 'nodes_iter', 'link-23');">nodes_iter</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">nx_ER_G</tt><tt class="py-op">.</tt><tt id="link-24" class="py-name"><a title="zen.bipartite.BipartiteGraph.add_node
+zen.digraph.DiGraph.add_node
+zen.graph.Graph.add_node
+zen.hypergraph.HyperGraph.add_node" class="py-name" href="#" onclick="return doclink('link-24', 'add_node', 'link-10');">add_node</a></tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i</tt><tt class="py-op">,</tt><tt class="py-name">j</tt><tt class="py-op">,</tt> <tt class="py-name">w</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ER_G</tt><tt class="py-op">.</tt><tt id="link-25" class="py-name" targets="Method zen.digraph.DiGraph.edges_iter()=zen.digraph.DiGraph-class.html#edges_iter,Method zen.graph.Graph.edges_iter()=zen.graph.Graph-class.html#edges_iter,Method zen.hypergraph.HyperGraph.edges_iter()=zen.hypergraph.HyperGraph-class.html#edges_iter"><a title="zen.digraph.DiGraph.edges_iter
+zen.graph.Graph.edges_iter
+zen.hypergraph.HyperGraph.edges_iter" class="py-name" href="#" onclick="return doclink('link-25', 'edges_iter', 'link-25');">edges_iter</a></tt><tt class="py-op">(</tt><tt id="link-26" class="py-name"><a title="zen.digraph.DiGraph.weight
+zen.graph.Graph.weight" class="py-name" href="#" onclick="return doclink('link-26', 'weight', 'link-17');">weight</a></tt><tt class="py-op">=</tt><tt class="py-name">True</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">                        <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">nx_ER_G</tt><tt class="py-op">.</tt><tt id="link-27" class="py-name" targets="Method zen.bipartite.BipartiteGraph.add_edge()=zen.bipartite.BipartiteGraph-class.html#add_edge,Method zen.digraph.DiGraph.add_edge()=zen.digraph.DiGraph-class.html#add_edge,Method zen.graph.Graph.add_edge()=zen.graph.Graph-class.html#add_edge,Method zen.hypergraph.HyperGraph.add_edge()=zen.hypergraph.HyperGraph-class.html#add_edge"><a title="zen.bipartite.BipartiteGraph.add_edge
+zen.digraph.DiGraph.add_edge
+zen.graph.Graph.add_edge
+zen.hypergraph.HyperGraph.add_edge" class="py-name" href="#" onclick="return doclink('link-27', 'add_edge', 'link-27');">add_edge</a></tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">,</tt><tt class="py-name">j</tt><tt class="py-op">,</tt> <tt id="link-28" class="py-name"><a title="zen.digraph.DiGraph.weight
+zen.graph.Graph.weight" class="py-name" href="#" onclick="return doclink('link-28', 'weight', 'link-17');">weight</a></tt><tt class="py-op">=</tt><tt class="py-name">w</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="MinimumSpanningTreeBenchmark.bm_networkx"></a><div id="MinimumSpanningTreeBenchmark.bm_networkx-def"><a name="L45"></a><tt class="py-lineno">45</tt> <a class="py-toggle" href="#" id="MinimumSpanningTreeBenchmark.bm_networkx-toggle" onclick="return toggle('MinimumSpanningTreeBenchmark.bm_networkx');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.benchmarks.spanning.MinimumSpanningTreeBenchmark-class.html#bm_networkx">bm_networkx</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MinimumSpanningTreeBenchmark.bm_networkx-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="MinimumSpanningTreeBenchmark.bm_networkx-expanded"><a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">                <tt id="link-29" class="py-name"><a title="zen.nx
+zen.tests.nx" class="py-name" href="#" onclick="return doclink('link-29', 'nx', 'link-4');">nx</a></tt><tt class="py-op">.</tt><tt id="link-30" class="py-name"><a title="zen.algorithms.spanning.minimum_spanning_tree" class="py-name" href="#" onclick="return doclink('link-30', 'minimum_spanning_tree', 'link-20');">minimum_spanning_tree</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">nx_ER_G</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">         </tt>
+<a name="MinimumSpanningTreeBenchmark.setup_igraph"></a><div id="MinimumSpanningTreeBenchmark.setup_igraph-def"><a name="L48"></a><tt class="py-lineno">48</tt> <a class="py-toggle" href="#" id="MinimumSpanningTreeBenchmark.setup_igraph-toggle" onclick="return toggle('MinimumSpanningTreeBenchmark.setup_igraph');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.benchmarks.spanning.MinimumSpanningTreeBenchmark-class.html#setup_igraph">setup_igraph</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MinimumSpanningTreeBenchmark.setup_igraph-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="MinimumSpanningTreeBenchmark.setup_igraph-expanded"><a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ig_ER_G</tt> <tt class="py-op">=</tt> <tt class="py-name">ig</tt><tt class="py-op">.</tt><tt id="link-31" class="py-name"><a title="zen.graph.Graph" class="py-name" href="#" onclick="return doclink('link-31', 'Graph', 'link-9');">Graph</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ig_ER_G</tt><tt class="py-op">.</tt><tt class="py-name">add_vertices</tt><tt class="py-op">(</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ER_G</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ig_ER_G</tt><tt class="py-op">.</tt><tt class="py-name">add_edges</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ER_G</tt><tt class="py-op">.</tt><tt id="link-32" class="py-name" targets="Method zen.digraph.DiGraph.edges()=zen.digraph.DiGraph-class.html#edges,Method zen.graph.Graph.edges()=zen.graph.Graph-class.html#edges,Method zen.hypergraph.HyperGraph.edges()=zen.hypergraph.HyperGraph-class.html#edges"><a title="zen.digraph.DiGraph.edges
+zen.graph.Graph.edges
+zen.hypergraph.HyperGraph.edges" class="py-name" href="#" onclick="return doclink('link-32', 'edges', 'link-32');">edges</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">                <tt class="py-comment"># Edges are enumerated twice, so while building the weight vector we make sure that the opposite-direction weight wasn't added</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">                <tt class="py-name">wweights</tt> <tt class="py-op">=</tt> <tt class="py-op">{</tt><tt class="py-op">}</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">i</tt><tt class="py-op">,</tt><tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ig_ER_G</tt><tt class="py-op">.</tt><tt class="py-name">get_edgelist</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">                        <tt class="py-keyword">if</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">wweights</tt> <tt class="py-keyword">and</tt> <tt class="py-name">j</tt> <tt class="py-keyword">not</tt> <tt class="py-keyword">in</tt> <tt class="py-name">wweights</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">                                <tt class="py-name">wweights</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">]</tt><tt class="py-op">[</tt><tt class="py-name">j</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">True</tt>  </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">                                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">weights</tt><tt class="py-op">.</tt><tt id="link-33" class="py-name"><a title="zen.util.BeautifulSoup.PageElement.append" class="py-name" href="#" onclick="return doclink('link-33', 'append', 'link-18');">append</a></tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ER_G</tt><tt class="py-op">.</tt><tt id="link-34" class="py-name"><a title="zen.digraph.DiGraph.weight
+zen.graph.Graph.weight" class="py-name" href="#" onclick="return doclink('link-34', 'weight', 'link-17');">weight</a></tt><tt class="py-op">(</tt><tt class="py-name">i</tt><tt class="py-op">,</tt> <tt class="py-name">j</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"> </tt>
+<a name="MinimumSpanningTreeBenchmark.bm_igraph"></a><div id="MinimumSpanningTreeBenchmark.bm_igraph-def"><a name="L59"></a><tt class="py-lineno">59</tt> <a class="py-toggle" href="#" id="MinimumSpanningTreeBenchmark.bm_igraph-toggle" onclick="return toggle('MinimumSpanningTreeBenchmark.bm_igraph');">-</a><tt class="py-line">        <tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.benchmarks.spanning.MinimumSpanningTreeBenchmark-class.html#bm_igraph">bm_igraph</a><tt class="py-op">(</tt><tt class="py-param">self</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="MinimumSpanningTreeBenchmark.bm_igraph-collapsed" style="display:none;" pad="++" indent="++++++++++++"></div><div id="MinimumSpanningTreeBenchmark.bm_igraph-expanded"><a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">                <tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">ig_ER_G</tt><tt class="py-op">.</tt><tt class="py-name">spanning_tree</tt><tt class="py-op">(</tt><tt class="py-name">self</tt><tt class="py-op">.</tt><tt class="py-name">weights</tt><tt class="py-op">)</tt> </tt>
+</div></div><a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Mar 14 14:30:10 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

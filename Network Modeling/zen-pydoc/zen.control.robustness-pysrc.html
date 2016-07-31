@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>zen.control.robustness</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="zen-module.html">Package&nbsp;zen</a> ::
+        <a href="zen.control-module.html">Package&nbsp;control</a> ::
+        Module&nbsp;robustness
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="zen.control.robustness-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="zen.control.robustness-module.html">Module zen.control.robustness</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Method zen.bipartite.BipartiteGraph.copy()=zen.bipartite.BipartiteGraph-class.html#copy,Method zen.digraph.DiGraph.copy()=zen.digraph.DiGraph-class.html#copy,Method zen.graph.Graph.copy()=zen.graph.Graph-class.html#copy"><a title="zen.bipartite.BipartiteGraph.copy
+zen.digraph.DiGraph.copy
+zen.graph.Graph.copy" class="py-name" href="#" onclick="return doclink('link-0', 'copy', 'link-0');">copy</a></tt> <tt class="py-keyword">as</tt> <tt class="py-name">cp</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">numpy</tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Module zen.control.cacti=zen.control.cacti-module.html,Module zen.tests.cacti=zen.tests.cacti-module.html"><a title="zen.control.cacti
+zen.tests.cacti" class="py-name" href="#" onclick="return doclink('link-1', 'cacti', 'link-1');">cacti</a></tt> <tt class="py-keyword">import</tt> <tt id="link-2" class="py-name" targets="Class zen.control.cacti.Cacti=zen.control.cacti.Cacti-class.html"><a title="zen.control.cacti.Cacti" class="py-name" href="#" onclick="return doclink('link-2', 'Cacti', 'link-2');">Cacti</a></tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name" targets="Module zen.control.reachability=zen.control.reachability-module.html,Module zen.tests.reachability=zen.tests.reachability-module.html"><a title="zen.control.reachability
+zen.tests.reachability" class="py-name" href="#" onclick="return doclink('link-3', 'reachability', 'link-3');">reachability</a></tt> <tt class="py-keyword">import</tt> <tt id="link-4" class="py-name" targets="Function zen.control.generic_rank.generic_rank_()=zen.control.generic_rank-module.html#generic_rank_,Function zen.control.reachability.generic_rank_()=zen.control.reachability-module.html#generic_rank_"><a title="zen.control.generic_rank.generic_rank_
+zen.control.reachability.generic_rank_" class="py-name" href="#" onclick="return doclink('link-4', 'generic_rank_', 'link-4');">generic_rank_</a></tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name" targets="Package zen=zen-module.html"><a title="zen" class="py-name" href="#" onclick="return doclink('link-5', 'zen', 'link-5');">zen</a></tt> <tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Function zen.randomize.choose_edge_()=zen.randomize-module.html#choose_edge_"><a title="zen.randomize.choose_edge_" class="py-name" href="#" onclick="return doclink('link-6', 'choose_edge_', 'link-6');">choose_edge_</a></tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-comment">##</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-comment"># Calculates the Mean-Itegrated-Percolation (MIP) robustness measure</tt> </tt>
+<a name="mip_"></a><div id="mip_-def"><a name="L11"></a><tt class="py-lineno">11</tt> <a class="py-toggle" href="#" id="mip_-toggle" onclick="return toggle('mip_');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.control.robustness-module.html#mip_">mip_</a><tt class="py-op">(</tt><tt class="py-param">G</tt><tt class="py-op">,</tt><tt class="py-param">controls</tt><tt class="py-op">=</tt><tt class="py-name">None</tt><tt class="py-op">,</tt><tt class="py-param">num_steps</tt><tt class="py-op">=</tt><tt class="py-number">10</tt><tt class="py-op">,</tt><tt class="py-param">num_repeats</tt><tt class="py-op">=</tt><tt class="py-number">10</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="mip_-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="mip_-expanded"><a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">        Returns R, R_std, percs reach reach_std</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">        R: MIP robustness measure</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">        R_std: MIT robustness measure standard deviation </tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">        percs: list of percolation steps, in absolute number of nodes</tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">        reach: list of the percent of the network reachable corresponding to percs</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">        reach_std: list of the standard deviation in reachability (percent of network) corresponding to percs</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">        User can specify number of controls (to restrict it less than m) </tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">        User can specify how many percolation steps to make and how many repitiions (repititions are used to calculate std)</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">controls</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line">                <tt id="link-7" class="py-name"><a title="zen.control.cacti
+zen.tests.cacti" class="py-name" href="#" onclick="return doclink('link-7', 'cacti', 'link-1');">cacti</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="zen.control.cacti.Cacti" class="py-name" href="#" onclick="return doclink('link-8', 'Cacti', 'link-2');">Cacti</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line">                <tt class="py-name">controls</tt> <tt class="py-op">=</tt> <tt id="link-9" class="py-name"><a title="zen.control.cacti
+zen.tests.cacti" class="py-name" href="#" onclick="return doclink('link-9', 'cacti', 'link-1');">cacti</a></tt><tt class="py-op">.</tt><tt id="link-10" class="py-name" targets="Method zen.control.cacti.Cacti.controls_()=zen.control.cacti.Cacti-class.html#controls_"><a title="zen.control.cacti.Cacti.controls_" class="py-name" href="#" onclick="return doclink('link-10', 'controls_', 'link-10');">controls_</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">                 </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-name">orig_rank</tt> <tt class="py-op">=</tt> <tt id="link-11" class="py-name"><a title="zen.control.generic_rank.generic_rank_
+zen.control.reachability.generic_rank_" class="py-name" href="#" onclick="return doclink('link-11', 'generic_rank_', 'link-4');">generic_rank_</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">,</tt><tt class="py-name">controls</tt><tt class="py-op">)</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line">        <tt class="py-comment"># Planned percolations</tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-name">num_steps</tt> <tt class="py-op">+=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line">        <tt class="py-name">percs</tt> <tt class="py-op">=</tt> <tt id="link-12" class="py-name" targets="Variable zen.control.cacti.floor=zen.control.cacti-module.html#floor,Variable zen.control.robustness.floor=zen.control.robustness-module.html#floor"><a title="zen.control.cacti.floor
+zen.control.robustness.floor" class="py-name" href="#" onclick="return doclink('link-12', 'floor', 'link-12');">floor</a></tt><tt class="py-op">(</tt><tt class="py-name">linspace</tt><tt class="py-op">(</tt><tt class="py-number">0</tt><tt class="py-op">,</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-13" class="py-name" targets="Method zen.digraph.DiGraph.size()=zen.digraph.DiGraph-class.html#size,Method zen.graph.Graph.size()=zen.graph.Graph-class.html#size,Method zen.hypergraph.HyperGraph.size()=zen.hypergraph.HyperGraph-class.html#size"><a title="zen.digraph.DiGraph.size
+zen.graph.Graph.size
+zen.hypergraph.HyperGraph.size" class="py-name" href="#" onclick="return doclink('link-13', 'size', 'link-13');">size</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">num_steps</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line">        <tt class="py-comment"># Create matrix to hold reachability values</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line">        <tt class="py-name">reach</tt> <tt class="py-op">=</tt> <tt class="py-name">zeros</tt><tt class="py-op">(</tt><tt class="py-op">(</tt><tt class="py-name">num_repeats</tt><tt class="py-op">,</tt><tt class="py-name">num_steps</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">i</tt> <tt class="py-keyword">in</tt> <tt class="py-name">arange</tt><tt class="py-op">(</tt><tt class="py-name">num_repeats</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">                <tt class="py-comment">#print 'repeat %i/%i' % (i,num_repeats)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">                <tt class="py-name">Gi</tt> <tt class="py-op">=</tt> <tt class="py-name">cp</tt><tt class="py-op">.</tt><tt id="link-14" class="py-name"><a title="zen.bipartite.BipartiteGraph.copy
+zen.digraph.DiGraph.copy
+zen.graph.Graph.copy" class="py-name" href="#" onclick="return doclink('link-14', 'copy', 'link-0');">copy</a></tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">)</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">                <tt class="py-name">reach</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt class="py-name">orig_rank</tt> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line">                <tt class="py-keyword">for</tt> <tt class="py-name">j</tt> <tt class="py-keyword">in</tt> <tt class="py-name">arange</tt><tt class="py-op">(</tt><tt class="py-number">1</tt><tt class="py-op">,</tt><tt class="py-name">num_steps</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">                        <tt class="py-comment">#print 'step %i/%i' % (j,num_steps)</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line">                        <tt class="py-comment"># Percolate mod_percs edges at a time</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line">                        <tt class="py-name">mod_percs</tt> <tt class="py-op">=</tt> <tt class="py-name">percs</tt><tt class="py-op">[</tt><tt class="py-name">j</tt><tt class="py-op">]</tt><tt class="py-op">-</tt><tt class="py-name">percs</tt><tt class="py-op">[</tt><tt class="py-name">j</tt><tt class="py-op">-</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line">                        <tt class="py-keyword">for</tt> <tt class="py-name">k</tt> <tt class="py-keyword">in</tt> <tt class="py-name">arange</tt><tt class="py-op">(</tt><tt class="py-name">mod_percs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line">                                <tt class="py-comment"># Percolate a random edge</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line">                                <tt class="py-comment">#rm_cnt = random.randint(len(Gi.edges()))</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">                                <tt class="py-comment">#(x,y) = Gi.edges()[rm_cnt]</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">                                <tt class="py-name">eidx</tt> <tt class="py-op">=</tt> <tt id="link-15" class="py-name"><a title="zen.randomize.choose_edge_" class="py-name" href="#" onclick="return doclink('link-15', 'choose_edge_', 'link-6');">choose_edge_</a></tt><tt class="py-op">(</tt><tt class="py-name">Gi</tt><tt class="py-op">)</tt> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">                                <tt class="py-comment">#print '\tRemoving edge: (%s,%s)' % (x,y)</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line">                                <tt class="py-comment">#Gi.rm_edge(x,y)</tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">                                <tt class="py-name">Gi</tt><tt class="py-op">.</tt><tt id="link-16" class="py-name" targets="Method zen.digraph.DiGraph.rm_edge_()=zen.digraph.DiGraph-class.html#rm_edge_,Method zen.graph.Graph.rm_edge_()=zen.graph.Graph-class.html#rm_edge_,Method zen.hypergraph.HyperGraph.rm_edge_()=zen.hypergraph.HyperGraph-class.html#rm_edge_"><a title="zen.digraph.DiGraph.rm_edge_
+zen.graph.Graph.rm_edge_
+zen.hypergraph.HyperGraph.rm_edge_" class="py-name" href="#" onclick="return doclink('link-16', 'rm_edge_', 'link-16');">rm_edge_</a></tt><tt class="py-op">(</tt><tt class="py-name">eidx</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line">                        <tt class="py-comment"># Calculate the rank of the controllability matrix</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line">                        <tt class="py-name">reach</tt><tt class="py-op">[</tt><tt class="py-name">i</tt><tt class="py-op">,</tt><tt class="py-name">j</tt><tt class="py-op">]</tt> <tt class="py-op">=</tt> <tt id="link-17" class="py-name"><a title="zen.control.generic_rank.generic_rank_
+zen.control.reachability.generic_rank_" class="py-name" href="#" onclick="return doclink('link-17', 'generic_rank_', 'link-4');">generic_rank_</a></tt><tt class="py-op">(</tt><tt class="py-name">Gi</tt><tt class="py-op">,</tt><tt class="py-name">controls</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">controls</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;=</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line">                <tt class="py-name">R</tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line">                <tt class="py-name">R_std</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line">                <tt class="py-name">R</tt> <tt class="py-op">=</tt> <tt class="py-name">trapz</tt><tt class="py-op">(</tt><tt class="py-name">reach</tt><tt class="py-op">.</tt><tt class="py-name">mean</tt><tt class="py-op">(</tt><tt class="py-name">axis</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">percs</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-18" class="py-name"><a title="zen.digraph.DiGraph.size
+zen.graph.Graph.size
+zen.hypergraph.HyperGraph.size" class="py-name" href="#" onclick="return doclink('link-18', 'size', 'link-13');">size</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">*</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line">                <tt class="py-name">R_std</tt> <tt class="py-op">=</tt> <tt class="py-name">trapz</tt><tt class="py-op">(</tt><tt class="py-name">reach</tt><tt class="py-op">.</tt><tt class="py-name">std</tt><tt class="py-op">(</tt><tt class="py-name">axis</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-name">percs</tt><tt class="py-op">)</tt><tt class="py-op">/</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-19" class="py-name"><a title="zen.digraph.DiGraph.size
+zen.graph.Graph.size
+zen.hypergraph.HyperGraph.size" class="py-name" href="#" onclick="return doclink('link-19', 'size', 'link-13');">size</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">*</tt><tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">G</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">R</tt><tt class="py-op">,</tt> <tt class="py-name">R_std</tt><tt class="py-op">,</tt> <tt class="py-name">percs</tt><tt class="py-op">,</tt> <tt class="py-name">reach</tt><tt class="py-op">.</tt><tt class="py-name">mean</tt><tt class="py-op">(</tt><tt class="py-name">axis</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">reach</tt><tt class="py-op">.</tt><tt class="py-name">std</tt><tt class="py-op">(</tt><tt class="py-name">axis</tt><tt class="py-op">=</tt><tt class="py-number">0</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Mar 14 14:30:10 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

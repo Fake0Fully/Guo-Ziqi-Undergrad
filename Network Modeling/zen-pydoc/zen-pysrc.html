@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>zen</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;zen
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="zen-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="zen-module.html">Package zen</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">Zen is designed to be a Zero-Effort Network library - meaning that whether you just want to prototype code or need to </tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring">implement a high-speed routine, Zen makes it possible for you to do it easily.  In order to acheive this, Zen has made</tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">use of several specific architectural features which enable (1) ease in learning and using the library and (2) the ability</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring">for the library to offer maximally fast routines.</tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">Most fundamentally, every node and edge in a Zen graph has three properties:</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">        - an index: this is a unique integer which is assigned to the entity.  In the underlying implementation,</tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">                this index provides a very fast lookup to information about the object, which is important when</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"><tt class="py-docstring">                writing code where execution time is important.  Because this index is a direct lookup, this value</tt> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-docstring">                may not be perserved across instances of the graph.</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-docstring">        - an object: this is a higher-level identifier for the entity.  Nodes can be given arbitrary objects, so</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-docstring">                long as they are hashable.  In ordinary directed and undirected graphs, the identifier for an edge is</tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-docstring">                its endpoints (ordered endpoints, in the case of a directed graph).  The object for a node and edge</tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"><tt class="py-docstring">                must be both hashtable and immutable - at least with regard to the features that determine its </tt> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-docstring">                hashcode and comparison to other objects.</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"><tt class="py-docstring">        - data: this is an object (often a dictionary) that contains attributes of the node or edge.</tt> </tt>
+<a name="L19"></a><tt class="py-lineno">19</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line"><tt class="py-docstring">When operating on nodes and edges in a graph, they can be referred to using either their index or their object.</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">Except where it wouldn't make sense, every method that accepts nodes or edges as input has two versions - one </tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">that takes an object and one that takes an index.  Methods that use an index will **always** be faster than one </tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">that takes an object.  In order to facilitatevreadability and easy learning of method and function names, everywhere </tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-docstring">in Zen we use the following conventions:</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line"><tt class="py-docstring">        - If a specific function accepts a node or edge, then the version that accepts objects will be called</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line"><tt class="py-docstring">                "&lt;fxn&gt;(...)".  The one which takes the index will be called "&lt;fxn&gt;_(...)".</tt> </tt>
+<a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line"><tt class="py-docstring">                </tt> </tt>
+<a name="L29"></a><tt class="py-lineno">29</tt>  <tt class="py-line"><tt class="py-docstring">        - Any function that is called "&lt;fxn&gt;(...)" and returns an edge or node will return an object. Any </tt> </tt>
+<a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line"><tt class="py-docstring">                function that is called "&lt;fxn&gt;_(...)" and returns an edge or node will return an index.</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-comment"># import graphs</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Module zen.benchmarks.graph=zen.benchmarks.graph-module.html,Variable zen.drawing.ubigraph.UbigraphRenderer.graph=zen.drawing.ubigraph.UbigraphRenderer-class.html#graph,Module zen.graph=zen.graph-module.html,Module zen.tests.graph=zen.tests.graph-module.html,Method zen.view.View.graph()=zen.view.View-class.html#graph"><a title="zen.benchmarks.graph
+zen.drawing.ubigraph.UbigraphRenderer.graph
+zen.graph
+zen.tests.graph
+zen.view.View.graph" class="py-name" href="#" onclick="return doclink('link-0', 'graph', 'link-0');">graph</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-1" class="py-name" targets="Module zen.digraph=zen.digraph-module.html,Module zen.tests.digraph=zen.tests.digraph-module.html"><a title="zen.digraph
+zen.tests.digraph" class="py-name" href="#" onclick="return doclink('link-1', 'digraph', 'link-1');">digraph</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name" targets="Module zen.bipartite=zen.bipartite-module.html,Module zen.tests.bipartite=zen.tests.bipartite-module.html"><a title="zen.bipartite
+zen.tests.bipartite" class="py-name" href="#" onclick="return doclink('link-2', 'bipartite', 'link-2');">bipartite</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-3" class="py-name" targets="Module zen.hypergraph=zen.hypergraph-module.html,Module zen.tests.hypergraph=zen.tests.hypergraph-module.html"><a title="zen.hypergraph
+zen.tests.hypergraph" class="py-name" href="#" onclick="return doclink('link-3', 'hypergraph', 'link-3');">hypergraph</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line"> </tt>
+<a name="L39"></a><tt class="py-lineno">39</tt>  <tt class="py-line"><tt class="py-comment"># basic degree properties</tt> </tt>
+<a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-4" class="py-name" targets="Module zen.degree=zen.degree-module.html,Method zen.digraph.DiGraph.degree()=zen.digraph.DiGraph-class.html#degree,Method zen.graph.Graph.degree()=zen.graph.Graph-class.html#degree,Method zen.hypergraph.HyperGraph.degree()=zen.hypergraph.HyperGraph-class.html#degree"><a title="zen.degree
+zen.digraph.DiGraph.degree
+zen.graph.Graph.degree
+zen.hypergraph.HyperGraph.degree" class="py-name" href="#" onclick="return doclink('link-4', 'degree', 'link-4');">degree</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-comment"># randomization routines</tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-5" class="py-name" targets="Module zen.randomize=zen.randomize-module.html,Module zen.tests.randomize=zen.tests.randomize-module.html"><a title="zen.randomize
+zen.tests.randomize" class="py-name" href="#" onclick="return doclink('link-5', 'randomize', 'link-5');">randomize</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt class="py-comment"># import generation routines</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-6" class="py-name" targets="Package zen.generating=zen.generating-module.html"><a title="zen.generating" class="py-name" href="#" onclick="return doclink('link-6', 'generating', 'link-6');">generating</a></tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line"> </tt>
+<a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line"><tt class="py-comment"># import built-in data</tt> </tt>
+<a name="L49"></a><tt class="py-lineno">49</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-7" class="py-name" targets="Package zen.data=zen.data-module.html,Module zen.tests.data=zen.tests.data-module.html"><a title="zen.data
+zen.tests.data" class="py-name" href="#" onclick="return doclink('link-7', 'data', 'link-7');">data</a></tt> </tt>
+<a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line"> </tt>
+<a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"><tt class="py-comment"># import utilities</tt> </tt>
+<a name="L52"></a><tt class="py-lineno">52</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-8" class="py-name" targets="Module zen.exceptions=zen.exceptions-module.html"><a title="zen.exceptions" class="py-name" href="#" onclick="return doclink('link-8', 'exceptions', 'link-8');">exceptions</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L53"></a><tt class="py-lineno">53</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-9" class="py-name" targets="Module zen.constants=zen.constants-module.html"><a title="zen.constants" class="py-name" href="#" onclick="return doclink('link-9', 'constants', 'link-9');">constants</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L54"></a><tt class="py-lineno">54</tt>  <tt class="py-line"> </tt>
+<a name="L55"></a><tt class="py-lineno">55</tt>  <tt class="py-line"><tt class="py-comment"># import io routines</tt> </tt>
+<a name="L56"></a><tt class="py-lineno">56</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-10" class="py-name" targets="Package zen.io=zen.io-module.html"><a title="zen.io" class="py-name" href="#" onclick="return doclink('link-10', 'io', 'link-10');">io</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L57"></a><tt class="py-lineno">57</tt>  <tt class="py-line"> </tt>
+<a name="L58"></a><tt class="py-lineno">58</tt>  <tt class="py-line"><tt class="py-comment"># import algorithms</tt> </tt>
+<a name="L59"></a><tt class="py-lineno">59</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-11" class="py-name" targets="Package zen.algorithms=zen.algorithms-module.html"><a title="zen.algorithms" class="py-name" href="#" onclick="return doclink('link-11', 'algorithms', 'link-11');">algorithms</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L60"></a><tt class="py-lineno">60</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-12" class="py-name" targets="Package zen.control=zen.control-module.html"><a title="zen.control" class="py-name" href="#" onclick="return doclink('link-12', 'control', 'link-12');">control</a></tt> </tt>
+<a name="L61"></a><tt class="py-lineno">61</tt>  <tt class="py-line"> </tt>
+<a name="L62"></a><tt class="py-lineno">62</tt>  <tt class="py-line"><tt class="py-comment"># import control functionality</tt> </tt>
+<a name="L63"></a><tt class="py-lineno">63</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-13" class="py-name"><a title="zen.control" class="py-name" href="#" onclick="return doclink('link-13', 'control', 'link-12');">control</a></tt> </tt>
+<a name="L64"></a><tt class="py-lineno">64</tt>  <tt class="py-line"> </tt>
+<a name="L65"></a><tt class="py-lineno">65</tt>  <tt class="py-line"><tt class="py-comment"># import visual stuff</tt> </tt>
+<a name="L66"></a><tt class="py-lineno">66</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-14" class="py-name" targets="Package zen.layout=zen.layout-module.html,Function zen.layout.forceatlas_layout.layout()=zen.layout.forceatlas_layout-module.html#layout,Function zen.layout.fruchtermanreingold_layout.layout()=zen.layout.fruchtermanreingold_layout-module.html#layout,Function zen.layout.random_layout.layout()=zen.layout.random_layout-module.html#layout,Function zen.layout.spring_layout.layout()=zen.layout.spring_layout-module.html#layout,Module zen.tests.layout=zen.tests.layout-module.html"><a title="zen.layout
+zen.layout.forceatlas_layout.layout
+zen.layout.fruchtermanreingold_layout.layout
+zen.layout.random_layout.layout
+zen.layout.spring_layout.layout
+zen.tests.layout" class="py-name" href="#" onclick="return doclink('link-14', 'layout', 'link-14');">layout</a></tt> </tt>
+<a name="L67"></a><tt class="py-lineno">67</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-15" class="py-name" targets="Package zen.drawing=zen.drawing-module.html,Module zen.tests.drawing=zen.tests.drawing-module.html"><a title="zen.drawing
+zen.tests.drawing" class="py-name" href="#" onclick="return doclink('link-15', 'drawing', 'link-15');">drawing</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L68"></a><tt class="py-lineno">68</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-16" class="py-name" targets="Module zen.view=zen.view-module.html"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-16', 'view', 'link-16');">view</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L69"></a><tt class="py-lineno">69</tt>  <tt class="py-line"> </tt>
+<a name="L70"></a><tt class="py-lineno">70</tt>  <tt class="py-line"><tt class="py-comment"># import interoperability</tt> </tt>
+<a name="L71"></a><tt class="py-lineno">71</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-17" class="py-name" targets="Module zen.nx=zen.nx-module.html,Module zen.tests.nx=zen.tests.nx-module.html"><a title="zen.nx
+zen.tests.nx" class="py-name" href="#" onclick="return doclink('link-17', 'nx', 'link-17');">nx</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L72"></a><tt class="py-lineno">72</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Mar 14 14:30:10 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>
