@@ -1,2 +1,1 @@
-Course Name: The Digital World
-Project Content: functioning game with UI
+A functioning game with UI developed in the course The Digital World.
