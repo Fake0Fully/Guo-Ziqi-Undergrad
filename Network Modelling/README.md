@@ -1,2 +1,1 @@
-Course Name: Network Modelling
-Project Content: collect network data, network analysis, interpretation of results
+A project including network data collection, network analysis, and interpretation of results. Required by course Network Modelling.
