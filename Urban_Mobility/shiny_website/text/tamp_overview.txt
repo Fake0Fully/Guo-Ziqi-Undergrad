@@ -1,0 +1,38 @@
+#### Data collection activity
+The data collection activity at Mall 2 took place on the weekdays **<span style='color:red'>Thursday 21st and Friday 22nd January 2016</span>**, each day 
+for 10 hours: **<span style='color:red'>6 am - 6 pm</span>**. A total of 17 surveyors were employed over two days and four video cameras. Surveyors duties were to interview
+the driver, perform vehicle observations and operate the video cameras. The cameras were collecting data on the traffic outside the mall.
+On the second day one of the two exit cameras was moved from the road-side to the entrance of the loading bay (level B2), to capture license plate and time stamp of all the vehicles entering the loading bay.
+
+#### Overview of data collected
+NA
+
+#### Site description
+* **Mall 2**: Mall 2 is located in the eastern part of Singapore. In the vicinity of the mall there is an MRT station, a Bus Interchange and
+two other large shopping malls.
+
+   There are a total of 162 stores, distributed over 5 floors overground (levels 01-05) and one floor underground (level B1). The total retail
+floor area is of 29233.7 square meters. Among the anchor tenants there are Isetan, NTUC Fairprice and POPULAR bookstore.
+                                                        
+* **Service road**: Goods and passenger vehicles can access the mall from a 200 meters-long one-way three-lanes service road,
+on the sides of which **<span style='color:red'>four cameras</span>** were deployed, two at the beginning of the road, two at the exit.
+The road section analysed contains two traffic lights, each with 30 seconds of red clearance. 
+                                                        
+* **Passenger car-park**: The passenger carpark is accessible from both the north-east and the north-west sides of the mall. 
+The north-west entrance to the passenger carpark is shared with the entrance to the loading bay. The carpark exit is 
+on the north-west side of the mall.Each vehicle entering the carpark have to pay SG$ 1.07 for the first hour and SG$ 0.15 for every
+subsequent 15 minutes. 
+                                                        
+* **Loading bay**: The loading bay is located at the level B1 of the mall and is accessible from the north-west side 
+of the mall through a two-lanes two-way slope. It can hosts up to **<span style='color:red'>16 goods vehicles</span>**. 
+Access to the LB is regulated by a barrier which opens only when there are lots available. 
+The loading bay is open from 6am to midnight and it **<span style='color:red'>costs SG$ 1 per 30 minutes</span>** or part thereof.
+The stores can be accessed from the loading bay via a service lift.
+
+* **Queue formation**: The queue for accessing the loading bay starts forming at the barrier inside the loading bay, and spill over the 
+service road after XXX vehicles are in queue. **<span style='color:red'>The queue is visible from the service road only when there are at least 
+ XXX vehicles in queue</span>**.
+
+* **Street parking**: Illegal parking on the service road was occasionally observed 
+along the sides of the road as shown in the map (green areas), for a total of approximately XXX goods vehicles simultaneously.
+"
