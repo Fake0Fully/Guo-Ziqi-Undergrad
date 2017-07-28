@@ -1,0 +1,6 @@
+Title:18
+Axis label:15
+Ticks label:15
+Legend:10
+Quarter label:18
+Capacity:18

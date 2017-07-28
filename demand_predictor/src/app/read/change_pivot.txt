@@ -1,0 +1,8 @@
+Sub macro_1454_pivot()
+Dim pf As PivotField
+Worksheets("Piv_Crawl_WT_CU_pcs").Activate
+Set division = ActiveSheet.PivotTables("PivotTable1").PivotFields("PackageClass_PL")
+division.ClearAllFilters
+division.CurrentPage = "All"
+End Sub
+ 

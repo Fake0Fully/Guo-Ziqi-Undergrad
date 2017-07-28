@@ -1,0 +1,2 @@
+ATV All LQFP All 2500 2600 capa1 capa2
+PMM All All All 307000 350000 capa1 capa2

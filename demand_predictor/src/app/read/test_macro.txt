@@ -1,0 +1,24 @@
+Sub macro_1_pivot()
+
+Dim pf As PivotField
+
+Set pf = ActiveSheet.PivotTables("PivotTable1").PivotFields("month")
+
+'Clear Out Any Previous Filtering
+pf.ClearAllFilters
+
+'Enable filtering on multiple items
+pf.EnableMultiplePageItems = True
+    
+'Must turn off items you do not want showing
+    pf.PivotItems("January").Visible = False
+    pf.PivotItems("February").Visible = True
+    pf.PivotItems("March").Visible = True
+
+Dim pf2 As PivotField
+
+Set pf2 = ActiveSheet.PivotTables("PivotTable1").PivotFields("category")
+
+pf2.CurrentPage = "Grocery"
+
+End Sub

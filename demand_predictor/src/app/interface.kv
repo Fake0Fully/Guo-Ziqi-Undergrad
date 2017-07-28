@@ -1,0 +1,236 @@
+<ScrollableLabel>
+	Label:
+		id:label
+		size_hint_y:None
+		text: ""
+		color: 0,0,0,1
+		height: self.texture_size[1]
+		text_size: self.width/2, None
+		canvas.before:
+			Color:
+				rgb: (241/255.0,216/255.0,215/255.0)
+			Rectangle:
+				pos: self.pos
+				size: self.size
+<UI>:
+	Button:
+		pos_hint: {"x": 0, "y":0.9}
+		size_hint: 0.1,0.1
+		background_color: 1,1,1,0
+		on_release:root.open_pop_up()
+		Image:
+			source:'greydownloadIcon.png'
+			center_x:self.parent.center_x
+			center_y:self.parent.center_y
+			size: 60,60
+
+	Label:
+		id: documentCounter
+		color: 0,0,0,1
+		pos_hint:{"x": 0.07, "y":0.955}
+		size_hint:0.03,0.03
+		canvas.before:
+			Color:
+				rgba: 1,1,1,1
+			Rectangle:
+				pos: self.pos
+				size: self.size
+
+	
+	Widget:
+		id: chart
+		pos_hint: {"x": 0, "y":0.33 }
+		size_hint: 0.6,0.55		
+		canvas:
+			Color:
+				rgba: 1,1, 1 ,1
+			Rectangle:
+				pos: self.pos
+				size: self.size	
+
+
+ 
+	Button:
+		pos_hint: {"x": 0.05, "y":0.8}
+		size_hint: 0.05,0.05
+		background_color: 1,1,1,0
+		on_release:root.add_document()
+		Image:
+			source:'addButton.png'
+			center_x:self.parent.center_x
+			center_y:self.parent.center_y
+			size: 30,30
+	
+	Button:
+		pos_hint: {"x": 0, "y":0.605}
+		size_hint: 0.05,0.05
+		on_release: root.show_image_left()
+		Image:
+			source: 'greyArrowLeft.png'
+			center_x:self.parent.center_x
+			center_y:self.parent.center_y
+			size: 30,30
+			
+	Button:
+		pos_hint: {"x": 0.55, "y":0.605}
+		size_hint: 0.05,0.05
+		on_release: root.show_image_right()
+		Image:
+			source: 'greyArrowRight.png'
+			center_x:self.parent.center_x
+			center_y:self.parent.center_y
+			size: 30,30
+			
+	Widget:
+		pos_hint:{"x":0.6 ,"y":0.605}
+		size_hint: 0.4,0.275
+		canvas.before:
+			Color:
+				rgb: (241/255.0,216/255.0,215/255.0)
+			Rectangle:
+				size: self.size
+				pos: self.pos	
+	
+	Label:
+		size_hint:0.4,0.2
+		pos_hint: {"x":0.6, "y":0.7}
+		color: 0,0,0,1
+		id: comparisonLabel
+		
+	TextInput:
+		id: details
+		hint_text:"Enter details here"
+		pos_hint: {"x": 0.6, "y":0.33}
+		size_hint: 0.4,0.275	
+			
+	
+	Widget:
+		pos_hint:{"x":0 ,"y":0.02}
+		size_hint: 1, 0.3
+		canvas.before:
+			Color:
+				rgb: (241/255.0,216/255.0,215/255.0)
+				
+			Rectangle:
+				size: self.size
+				pos: self.pos
+
+	Button:
+		id: plButton
+		text: "PL"
+		pos_hint:{"x":0.22,"y":0.19}
+		size_hint:0.15,0.07
+		disabled: True
+		on_release: root.pl_drop_down.open(self)
+
+	Button:
+		id: divisionButton
+		text: "Division"
+		pos_hint:{"x":0.05,"y":0.19}
+		size_hint:0.15,0.07
+		disabled: True
+		on_release: root.division_drop_down.open(self)
+
+	Button:
+		id: pkcaButton
+		text: "PKCA"
+		pos_hint:{"x":0.05,"y":0.08}
+		size_hint:0.15,0.07
+		disabled: True
+		on_release: root.aggPkc_drop_down.open(self)
+	
+	Button:
+		id: pkcButton
+		text: "PKC"
+		pos_hint:{"x":0.22,"y":0.08}
+		size_hint:0.15,0.07
+		disabled: True
+		on_release: root.pkgClass_drop_down.open(self)
+
+	
+	TextInput:
+		id: capacity1
+		hint_text: "Add capacity 1"
+		pos_hint:{"x":0.39,"y":0.22}
+		size_hint: 0.15,0.05
+		multiline: False
+
+	TextInput:
+		id: capacity2
+		hint_text: "Add capacity 2"
+		pos_hint:{"x":0.39,"y":0.15}
+		size_hint: 0.15,0.05
+		multiline: False
+
+	TextInput:
+		id: confidence
+		hint_text: "CL: 90, 95, 99"
+		pos_hint:{"x":0.39,"y":0.08}
+		size_hint: 0.15,0.05
+		multiline: True
+		
+	Button:
+		text: "Import"
+		pos_hint:{"x":0.65,"y":0.22}
+		size_hint:0.12,0.05
+		on_release:root.open_load_popup()
+
+	Button:
+		text: "Predict"
+		pos_hint:{"x":0.8,"y":0.22}
+		size_hint:0.12,0.05
+		on_release:root.submit()
+
+	Button:
+		id: batchButton
+		text: "Predict Batch"
+		pos_hint:{"x":0.65,"y":0.15}
+		size_hint:0.27,0.05
+		on_release:root.run_batch()
+
+	Button:
+		pos_hint:{"x":0.65,"y":0.08}
+		size_hint:0.12,0.05
+		on_release: root.restore()
+
+		Image:
+			source: "greyReload.png"
+			size: 20,20
+			center_x: self.parent.center_x
+			center_y: self.parent.center_y
+
+	Button:
+		text: "Close"
+		pos_hint:{"x":0.8,"y":0.08}
+		size_hint:0.12,0.05
+		on_release:root.close_workbook()
+
+<DownloadsPopUp>
+	title: "Downloads"
+	size_hint: None, None
+	size: 500,500
+	canvas.before:
+		Color:
+			rgb: 1,1,1,1
+	content:root.show()
+
+	
+<UploadPopUp>:
+    title: "Upload data"
+	BoxLayout:
+        size: root.size
+        pos: root.pos
+        orientation: "vertical"
+        FileChooserIconView:
+            id: filechooser
+
+        BoxLayout:
+            size_hint_y: None
+            height: 30
+            Button:
+                text: "Cancel"
+                on_release: root.cancel()
+
+            Button:
+                text: "Load"
+                on_release: root.load(filechooser.path, filechooser.selection)

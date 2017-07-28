@@ -1,0 +1,16 @@
+Sub getfilter_27_()
+Application.ScreenUpdating = False
+Sheets("Piv_Crawl_WT_CU_pcs").Activate
+Piv_Sht = ActiveSheet.Name
+Dim fso As Object
+Set fso = CreateObject("Scripting.FileSystemObject")
+content = ""
+For Each PivotItem In ActiveSheet.PivotTables(1).PageFields("PL").PivotItems
+content = content + PivotItem.Value + "@"
+Next
+Dim Fileout As Object
+Set Fileout = fso.CreateTextFile("C:\Users\Admin\Desktop\CapstoneInfineonSmartData\src\app\read\PL_output.txt", True, True)
+Fileout.Write content
+Fileout.Close
+Sheets(Piv_Sht).Select
+End Sub 
