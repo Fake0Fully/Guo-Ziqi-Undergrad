@@ -1,0 +1,676 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>zen.io.bel</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="zen-module.html">Package&nbsp;zen</a> ::
+        <a href="zen.io-module.html">Package&nbsp;io</a> ::
+        Module&nbsp;bel
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="zen.io.bel-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module bel</h1><p class="nomargin-top"><span class="codelink"><a href="zen.io.bel-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+The ``zen.io.bel`` module (available as ``zen.bel``) supports the reading and writing of edge lists in binary format.  The binary format was designed
+by Derek Ruths for use with Zen.  In a binary format, each node is referenced by an index number (node/edge
+labels and properties are not supported).  The complete format is:
+
+``&lt;F = Format Version #&gt;&lt;N = # of nodes&gt; &lt;M = # of edges&gt; &lt;u1&gt;&lt;v1&gt;&lt;u2&gt;&lt;v2&gt;...&lt;um&gt;&lt;vm&gt;`` where:
+        
+        * ``F`` is a 8 bit number indicating the format version used, 
+        * ``N`` is a 32 bit number indicating the max index number (nodes are indexed from zero to ``N``),
+        * ``E`` is a 64 bit number indicating the number of edges stored, and
+        * ``ui`` and ``vi`` are ``ceil(log2(N+1))`` bit numbers storing the index numbers of the left and right nodes for edge ``i``.
+        
+The current version of the binary edge list (.bel) format is 1.0.
+
+Reading
+-------
+
+Graphs can be read either from file-like objects using :py:func:`zen.io.bel.read` or from strings using :py:func:`zen.io.bel.read_str`.
+Both functions accept the same set of arguments:
+
+        * ``read(fh,&lt;keyword arguments&gt;)``
+        * ``read_str(sbuffer,&lt;keyword arguments&gt;)``
+
+``fh/sbuffer`` specifies the object from which the graph will be read.
+
+Supported keywords include the following:
+
+        * ``node_obj_fxn [= str]``: unlike the default definition, this function accepts integers and returns the node object
+        
+        * ``directed [= False]`` (boolean): indicates whether the data is read as directed
+        
+        * ``check_for_duplicates [= False]`` (boolean): applies only when loading an undirected graph. If True, then a check will be made to ensure that
+          no duplicate edges are attempted to be added (in case the underlying graph was originally directed).  Checking incurs a small
+          performance cost due to the check.
+
+.. autofunction:: zen.io.bel.read(fh[,node_obj_fxn=str,directed=False])
+
+.. autofunction:: zen.io.bel.read_str(fh[,node_obj_fxn=str,directed=False])
+
+Writing
+-------
+
+Graphs can be written either to file-like objects using :py:func:`zen.io.bel.write` or to strings using :py:func:`write_str`.
+Both functions accept the similar sets of arguments:
+
+        * ``write(G,fh)``
+        * ``write_str(G)``
+
+``G`` specifies the graph to write. ``fh`` is a file-like object.  ``write_str(...)`` returns the string
+representation of the ``G``, so no argument equivalent of ``fh`` exists).
+
+``G`` must be compact (an exception will be raised if the graph is not compact).  The graph is stored in 
+the binary edge list format and node indexes are used to index the edge list when writing.
+
+.. autofunction:: zen.io.bel.write(G,fh)
+
+.. autofunction:: zen.io.bel.write_str(G)
+
+Citations
+---------
+
+Techniques similar to the ones used here for network compression have been explored previously in publications
+such as 
+
+.. note::
+        B. Dengiz et al. Local search genetic algorithm for optimal design of reliable networks.
+        IEEE Transactions on Evolutionary Computation, 1(3):179-188, 1997.
+        
+The general idea is drawn from variable length integer encoding which has been used in ZIP compression, for example.
+
+</pre>
+
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="zen.io.bel-module.html#read_str" class="summary-sig-name">read_str</a>(<span class="summary-sig-arg">sbuffer</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Read graph data from the ascii string in the binary edge list format.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.io.bel-pysrc.html#read_str">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="zen.io.bel-module.html#read" class="summary-sig-name">read</a>(<span class="summary-sig-arg">fh</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Read graph data from the file-like object in the edge list format.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.io.bel-pysrc.html#read">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="zen.io.bel-module.html#construct_bitvector" class="summary-sig-name" onclick="show_private();">construct_bitvector</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">max_index</span>)</span><br />
+      Create a bitvector for the graph's binary edge list representation.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.io.bel-pysrc.html#construct_bitvector">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="zen.io.bel-module.html#store_bitvector_strict_order" class="summary-sig-name" onclick="show_private();">store_bitvector_strict_order</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">max_index</span>,
+        <span class="summary-sig-arg">node_index_fxn</span>)</span><br />
+      This internal function writes a graph to the binary edge list format in a bitvector.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.io.bel-pysrc.html#store_bitvector_strict_order">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="store_bitvector"></a><span class="summary-sig-name">store_bitvector</span>(<span class="summary-sig-arg">G</span>)</span><br />
+      This is an internal function that writes a graph to the binary edge 
+      list format in a bitvector.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.io.bel-pysrc.html#store_bitvector">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="zen.io.bel-module.html#write_str" class="summary-sig-name">write_str</a>(<span class="summary-sig-arg">G</span>)</span><br />
+      Write the graph, ``G``, to a binary edge list representation and return this in an ascii string.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.io.bel-pysrc.html#write_str">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="zen.io.bel-module.html#write" class="summary-sig-name">write</a>(<span class="summary-sig-arg">G</span>,
+        <span class="summary-sig-arg">fh</span>)</span><br />
+      Write the graph, ``G``, to the file-like object fh in the binary edge list format.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.io.bel-pysrc.html#write">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="dec2bv"></a><span class="summary-sig-name">dec2bv</span>(<span class="summary-sig-arg">i</span>,
+        <span class="summary-sig-arg">bv</span>,
+        <span class="summary-sig-arg">offset</span>,
+        <span class="summary-sig-arg">max_len</span>)</span><br />
+      Store a decimal integer to the specified bitvector at the specified 
+      position</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.io.bel-pysrc.html#dec2bv">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="dec2bin"></a><span class="summary-sig-name">dec2bin</span>(<span class="summary-sig-arg">i</span>,
+        <span class="summary-sig-arg">max_len</span>)</span><br />
+      Store a decimal integer to an array of characters '0' = 0, '1' = 1</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.io.bel-pysrc.html#dec2bin">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="bv2dec"></a><span class="summary-sig-name">bv2dec</span>(<span class="summary-sig-arg">bv</span>,
+        <span class="summary-sig-arg">offset</span>,
+        <span class="summary-sig-arg">length</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.io.bel-pysrc.html#bv2dec">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="main"></a><span class="summary-sig-name">main</span>()</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.io.bel-pysrc.html#main">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="VERSION_LEN"></a><span class="summary-name">VERSION_LEN</span> = <code title="8">8</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_INDEX_LEN"></a><span class="summary-name">NUM_INDEX_LEN</span> = <code title="32">32</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="NUM_EDGES_LEN"></a><span class="summary-name">NUM_EDGES_LEN</span> = <code title="64">64</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'zen.io'"><code class="variable-quote">'</code><code class="variable-string">zen.io</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="read_str"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read_str</span>(<span class="sig-arg">sbuffer</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="zen.io.bel-pysrc.html#read_str">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Read graph data from the ascii string in the binary edge list format.
+
+**Args**:
+        ``sbuffer`` is the string from which the network data will be read.
+
+**KwArgs**:
+        * ``node_obj_fxn [= str]``: unlike the default definition, this function accepts integers and returns the node object
+
+        * ``directed [= False]`` (boolean): indicates whether the data is read as directed
+
+        * ``ignore_duplicate_edges [= False]`` (boolean): applies only when loading an undirected graph. If True, then a check will be made to ensure that
+          no duplicate edges are attempted to be added (in case the underlying graph was originally directed).  Checking incurs a small
+          performance cost due to the check.
+
+**Returns**:
+        :py:class:`zen.Graph` or :py:class:`zen.DiGraph`.  The graph read from the input string.  The ``directed`` parameter decides
+        whether a directed or undirected graph is constructed.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="read"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">read</span>(<span class="sig-arg">fh</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="zen.io.bel-pysrc.html#read">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Read graph data from the file-like object in the edge list format.
+
+
+
+**Args**:
+        ``fh`` (file-handle or string): if `fh` is a string, then it is interpreted as a filename that the network will be read from.
+        If ``fh`` is a file-handle, then the network data is read from the data returned from the file stream.
+
+**KwArgs**:
+        * ``node_obj_fxn [= str]``: unlike the default definition, this function accepts integers and returns the node object
+
+        * ``directed [= False]`` (boolean): indicates whether the data is read as directed
+
+        * ``ignore_duplicate_edges [= False]`` (boolean): applies only when loading an undirected graph. If True, then a check will be made to ensure that
+          no duplicate edges are attempted to be added (in case the underlying graph was originally directed).  Checking incurs a small
+          performance cost due to the check.
+
+**Returns**:
+        :py:class:`zen.Graph` or :py:class:`zen.DiGraph`.  The graph read from the input file.  The ``directed`` parameter decides
+        whether a directed or undirected graph is constructed.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="construct_bitvector"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">construct_bitvector</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">max_index</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="zen.io.bel-pysrc.html#construct_bitvector">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Create a bitvector for the graph's binary edge list representation.  
+  Initialize its header region.  Return values:</p>
+  <ul>
+    <li>
+      bitvector
+    </li>
+    <li>
+      length of header
+    </li>
+    <li>
+      number of bits to be used in representing the index
+    </li>
+  </ul>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="store_bitvector_strict_order"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">store_bitvector_strict_order</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">max_index</span>,
+        <span class="sig-arg">node_index_fxn</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="zen.io.bel-pysrc.html#store_bitvector_strict_order">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+This internal function writes a graph to the binary edge list format in a bitvector.
+Unlike store_bitvector(...), this method writes the edges in a very specific order:
+
+        For any two edges e1 = (u,v) and e2 = (x,y), e1 is written before e2 iff idx(u) &lt; idx(x).
+        If idx(u) == idx(x), then e1 is written before e2 iff idx(v) &lt; idx(y).
+        
+In undirected graphs, edge endpoints (u,v) are always ordered such that idx(u) &lt; idx(v).
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="write_str"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write_str</span>(<span class="sig-arg">G</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="zen.io.bel-pysrc.html#write_str">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Write the graph, ``G``, to a binary edge list representation and return this in an ascii string.
+
+.. note::
+        The graph must be compact in order to be written.  If it is not compact, an exception will be raised. See :py:meth:`zen.Graph.compact`.
+
+**Raises**:
+        :py:exc:`zen.ZenException`: if the graph is not compact.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="write"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">write</span>(<span class="sig-arg">G</span>,
+        <span class="sig-arg">fh</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="zen.io.bel-pysrc.html#write">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Write the graph, ``G``, to the file-like object fh in the binary edge list format.  If `fh` is a string, then it is 
+interpreted as the name of the file to which the graph will be written.
+
+.. note::
+        The graph must be compact in order to be written.  If it is not compact, an exception will be raised. See :py:meth:`zen.Graph.compact`.
+
+**Raises**:
+        :py:exc:`zen.ZenException`: if the graph is not compact.
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Mar 14 14:30:07 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

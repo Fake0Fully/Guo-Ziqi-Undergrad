@@ -1,0 +1,662 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>zen.control.pplot</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="zen-module.html">Package&nbsp;zen</a> ::
+        <a href="zen.control-module.html">Package&nbsp;control</a> ::
+        Module&nbsp;pplot
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="zen.control.pplot-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module pplot</h1><p class="nomargin-top"><span class="codelink"><a href="zen.control.pplot-pysrc.html">source&nbsp;code</a></span></p>
+<p>This module implements core control profile plotting functionality.  
+  The module published two core functions that produce profile plots and 
+  heatmaps.</p>
+  <p>.. autofunction:: profile_plot(items,...)</p>
+  <p>.. autofunction:: profile_heatmap(items,...)</p>
+  <p>.. seealso:</p>
+<pre class="literalblock">
+       J. Ruths and D. Ruths (2014). Control Profiles of Complex Networks. Science, 343(6177), 1373-1376.
+</pre>
+
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_unzip"></a><span class="summary-sig-name">_unzip</span>(<span class="summary-sig-arg">l</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#_unzip">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_normalize"></a><span class="summary-sig-name">_normalize</span>(<span class="summary-sig-arg">xs</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#_normalize">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_draw_boundary"></a><span class="summary-sig-name">_draw_boundary</span>(<span class="summary-sig-arg">scale</span>=<span class="summary-sig-default">1.0</span>,
+        <span class="summary-sig-arg">linewidth</span>=<span class="summary-sig-default">2.0</span>,
+        <span class="summary-sig-arg">color</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">black</code><code class="variable-quote">'</code></span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#_draw_boundary">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_project_point"></a><span class="summary-sig-name">_project_point</span>(<span class="summary-sig-arg">p</span>)</span><br />
+      Maps (x,y,z) coordinates to planar-simplex.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#_project_point">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_project"></a><span class="summary-sig-name">_project</span>(<span class="summary-sig-arg">s</span>)</span><br />
+      Maps (x,y,z) coordinates to planar-simplex.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#_project">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_plot"></a><span class="summary-sig-name">_plot</span>(<span class="summary-sig-arg">t</span>,
+        <span class="summary-sig-arg">color</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">marker</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">markersize</span>=<span class="summary-sig-default">8.0</span>,
+        <span class="summary-sig-arg">mfc</span>=<span class="summary-sig-default"><code class="variable-quote">'</code><code class="variable-string">none</code><code class="variable-quote">'</code></span>,
+        <span class="summary-sig-arg">mec</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">mew</span>=<span class="summary-sig-default">1.0</span>,
+        <span class="summary-sig-arg">label</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">picker</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Plots trajectory points where each point satisfies x + y + z = 1.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#_plot">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_simplex_points"></a><span class="summary-sig-name">_simplex_points</span>(<span class="summary-sig-arg">steps</span>=<span class="summary-sig-default">100</span>,
+        <span class="summary-sig-arg">boundary</span>=<span class="summary-sig-default">True</span>)</span><br />
+      Systematically iterate through a lattice of points on the simplex.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#_simplex_points">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_colormapper"></a><span class="summary-sig-name">_colormapper</span>(<span class="summary-sig-arg">x</span>,
+        <span class="summary-sig-arg">a</span>=<span class="summary-sig-default">0</span>,
+        <span class="summary-sig-arg">b</span>=<span class="summary-sig-default">1</span>,
+        <span class="summary-sig-arg">cmap</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Maps color values to [0,1] and obtains rgba from the given color map 
+      for triangle coloring.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#_colormapper">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_triangle_coordinates"></a><span class="summary-sig-name">_triangle_coordinates</span>(<span class="summary-sig-arg">i</span>,
+        <span class="summary-sig-arg">j</span>,
+        <span class="summary-sig-arg">steps</span>)</span><br />
+      Returns the ordered coordinates of the triangle vertices for i + j + 
+      k = 1.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#_triangle_coordinates">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="zen.control.pplot-module.html#_heatmap" class="summary-sig-name" onclick="show_private();">_heatmap</a>(<span class="summary-sig-arg">d</span>,
+        <span class="summary-sig-arg">steps</span>,
+        <span class="summary-sig-arg">cmap_name</span>=<span class="summary-sig-default">None</span>)</span><br />
+      Plots counts in the dictionary d as a heatmap.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#_heatmap">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_white2colorcmap"></a><span class="summary-sig-name">_white2colorcmap</span>(<span class="summary-sig-arg">arg</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#_white2colorcmap">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a name="_heatmap_scatter"></a><span class="summary-sig-name">_heatmap_scatter</span>(<span class="summary-sig-arg">pts</span>,
+        <span class="summary-sig-arg">steps</span>)</span></td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#_heatmap_scatter">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="zen.control.pplot-module.html#profile_heatmap" class="summary-sig-name">profile_heatmap</a>(<span class="summary-sig-arg">items</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Plots a set of control profiles as a heatmap on a triangular control profile plot.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#profile_heatmap">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="zen.control.pplot-module.html#profile_plot" class="summary-sig-name">profile_plot</a>(<span class="summary-sig-arg">items</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Plots a set of control profiles on a triangular control profile plot.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#profile_plot">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="zen.control.pplot-module.html#_plot_profiles" class="summary-sig-name" onclick="show_private();">_plot_profiles</a>(<span class="summary-sig-arg">items</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      This is the internal function for creating profile plots and 
+      heatmaps.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#_plot_profiles">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="zen.control.pplot-module.html#profile_heatmap_weighted" class="summary-sig-name">profile_heatmap_weighted</a>(<span class="summary-sig-arg">items</span>,
+        <span class="summary-sig-arg">weights</span>=<span class="summary-sig-default">None</span>,
+        <span class="summary-sig-arg">**kwargs</span>)</span><br />
+      Plots a weighted combination of control profiles as a heatmap on a triangular control profile plot.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.control.pplot-pysrc.html#profile_heatmap_weighted">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="_SQRT3OVER2"></a><span class="summary-name">_SQRT3OVER2</span> = <code title="0.866025403784">0.866025403784</code>
+    </td>
+  </tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'zen.control'"><code class="variable-quote">'</code><code class="variable-string">zen.control</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_heatmap"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_heatmap</span>(<span class="sig-arg">d</span>,
+        <span class="sig-arg">steps</span>,
+        <span class="sig-arg">cmap_name</span>=<span class="sig-default">None</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="zen.control.pplot-pysrc.html#_heatmap">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>Plots counts in the dictionary d as a heatmap. d is a dictionary of 
+  (i,j) --&gt; c pairs where N = i + j + k.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="profile_heatmap"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">profile_heatmap</span>(<span class="sig-arg">items</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="zen.control.pplot-pysrc.html#profile_heatmap">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Plots a set of control profiles as a heatmap on a triangular control profile plot. Each of the ``items`` specified
+can be either a control profile 3-tuple, 3-list, or :py:class:`zen.DiGraph` (in which case the control profile of the
+graph will be computed and then plotted).
+
+The resolution of the mesh can be controlled using ``num_steps``. If no matplotlib color map name or color map is supplied (``cmap``), one will be
+generated using a gradient between white and color.
+
+**KwArgs**:
+
+        * ``num_steps [=15]`` (``int``). The resolution of the heatmap mesh.
+        * ``cmap [=None]`` (``colormap``). The colormap that will be used when producing the heatmap.
+        * ``color [='b']`` (any matplotlib-supported color). Specify a color instead of a colormap for ease.
+
+**Returns**:
+        A dictionary with boundaries for the individual regions being rendered in the heatmap.
+        
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="profile_plot"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">profile_plot</span>(<span class="sig-arg">items</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="zen.control.pplot-pysrc.html#profile_plot">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Plots a set of control profiles on a triangular control profile plot. Each of the ``items`` specified
+can be either a control profile 3-tuple, 3-list, or :py:class:`zen.DiGraph` (in which case the control profile of the
+graph will be computed and then plotted).
+
+Most of the usual matplotlib plotting features are supported (see keyword arguments supported below).
+
+**KwArgs**:
+
+        * ``color [='b']`` (any matplotlib-supported color). The color of the markers.
+        * ``marker [='o']`` (any matplotlib-supported marker). The marker that will be used for each control profile.
+        * ``markersize [=8.0]`` (``float``).  The size of the marker.
+        * ``mfc [='none']`` (any matplotlib-supported color). The color of the marker face.
+        * ``mec [=None]`` (any matplotlib-supported color). The color of the marker edge face.
+        * ``mew [=1.0]`` (``float``). The weight of the marker edge.
+        
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="_plot_profiles"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_plot_profiles</span>(<span class="sig-arg">items</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="zen.control.pplot-pysrc.html#_plot_profiles">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>This is the internal function for creating profile plots and heatmaps.
+  The reason for separating this out is simply to clarify the arguments 
+  that are particular to plots vs. heatmaps.</p>
+  <p>Plots the control profiles on a ternary plot. Specific points can be 
+  passed as 2- or 3-tuples or 2- or 3-lists. The points should obey 
+  x+y+z=1. Alternately, a DiGraph can be passed and the points will be 
+  calculated. Lists of these same components (or mixtures) can be accepted.
+  Most of the usual matplotlib plotting features are supported:   [color, 
+  marker, markersize, mfc, mec, mew, label, picker]</p>
+  <p>If the heatmap=True flag is set, a heatmap will be generated instead 
+  of a scatter plot. The resolution of the mesh can be controlled using 
+  num_steps. If no matplotlib color map name or color map is supplied 
+  (cmap), one will be generated using a gradient between white and 
+  color.</p>
+  <p>The arguments are documented in more detail below in comments.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<a name="profile_heatmap_weighted"></a>
+<div>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">profile_heatmap_weighted</span>(<span class="sig-arg">items</span>,
+        <span class="sig-arg">weights</span>=<span class="sig-default">None</span>,
+        <span class="sig-arg">**kwargs</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="zen.control.pplot-pysrc.html#profile_heatmap_weighted">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <pre class="literalblock">
+
+Plots a weighted combination of control profiles as a heatmap on a triangular control profile plot. ``items`` is a list 
+of other lists composed of: control profile 3-tuple, 3-list, or :py:class:`zen.DiGraph` (in which case the control 
+profile of the graph will be computed and then plotted). A ``weights'' parameter can be specified to weight the 
+combination.
+
+The resolution of the mesh can be controlled using ``num_steps``. If no matplotlib color map name or color map is 
+supplied (``cmap``), one will be generated using a gradient between white and color.
+
+**KwArgs**:
+
+        * ``num_steps [=15]`` (``int``). The resolution of the heatmap mesh.
+        * ``cmap [=None]`` (``colormap``). The colormap that will be used when producing the heatmap.
+        * ``color [='b']`` (any matplotlib-supported color). Specify a color instead of a colormap for ease.
+        
+**Returns**:
+        A dictionary with boundaries for the individual regions being rendered in the heatmap.
+        
+
+</pre>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Mar 14 14:30:07 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

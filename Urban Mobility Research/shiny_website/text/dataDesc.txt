@@ -1,9 +1,0 @@
-### Data Sources
-
-In the data collected a single observation is a 'truck-shipment' entering the premises of a shopping mall. A 'truck-shipment' unit consists in a goods vehicle carrying one driver and sometimes one or more helpers, delivering one or more shipments to its customers (i.e. store(s) located inside a shopping mall).
-
-Each observational unit, uniquely identified by the licence plate, is followed from the time it enters the system, i.e. the premises of a mall, to the time it leaves the system. In between, we have tracked all possible observable processes performed by the goods vehicle and its driver and helpers, in driving, parking, performing the delivery or some other form of services for the customers.
-
-For each observed unit we measured several variables, which we distinguish into four types: delivery, vehicle, driver and traffic variables. **Delivery variables** describe a single shipment of a truck-shipment unit, such as size, types of goods delivered and store the goods are delivered to. **Vehicle variables** describe the goods vehicle used, such as car maker, vehicle size and loading factor. **Driver variables** are collected directly via drivers surveys and describe the drivers' routing choices and parking behaviours. Finally, **traffic variables** measure the freight traffic level at the premises of the establishment.
-
-The aim of the current research effort is to integrate the above mentioned sources of data regarding all the goods vehicles arriving at the selected shopping malls, in order to assess the current state of the system, quantify potential externalities generated and understand how logistics initiatives can impact the system.

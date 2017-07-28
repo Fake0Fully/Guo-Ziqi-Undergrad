@@ -1,0 +1,37 @@
+\documentclass[12pt]{article}
+\pagestyle{empty}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\usepackage[margin=1in]{geometry}
+\usepackage{array}
+\usepackage{amsmath}
+%\usepackage{cyrillic}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+
+\thispagestyle{empty}
+
+\begin{document}
+\begin{center}
+\large\bf NBA Playoff Contention: Solution Concept
+\end{center}
+\begin{center}
+\large
+Harvard University - Ziqi Guo
+\end{center}
+\begin{itemize}
+\item The \texttt{league.py} file provides the class definitions of \texttt{match} and \texttt{league}. 
+\medskip\\In the class \texttt{league}, various functions are defined which can be used to calculate relevant statistics, such as the win percentage in division and conference, etc. These functions are used to define a \texttt{tie\_breaker()} function that determines the winner of two teams based on the tie-breaking procedures provided.
+\item The \texttt{elimination.py} file imports data, instantiate the \texttt{league} class and obtains the elimination dates.
+\item The way to check for elimination is by considering the best possible records for the remainder of the games. If a team still could not achieve a higher win percentage than the $8^{th}$ place team under the best-case scenario, then we consider it eliminated for playoff contention. The procedure is as follows: 
+\begin{enumerate}
+\item{} When a game is played, check every team (call it team A) and compare its records with the team that is currently at $8^{th}$ place (call it team B) in the same conference. If team A could not have more wins than team B, given that team A wins all its remaining teams and team B loses all its remaining teams, then we consider team A dangerous.
+\item{} Simulate the rest of the games such that team A wins all and team b loses all.
+\item{} Apply the tie-breaking procedure defined in \texttt{league.py}. If team A loses, then it is eliminated.
+\end{enumerate}
+\item The current tie-breaking procedures only compare the team of interest and the team at $8^{th}$ of the conference. But in fact, they could form tie with the $7^{th}$ place, or even more. Therefore, the tie-breaking procedure can be extended in a similar way to accommodate more than 2 teams at tie.
+\end{itemize}
+
+\end{document}

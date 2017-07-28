@@ -1,0 +1,954 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>zen.util.bitvector</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="zen-module.html">Package&nbsp;zen</a> ::
+        <a href="zen.util-module.html">Package&nbsp;util</a> ::
+        Module&nbsp;bitvector
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="zen.util.bitvector-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== MODULE DESCRIPTION ==================== -->
+<h1 class="epydoc">Module bitvector</h1><p class="nomargin-top"><span class="codelink"><a href="zen.util.bitvector-pysrc.html">source&nbsp;code</a></span></p>
+<pre class="literalblock">
+
+This module provides a BitVector class with expansive capabilities.  The entire module was
+implemented by Avinash Kak.  This version of his BitVector module corresponds to the 1.5.1
+release of his library.  The remainder of comments in this file are the originals from
+the BitVector class.
+
+Copyright 2008 Avinash Kak. Python Software Foundation.
+   
+The BitVector class for a memory-efficient packed representation
+of bit arrays and for logical operations on such arrays.  The
+core idea used in this Python script for bin packing is based on
+an internet posting by Josiah Carlson to the Pyrex mailing list.
+
+Operations supported on bit vectors:
+
+       __getitem__
+       __setitem__
+       __len__
+       __iter__
+       __contains__
+       __getslice__
+       __str__
+       __int__
+       __add__
+       __eq__, __ne__, __lt__, __le__, __gt__, __ge__
+       |            for bitwise or
+       &amp;            for bitwise and              
+       ^            for bitwise xor
+       ~            for bitwise inversion
+       &lt;&lt;           for circular rotation to the left
+       &gt;&gt;           for circular rotation to the right
+       +            for concatenation
+       intValue()   for returning the integer value 
+       divide_into_two
+       permute
+       unpermute
+       pad_from_left
+       pad_from_right
+       read_bits_from_file
+       write_to_file
+       read_bits_from_fileobject
+       write_bits_to_fileobject
+       reset
+       slice assignment
+       count_bits
+       setValue
+
+
+
+Constructing Bit Vectors
+------------------------
+
+ You can construct a bit vector in six different ways.
+
+ (1) You can construct a bit vector directly from either a tuple
+     or a list of bits, as in
+
+        bv =  BitVector( bitlist = [1,0,1,0,0,1,0,1,0,0,1,0,1,0,0,1] ) 
+
+ (2) You can construct a bit vector from an integer by
+
+        bv =  BitVector( intVal = 56789 )
+
+     The bits stored now will correspond to the binary
+     representation of the integer.  The resulting bit vector is
+     the shortest possible bit vector for the integer value
+     supplied.  For example, when intVal is 0, the bit vector
+     constructed will consist of just the bit 0.
+
+
+ (3) When initializing a bit vector with an intVal as shown
+     above, you can also specify a size for the bit vector:
+
+        bv = BitVector( intVal = 0, size = 8 )
+
+     will return the bit vector consisting of the bit pattern
+     00000000.  The zero padding needed for meeting the size
+     requirement is always on the left.  If the size supplied is
+     smaller than what it takes to create the shortest possible
+     bit vector for intVal, an exception is thrown.
+
+         
+ (4) You can create a zero-initialized bit vector of a given size
+     by
+
+        bv  = BitVector( size = 62 )
+
+     This bit vector will hold exactly 62 bits, all initialized to
+     the 0 bit value.
+
+ (5) You can construct a bit vector from a disk file by a two-step
+     procedure. First you construct an instance of bit vector by
+
+        bv  =  BitVector( filename = 'somefile' )   
+
+     This bit vector itself is incapable of holding the bits.  To
+     now create bit vectors that actually hold the bits, you need
+     to make the following sort of a call on the above variable
+     bv:
+
+        bv1 =  bv.read_bits_from_file( 64 )    
+
+     bv1 will be a regular bit vector containing 64 bits from the
+     disk file. If you want to re-read a file from the beginning
+     for some reason, you must obviously first close the file
+     object that was acquired with a call to the BitVector
+     constructor with a filename argument.  This can be
+     accomplished by
+
+       bv.close_file_object()
+
+ (6) You can construct a bit vector from a string of 1's and 0's
+     by
+
+        bv  =  BitVector( bitstring = '110011110000' )      
+
+ (7) Yet another way to construct a bit vector is to read the bits
+     directly from a file-like object, as in
+
+        x = &quot;111100001111&quot;
+        fileobj = StringIO.StringIO( x )
+        bv = BitVector( fp = fileobj )
+
+
+
+Operations Supported By the BitVector Class
+-------------------------------------------
+
+Displaying Bit Vectors
+~~~~~~~~~~~~~~~~~~~~~~
+
+Since the BitVector class implements the __str__ method, a
+bit vector can be displayed on a terminal by
+
+::
+
+        print bitvec
+
+Basically, you can always obtain the string representation
+of a bit vector by
+
+::
+
+        str( bitvec )
+
+and integer value by
+
+::
+        
+        int( bitvec )
+
+Accessing and Setting Individual Bits and Slices
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ 2)  Any single bit of a bit vector bv can be set to 1 or 0 by
+
+           bv[M] = 1_or_0
+           print bv[M]
+
+     for accessing (and setting) the bit at the position that is
+     indexed M.  You can retrieve the bit at position M by bv[M].
+
+ 3)  A slice of a bit vector obtained by
+
+           bv[i:j]
+
+     is a bit vector constructed from the bits at index positions
+     from i through j-1.
+
+ 4)  You can also carry out slice assignment:
+
+           bv1 = BitVector( size = 25 )
+           bv2 = BitVector( bitstring = '1010001' )
+           bv1[6:9]  = bv2[0:3]
+           bv3 = BitVector( bitstring = '101' )                 
+           bv1[0:3]  = bv3
+
+     The first slice assignment will set the 6th, 7th, and 
+     the 8th bits of the bit vector bv1 according to the first
+     three bits of bv2.  The second slice assignment will set
+     the first three bits of bv1 according to the three bits
+     in bv3.
+
+ 5)  You can iterate over a bit vector, as illustrated by
+
+           for bit in bitvec:
+               print bit,   
+
+     This is made possible by the override definition for the
+     special __iter__() method.
+
+ 6)  Negative subscripts for array-like indexing are supported.
+     Therefore,
+
+           bitvec[ -i ]
+
+     is legal assuming that the index range is not violated.
+
+ 7)  You can reset a previously constructed bit vector to
+     either the all zeros state or the all ones state by
+
+           bv1 = BitVector( size = 25 )
+           ...
+           ...
+           bv1.reset( 1 )
+           ...
+           ...
+           bv1.reset( 0 )
+
+     The first call to reset() will set all the bits of
+     bv1 to 1's and the second call all bit to 0's.
+
+Logical Operations on Bit Vectors
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+ 8) Given two bit vectors bv1 and bv2, you can perform bitwise
+    logical operations on them by
+
+           result_bv  =  bv1 ^ bv2
+           result_bv  =  bv1 &amp; bv2
+           result_bv  =  bv1 | bv2
+           result_bv  =  ~bv1
+
+
+Comparing Bit Vectors
+~~~~~~~~~~~~~~~~~~~~~
+
+ 9) Given two bit vectors bv1 and bv2, you can carry out the
+    following comparisons that return Boolean values:
+
+           bv1 ==  bv2
+           bv1 !=  bv2
+           bv1 &lt;   bv2
+           bv1 &lt;=  bv2
+           bv1 &gt;   bv2
+           bv1 &gt;=  bv2
+
+    The equalities and inequalities are determined by the integer
+    values associated with the bit vectors.
+
+Other Supported Operations
+~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+10)  You can permute and un-permute bit vectors:
+
+           bv_permuted   =  bv.permute( permutation_list )
+
+           bv_unpermuted =  bv.unpermute( permutation_list )
+
+
+11)  Left and right circular rotations can be carried out by
+
+           bitvec  &lt;&lt; N 
+
+           bitvec  &gt;&gt; N
+
+     for circular rotations to the left and right by N bit
+     positions.
+
+
+12)  A bit vector containing an even number of bits can be
+     divided into two equal parts by
+
+           [left_half, right_half] = bitvec.divide_into_two()
+
+      where left_half and right_half hold references to the two
+      returned bit vectors.
+
+
+13)  You can find the integer value of a bit array by
+
+           bitvec.invValue()
+
+     or by
+
+           int( bitvec )
+
+
+14)  You can convert a bit vector into its string representation
+     by
+
+           str( bitvec )
+
+
+15)  Because __add__ is supplied, you can always join two
+     bit vectors by
+
+           bitvec3  =  bitvec1  +  bitvec2
+
+     bitvec3 is a new bit vector that contains all the
+     bits of bitvec1 followed by all the bits of bitvec2.
+
+      
+16)  You can write a bit vector directly to a file, as
+     illustrated by the following example that reads one bit
+     vector from a file and then writes it to another
+     file
+
+           bv = BitVector( filename = 'input.txt' )
+           bv1 = bv.read_bits_from_file(64)        
+           print bv1           
+           FILEOUT = open( 'output.bits', 'wb' )
+           bv1.write_to_file( FILEOUT )
+           FILEOUT.close()
+           bv = BitVector( filename = 'output.bits' )
+           bv2 = bv.read_bits_from_file( 64 )
+           print bv2
+
+      IMPORTANT:  The size of bit vector must be a multiple of
+                  of 8 for this write function to work.  If this
+                  condition is not met, the function throws an
+                  exception.
+
+      IMPORTANT FOR WINDOWS USERS:  When writing an internally
+                  generated bit vector out to a disk file, it
+                  is important to open the file in the binary
+                  mode as shown.  Otherwise, the bit pattern
+                  00001010 ('\n') in your bitstring will be written 
+                  out as 0000110100001010 ('\r\n'), which is the
+                  linebreak on Windows machine.
+
+17)  You can also write a bit vector directly to a stream
+     object, as illustrated by
+
+           fp_write = StringIO.StringIO()
+           bitvec.write_bits_to_fileobject( fp_write )
+           print fp_write.getvalue()         # 111100001111 
+      
+
+18)  You can pad a bit vector from the left or from the
+     right with a designated number of zeros
+
+           bitvec.pad_from_left( n )
+
+           bitvec.pad_from_right( n )
+
+     In the first case, the new bit vector will be the same
+     as the old bit vector except for the additional n zeros
+     on the left.  The same thing happens in the second
+     case except that now the additional n zeros will be on
+     the right.
+
+19)  You can test if a bit vector x is contained in another bit
+     vector y by using the syntax 'if x in y'.  This is made
+     possible by the override definition for the special
+     __contains__() method.
+
+20)  You can count the number of bits set in a BitVector 
+     instance by
+
+       bv = BitVector( bitstring = '100111' )
+       print bv.count_bits()                     # 4
+
+21)  You can change the bit pattern associated with a
+     previously constructed BitVector instance:
+
+       bv = BitVector( intVal = 7, size =16 )
+       print bv                              # 0000000000000111
+       bv.setValue( intVal = 45 )
+       print bv                              # 101101
+       
+
+How the Bit Vectors are Stored
+------------------------------
+
+ The bits of a bit array are stored in 16-bit unsigned ints.
+ After resolving the argument with which the constructor is
+ called (which happens in lines (A2) through (A70) of the file
+ BitVector.py), the very first thing that the constructor does is
+ to figure out in line (A78) as to how many of those 2-byte ints
+ it needs for the bits.  For example, if you wanted to store a
+ 64-bit array, the variable 'two_byte_ints_needed' in line (A78)
+ would be set to 4. (This does not mean that the size of a bit
+ vector must be a multiple of 16.  Any sized bit vectors can
+ constructed using the required number of two-byte ints.) Line
+ (A79) then creates an array of 2-byte ints and initializes it
+ with the required number of zeros.  Lines (A80) then shifts the
+ bits into the array of two-byte ints.
+
+ As mentioned above, note that it is not necessary for the size
+ of the vector to be a multiple of 16 even though we are using
+ C's unsigned short as as a basic unit for storing the bit
+ arrays.  The class BitVector keeps track of the actual number of
+ bits in the bit vector through the &quot;size&quot; instance attribute.
+
+ With regard to the code in lines (A2) through (A77) of the file
+ BitVector.py, note that, except for one case, the constructor
+ must be called with a single keyword argument, which determines
+ how the bit vector will be constructed.  The single exception to
+ this rule is for the keyword argument 'intVal' which can be used
+ along with the 'size' keyword argument.  When 'intVal' is used
+ with the 'size' option, the bit vector constructed for the
+ integer is the shortest possible bit vector.  On the other hand,
+ when 'size' is also specified, the bit vector is padded with
+ zeroes from the left so that it has the specified size.
+
+ Lines (A16) through (A22) are for the following sort of a call
+
+        bv = BitVector( filename = 'myfilename' )
+
+ This call returns a bit vector on which you must subsequently
+ invoke the 'read_bits_from_file()' method to actually obtain a
+ bit vector consisting of the bits that constitute the
+ information stored in the file.
+
+ Lines (A23) through (A28) are for the case when you want to
+ construct a bit vector by reading the bits off a file-like
+ object, as in
+
+       x = &quot;111100001111&quot;
+       fileobj = StringIO.StringIO( x )
+       bv = BitVector( fp = fileobj )
+
+ Lines (A29) through (A61) are for the case when you want to
+ construct a bit vector from an integer, as in
+
+       bv = BitVector( intVal = 123456 )
+
+ The bits stored in the bit vector will correspond to the binary
+ representation of the integer argument provided.  The bit vector
+ constructed with the above call will be the shortest possible
+ bit vector for the integer supplied.  As a case in point, when
+ the intVal is 0, the bit vector will consist of a single bit
+ which will be 0 also.  The code in lines (A27) through (A59) can
+ also handle the following sort of a call
+
+       bv = BitVector( intVal = 46, size = 16 )        
+
+ which returns a bit vector of a specfic size by padding the
+ shortest possible bit vector the the intVal with zeros from the
+ left.
+ 
+ Lines (A62) through (A68) are for constructing a bit vector with
+ just the size information, as in
+
+       bv = BitVector( size = 61 )
+
+ This returns a bit vector that will hold exactly 61 bits, all
+ initialized to the zero value.
+
+ Lines (A69) through (A73) are for constructing a bit vector from
+ a bitstring, as in
+
+       bv = BitVector( bitstring = '00110011111' )
+
+ Finally, lines (A74) through (A77) are for constructing a bit
+ vector from a list or a tuple of the individual bits:
+   
+       bv = BitVector( bitlist = (1, 0, 1, 1, 0, 0, 1) )
+
+ The bit vector constructed is initialized with the supplied
+ bits.
+
+
+
+Acknowledgements
+----------------
+
+ The author is grateful to Oleg Broytmann for suggesting many
+ improvements that were incorporated in Version 1.1 of this
+ package.  The author would like to thank Kurt Schwehr whose
+ email resulted in the creation of Version 1.2.  Kurt also caught
+ an error in my earlier version of 'setup.py' and suggested a
+ unittest based approach to the testing of the package.  Kurt
+ also supplied the Makefile that is included in this
+ distribution.  The author would also like to thank all (Scott
+ Daniels, Blair Houghton, and Steven D'Aprano) for their
+ responses to my comp.lang.python query concerning how to make a
+ Python input stream peekable.  This feature was included in
+ Version 1.1.1.
+
+ With regard to the changes incorporated in Version 1.3, thanks
+ are owed to Kurt Schwehr and Gabriel Ricardo for bringing to my
+ attention the bug related to the intVal method of initializing a
+ bit vector when the value of intVal exceeded sys.maxint. This
+ problem is fixed in Version 1.3.  Version 1.3 also includes many
+ other improvements that make the syntax better conform to the
+ standard idioms of Python.  These changes and the addition of
+ the new constructor mode (that allows a bit vector of a given
+ size to be constructed from an integer value) are also owing to
+ Kurt's suggestions.
+
+ With regard to the changes incorporated in Version 1.3.1, I
+ would like to thank Michael Haggerty for noticing that the
+ bitwise logical operators resulted in bit vectors that had their
+ bits packed into lists of ints, as opposed to arrays of 
+ unsigned shorts.  This inconsistency in representation has been 
+ removed in version 1.3.1.  Michael has also suggested that 
+ since BitVector is mutable, I should be overloading __iand__(), 
+ __ior__(), etc., for in-place modifications of bit vectors.  
+ Michael certainly makes a good point. But I am afraid that this 
+ change will break the code for the existing users of the 
+ BitVector class. 
+
+ I thank Mathieu Roy for bringing to my attention the problem
+ with writing bitstrings out to a disk files on Windows 
+ machines.  This turned out to be a problem more with the
+ documentation than with the BitVector class itself.  On a 
+ Windows machine, it is particularly important that a file
+ you are writing a bitstring into be opened in binary mode
+ since otherwise the bit pattern 00001010 ('\n') will be written 
+ out as 0000110100001010 ('\r\n').  This documentation fix 
+ resulted in Version 1.3.2.
+
+ With regard to Version 1.4, the suggestions/bug reports
+ made by John Kominek, Bob Morse, and Steve Ward contributed
+ to this version.  I wish to thank all three. John wanted me 
+ to equip the class with a reset() method so that a previously
+ constructed class could be reset to either all 0's or all
+ 1's. Bob spotted loose local variables in the implementation
+ --- presumably left over from a debugging phase of the code.
+ Bob recommended that I clean up the code with pychecker. That
+ has been done.  Steve noticed that slice assignment was not
+ working.  It should work now.
+
+ Version 1.4.1 was prompted by John Kominek suggesting that
+ if reset() returned self, then the slice operation could
+ be combined with the reset operation.  Thanks John!  Another
+ reason for 1.4.1 was to remove the discrepancy between the 
+ value of the __copyright__ variable in the module and the 
+ value of license variable in setup.py.  This discrepancy 
+ was brought to my attention by David Eyk.  Thanks David!
+
+ Version 1.5 has benefited greatly by the suggestions made
+ by Ryan Cox.  By examining the BitVector execution with
+ cProfile, Ryan observed that my implementation was making
+ unnecessary method calls to _setbit() when just the size
+ option is used for constructing a BitVector instance.
+ Since Python allocates cleaned up memory, it is unnecessary 
+ to set the individual bits of a vector if it is known in 
+ advance that they are all zero. Ryan made a similar observation 
+ for the logical operations applied to two BitVector instances 
+ of equal length.  He noticed that I was making unnecessary 
+ calls to _resize_pad_from_left() for the case of equal 
+ arguments to logical operations.  Ryan also recommended that 
+ I include a method that returns the total number of bits 
+ set in a BitVector instance.  The new method count_bits() does 
+ exactly that. Thanks Ryan for all your suggestions.
+ Version 1.5 also includes the method setValue() that allows 
+ the internally stored bit pattern associated with a previously
+ constructed BitVector to be changed.  A need for this method
+ was expressed by Aleix Conchillo.  Thanks Aleix.
+ 
+ Version 1.5.1 is a quick release to fix a bug in the 
+ right circular shift operator.  This bug was discovered
+ by Jasper Spaans.  Thanks very much Jasper.
+
+About the Authors
+-----------------
+
+ Avi Kak is the author of &quot;Programming with Objects: A
+ Comparative Presentation of Object-Oriented Programming
+ with C++ and Java&quot;, published by John-Wiley in 2003. This
+ book presents a new approach to the combined learning of
+ two large object-oriented languages, C++ and Java.  It is
+ being used as a text in a number of educational programs
+ around the world.  This book has also been translated into
+ Chinese.  Further information on the book is available at
+ www.programming-with-objects.com
+ 
+
+Some Example Code
+-----------------
+
+ #!/usr/bin/env python
+ import BitVector
+
+ # Construct a bit vector from a list or tuple of bits:
+ bv = BitVector.BitVector( bitlist = (1, 0, 0, 1) )
+ print bv                                # 1001
+
+ # Construct a bit vector from an integer:
+ bv = BitVector.BitVector( intVal = 5678 )
+ print bv                                # 0001011000101110
+
+ # Construct a bit vector of a given size from a given
+ # integer:
+ bv = BitVector( intVal = 45, size = 16 )
+ print bv                                # 0000000000101101
+
+ # Construct a zero-initialized bit vector of a given size:
+ bv = BitVector.BitVector( size = 5 )
+ print bv                                # 00000
+
+ # Construct a bit vector from a bit string:
+ bv = BitVector.BitVector( bitstring = '110001' )     
+ print bv[0], bv[1], bv[2], bv[3], bv[4], bv[5]       # 1 1 0 0 0 1
+ print bv[-1], bv[-2], bv[-3], bv[-4], bv[-5], bv[-6] # 1 0 0 0 1 1
+
+ # Construct a bit vector from a file like object:
+ import StringIO
+ x = &quot;111100001111&quot;
+ fp_read = StringIO.StringIO( x )
+ bv = BitVector.BitVector( fp = fp_read )
+ print bv                                    # 111100001111 
+
+ # Experiments with bitwise logical operations:
+ bv3 = bv1 | bv2                              
+ bv3 = bv1 &amp; bv2
+ bv3 = bv1 ^ bv2
+ bv6 = ~bv5
+
+ # Find the length of a bit vector
+ print len( bitvec )
+
+ # Find the integer value of a bit vector
+ print int( bitvec )
+
+ # Open a file for reading bit vectors from
+ bv = BitVector.BitVector( filename = 'TestBitVector/testinput1.txt' )
+ print bv                                    # nothing yet
+ bv1 = bv.read_bits_from_file(64)    
+ print bv1                            # first 64 bits from the file
+
+ # Divide a bit vector into two equal sub-vectors:
+ [bv1, bv2] = bitvec.divide_into_two()
+
+ # Permute and Un-Permute a bit vector:
+ bv2 = bitvec.permute( permutation_list )
+ bv2 = bitvec.unpermute( permutation_list )
+
+ # Try circular shifts to the left and to the right
+ bitvec &lt;&lt; 7
+ bitvec &gt;&gt; 7
+
+ # Try 'if x in y' syntax for bit vectors:
+ bv1 = BitVector( bitstring = '0011001100' )
+ bv2 = BitVector( bitstring = '110011' )
+ if bv2 in bv1:
+     print &quot;%s is in %s&quot; % (bv2, bv1)
+ else:
+     print &quot;%s is not in %s&quot; % (bv2, bv1)
+
+ .....
+ .....
+
+</pre>
+
+<!-- ==================== CLASSES ==================== -->
+<a name="section-Classes"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Classes</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Classes"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="zen.util.bitvector.BitVector-class.html" class="summary-name">BitVector</a>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="zen.util.bitvector.BitVectorIterator-class.html" class="summary-name">BitVectorIterator</a>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTIONS ==================== -->
+<a name="section-Functions"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Functions</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Functions"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+      <table width="100%" cellpadding="0" cellspacing="0" border="0">
+        <tr>
+          <td><span class="summary-sig"><a href="zen.util.bitvector-module.html#_readblock" class="summary-sig-name" onclick="show_private();">_readblock</a>(<span class="summary-sig-arg">blocksize</span>,
+        <span class="summary-sig-arg">bitvector</span>)</span><br />
+      If this function can read all blocksize bits, it peeks ahead to see 
+      if there is anything more to be read in the file.</td>
+          <td align="right" valign="top">
+            <span class="codelink"><a href="zen.util.bitvector-pysrc.html#_readblock">source&nbsp;code</a></span>
+            
+          </td>
+        </tr>
+      </table>
+      
+    </td>
+  </tr>
+</table>
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr class="private">
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a href="zen.util.bitvector-module.html#_hexdict" class="summary-name" onclick="show_private();">_hexdict</a> = <code title="{'0': '0000',
+ '1': '0001',
+ '2': '0010',
+ '3': '0011',
+ '4': '0100',
+ '5': '0101',
+ '6': '0110',
+ '7': '0111',
+..."><code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">0</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">0000</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">1</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">0001</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">2</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">0010</code><code class="variable-quote">'</code><code class="variable-op">, </code><code class="variable-quote">'</code><code class="variable-string">3</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">0011</code><code class="variable-quote">'</code><code class="variable-ellipsis">...</code></code>
+    </td>
+  </tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'zen.util'"><code class="variable-quote">'</code><code class="variable-string">zen.util</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== FUNCTION DETAILS ==================== -->
+<a name="section-FunctionDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Function Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-FunctionDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_readblock"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <table width="100%" cellpadding="0" cellspacing="0" border="0">
+  <tr valign="top"><td>
+  <h3 class="epydoc"><span class="sig"><span class="sig-name">_readblock</span>(<span class="sig-arg">blocksize</span>,
+        <span class="sig-arg">bitvector</span>)</span>
+  </h3>
+  </td><td align="right" valign="top"
+    ><span class="codelink"><a href="zen.util.bitvector-pysrc.html#_readblock">source&nbsp;code</a></span>&nbsp;
+    </td>
+  </tr></table>
+  
+  <p>If this function can read all blocksize bits, it peeks ahead to see if
+  there is anything more to be read in the file. It uses tell-read-seek 
+  mechanism for this in lines (R18) through (R21).  If there is nothing 
+  further to be read, it sets the more_to_read attribute of the bitvector 
+  object to False.  Obviously, this can only be done for seekable streams 
+  such as those connected with disk files.  According to Blair Houghton, a 
+  similar feature could presumably be implemented for socket streams by 
+  using recv() or recvfrom() if you set the flags argument to MSG_PEEK.</p>
+  <dl class="fields">
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== VARIABLES DETAILS ==================== -->
+<a name="section-VariablesDetails"></a>
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables Details</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-VariablesDetails"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+</table>
+<a name="_hexdict"></a>
+<div class="private">
+<table class="details" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr><td>
+  <h3 class="epydoc">_hexdict</h3>
+  
+  <dl class="fields">
+  </dl>
+  <dl class="fields">
+    <dt>Value:</dt>
+      <dd><table><tr><td><pre class="variable">
+<code class="variable-group">{</code><code class="variable-quote">'</code><code class="variable-string">0</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">0000</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">1</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">0001</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">2</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">0010</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">3</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">0011</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">4</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">0100</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">5</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">0101</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">6</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">0110</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+ <code class="variable-quote">'</code><code class="variable-string">7</code><code class="variable-quote">'</code><code class="variable-op">: </code><code class="variable-quote">'</code><code class="variable-string">0111</code><code class="variable-quote">'</code><code class="variable-op">,</code>
+<code class="variable-ellipsis">...</code>
+</pre></td></tr></table>
+</dd>
+  </dl>
+</td></tr></table>
+</div>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Mar 14 14:30:07 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

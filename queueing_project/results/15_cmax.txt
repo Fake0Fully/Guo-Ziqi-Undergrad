@@ -1,0 +1,187 @@
+sw: ampl
+ampl: option solver cplex;
+ampl: option cplex_options 'mipdisplay 2';
+ampl: model project_ext.mod;
+ampl: data project_ext.dat;
+ampl: solve;
+CPLEX 12.7.0.0: mipdisplay 2
+MIP Presolve eliminated 870 rows and 451 columns.
+Reduced MIP has 161 rows, 481 columns, and 2756 nonzeros.
+Reduced MIP has 450 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Found incumbent of value 1999.000000 after 0.01 sec. (2.13 ticks)
+Probing time = 0.00 sec. (2.34 ticks)
+MIP Presolve eliminated 2 rows and 0 columns.
+Reduced MIP has 157 rows, 479 columns, and 2748 nonzeros.
+Reduced MIP has 450 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Probing time = 0.00 sec. (2.36 ticks)
+Clique table members: 45.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.00 sec. (7.44 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                         1999.0000       -0.0000           100.00%
+*     0+    0                          276.0700       -0.0000           100.00%
+      0     0      126.9451    46      276.0700      126.9451      418   54.02%
+      0     0      142.2535    27      276.0700      Cuts: 21      487   48.47%
+*     0+    0                          149.2000      142.2535             4.66%
+      0     0      142.2535    31      149.2000       Cuts: 5      495    4.66%
+      0     0      142.2535    30      149.2000    MIRcuts: 1      498    4.66%
+
+Repeating presolve.
+MIP Presolve eliminated 28 rows and 132 columns.
+MIP Presolve modified 7 coefficients.
+Reduced MIP has 122 rows, 340 columns, and 1960 nonzeros.
+Reduced MIP has 318 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Probing time = 0.00 sec. (2.15 ticks)
+Cover probing fixed 0 vars, tightened 10 bounds.
+MIP Presolve eliminated 3 rows and 0 columns.
+MIP Presolve modified 38 coefficients.
+Reduced MIP has 119 rows, 340 columns, and 1923 nonzeros.
+Reduced MIP has 318 binaries, 0 generals, 0 SOSs, and 0 indicators.
+Represolve time = 0.02 sec. (7.27 ticks)
+Probing fixed 0 vars, tightened 1 bounds.
+Probing changed sense of 2 constraints.
+Probing time = 0.00 sec. (2.17 ticks)
+Cover probing fixed 0 vars, tightened 13 bounds.
+Clique table members: 38.
+MIP emphasis: balance optimality and feasibility.
+MIP search method: dynamic search.
+Parallel mode: deterministic, using up to 4 threads.
+Root relaxation solution time = 0.01 sec. (5.16 ticks)
+
+        Nodes                                         Cuts/
+   Node  Left     Objective  IInf  Best Integer    Best Bound    ItCnt     Gap
+
+*     0+    0                          149.2000      144.0935             3.42%
+      0     0      142.3799    21      149.2000      144.0935      729    3.42%
+      0     0      144.0830    25      149.2000      Cuts: 12      772    3.42%
+      0     0      144.0830    31      149.2000       Cuts: 8      785    3.42%
+*     0+    0                          147.2000      144.0935             2.11%
+      0     2      144.0935    10      147.2000      144.4918      785    1.84%
+Elapsed time = 0.17 sec. (111.06 ticks, tree = 0.01 MB)
+*   517+  227                          146.2000      144.7597             0.99%
+   7771   633      146.1071     6      146.2000      146.0979    28400    0.07%
+
+Implied bound cuts applied:  2
+Flow cuts applied:  1
+Zero-half cuts applied:  1
+Lift and project cuts applied:  6
+Gomory fractional cuts applied:  4
+
+Root node processing (before b&c):
+  Real time             =    0.16 sec. (110.94 ticks)
+Parallel b&c, 4 threads:
+  Real time             =    0.34 sec. (293.13 ticks)
+  Sync time (average)   =    0.02 sec.
+  Wait time (average)   =    0.00 sec.
+                          ------------
+Total (root+branch&cut) =    0.50 sec. (404.07 ticks)
+CPLEX 12.7.0.0: optimal integer solution within mipgap or absmipgap; objective 146.2
+36509 MIP simplex iterations
+10058 branch-and-bound nodes
+absmipgap = 0.0144444, relmipgap = 9.87992e-05
+No basis.
+ampl: display w;
+w [1,*,*]
+:    1   2   3   4    5    6    7    8    9  10  11  12  13  14  15    :=
+1    0   0   0    0    0    0    0    0   0   0   0   0   0   0   0
+2    0   0   0    0    0    0    0    0   0   0   0   0   0   0   0
+3    0   0   0    0    0    0    0    0   0   0   0   0   0   0   0
+4    0   0   0    0    0    0   81    0   0   0   0   0   0   0   0
+5    0   0   0    0    0    0    0    0   0   0   0   0   0   0   0
+6    0   0   0    0    0    0    0    0   0   0   0   0   0   0   0
+7    0   0   0    0   45    0    0    0   0   0   0   0   0   0   0
+8    0   3   0    0    0    0    0    0   0   0   0   0   0   0   0
+9    0   0   0    0    0   48    0    0   0   0   0   0   0   0   0
+10   0   0   0    0    0    0    0    0   0   0   0   0   0   0   0
+11   0   0   2    0    0    0    0    0   0   0   0   0   0   0   0
+12   0   0   0    0    0    0    0   67   0   0   0   0   0   0   0
+13   0   0   0   14    0    0    0    0   0   0   0   0   0   0   0
+14   0   0   0    0    0    0    0    0   0   0   0   0   0   0   0
+15   0   0   0    0    0    0    0    0   0   0   0   0   0   0   0
+
+ [2,*,*]
+:    1   2   3    4   5    6    7    8   9  10  11  12  13  14  15    :=
+1    0   0    0   0    0    0    0   0   0   0   0   0   0   0   0
+2    0   0    0   0    0    0    0   0   0   0   0   0   0   0   0
+3    0   0    0   0    0   76    0   0   0   0   0   0   0   0   0
+4    0   0    0   0    0    0    0   0   0   0   0   0   0   0   0
+5    0   7    0   0    0    0    0   0   0   0   0   0   0   0   0
+6    0   0   22   0    0    0    0   0   0   0   0   0   0   0   0
+7    0   0    0   0    0    0    0   0   0   0   0   0   0   0   0
+8    0   0    0   0    0    0    0   0   0   0   0   0   0   0   0
+9    0   0    0   0    0    0    0   0   0   0   0   0   0   0   0
+10   0   0    0   0   39    0    0   0   0   0   0   0   0   0   0
+11   0   0    0   0    0    0    0   0   0   0   0   0   0   0   0
+12   0   0    0   0    0    0    0   0   0   0   0   0   0   0   0
+13   0   0    0   0    0    0    0   0   0   0   0   0   0   0   0
+14   0   0    0   0    0    0   68   0   0   0   0   0   0   0   0
+15   0   0    0   9    0    0    0   0   0   0   0   0   0   0   0
+;
+
+ampl: display wmax;
+wmax = 81
+
+ampl: display h;
+h [*,*] (tr)
+:      1        2      :=
+1     46.07    44.2
+2     59.2     59.2
+3     77.2     73.2
+4     87.2     92.2
+5     96.2    110.2
+6    115.2    131.2
+7    130.2    146.2
+8    146.2    146.2
+9    146.2    146.2
+10   146.2    146.2
+11   146.2    146.2
+12   146.2    146.2
+13   146.2    146.2
+14   146.2    146.2
+15   146.2    146.2
+;
+
+ampl: display x;
+x [1,*,*]
+:    1   2   3   4   5   6   7   8   9  10  11  12  13  14  15    :=
+1    1   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+2    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+3    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+4    0   0   0   0   0   0   1   0   0   0   0   0   0   0   0
+5    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+6    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+7    0   0   0   0   1   0   0   0   0   0   0   0   0   0   0
+8    0   1   0   0   0   0   0   0   0   0   0   0   0   0   0
+9    0   0   0   0   0   1   0   0   0   0   0   0   0   0   0
+10   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+11   0   0   1   0   0   0   0   0   0   0   0   0   0   0   0
+12   0   0   0   0   0   0   0   1   0   0   0   0   0   0   0
+13   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0
+14   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+15   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+
+ [2,*,*]
+:    1   2   3   4   5   6   7   8   9  10  11  12  13  14  15    :=
+1    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+2    1   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+3    0   0   0   0   0   1   0   0   0   0   0   0   0   0   0
+4    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+5    0   1   0   0   0   0   0   0   0   0   0   0   0   0   0
+6    0   0   1   0   0   0   0   0   0   0   0   0   0   0   0
+7    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+8    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+9    0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+10   0   0   0   0   1   0   0   0   0   0   0   0   0   0   0
+11   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+12   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+13   0   0   0   0   0   0   0   0   0   0   0   0   0   0   0
+14   0   0   0   0   0   0   1   0   0   0   0   0   0   0   0
+15   0   0   0   1   0   0   0   0   0   0   0   0   0   0   0
+;
+
+ampl: 

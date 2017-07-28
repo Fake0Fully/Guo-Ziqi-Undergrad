@@ -1,0 +1,296 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>zen.drawing.mpl</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="zen-module.html">Package&nbsp;zen</a> ::
+        <a href="zen.drawing-module.html">Package&nbsp;drawing</a> ::
+        Module&nbsp;mpl
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="zen.drawing.mpl-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="zen.drawing.mpl-module.html">Module zen.drawing.mpl</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno">  1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno">  2</tt>  <tt class="py-line"><tt class="py-docstring">The ``zen.drawing.mpl`` module provides code for rendering graph views to `matplotlib &lt;http://matplotlib.sourceforge.net/&gt;`_ figures.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno">  3</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L4"></a><tt class="py-lineno">  4</tt>  <tt class="py-line"><tt class="py-docstring">When using views with this package, the following conventions apply:</tt> </tt>
+<a name="L5"></a><tt class="py-lineno">  5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno">  6</tt>  <tt class="py-line"><tt class="py-docstring">        * colors should be specified as tuples ``(R,G,B)`` where all three components are between ``0`` and ``1``</tt> </tt>
+<a name="L7"></a><tt class="py-lineno">  7</tt>  <tt class="py-line"><tt class="py-docstring">        * all dimensions (e.g., edge width and node radius) are interpreted as units in the scale of the axes of the plot used</tt> </tt>
+<a name="L8"></a><tt class="py-lineno">  8</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L9"></a><tt class="py-lineno">  9</tt>  <tt class="py-line"><tt class="py-docstring">.. autofunction:: draw(view[,fig=None,bounds=None])</tt> </tt>
+<a name="L10"></a><tt class="py-lineno"> 10</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L11"></a><tt class="py-lineno"> 11</tt>  <tt class="py-line"><tt class="py-docstring">.. autofunction:: draw_to_axes(view[,ax=None])</tt> </tt>
+<a name="L12"></a><tt class="py-lineno"> 12</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L13"></a><tt class="py-lineno"> 13</tt>  <tt class="py-line"> </tt>
+<a name="L14"></a><tt class="py-lineno"> 14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">pylab</tt> <tt class="py-keyword">as</tt> <tt class="py-name">pl</tt> </tt>
+<a name="L15"></a><tt class="py-lineno"> 15</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">matplotlib</tt><tt class="py-op">.</tt><tt class="py-name">lines</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Line2D</tt> </tt>
+<a name="L16"></a><tt class="py-lineno"> 16</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt class="py-name">matplotlib</tt><tt class="py-op">.</tt><tt class="py-name">patches</tt> <tt class="py-keyword">import</tt> <tt class="py-name">Circle</tt> </tt>
+<a name="L17"></a><tt class="py-lineno"> 17</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-0" class="py-name" targets="Package zen=zen-module.html"><a title="zen" class="py-name" href="#" onclick="return doclink('link-0', 'zen', 'link-0');">zen</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Module zen.view=zen.view-module.html"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-1', 'view', 'link-1');">view</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L18"></a><tt class="py-lineno"> 18</tt>  <tt class="py-line"><tt class="py-keyword">from</tt> <tt id="link-2" class="py-name"><a title="zen" class="py-name" href="#" onclick="return doclink('link-2', 'zen', 'link-0');">zen</a></tt><tt class="py-op">.</tt><tt id="link-3" class="py-name" targets="Module zen.exceptions=zen.exceptions-module.html"><a title="zen.exceptions" class="py-name" href="#" onclick="return doclink('link-3', 'exceptions', 'link-3');">exceptions</a></tt> <tt class="py-keyword">import</tt> <tt class="py-op">*</tt> </tt>
+<a name="L19"></a><tt class="py-lineno"> 19</tt>  <tt class="py-line"> </tt>
+<a name="L20"></a><tt class="py-lineno"> 20</tt>  <tt class="py-line"><tt class="py-name">__all__</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'draw'</tt><tt class="py-op">,</tt><tt class="py-string">'draw_to_axes'</tt><tt class="py-op">,</tt><tt class="py-string">'draw_to_figure'</tt><tt class="py-op">]</tt> </tt>
+<a name="L21"></a><tt class="py-lineno"> 21</tt>  <tt class="py-line"> </tt>
+<a name="L22"></a><tt class="py-lineno"> 22</tt>  <tt class="py-line"><tt id="link-4" class="py-name" targets="Variable zen.drawing.mpl.ROYAL_BLUE=zen.drawing.mpl-module.html#ROYAL_BLUE"><a title="zen.drawing.mpl.ROYAL_BLUE" class="py-name" href="#" onclick="return doclink('link-4', 'ROYAL_BLUE', 'link-4');">ROYAL_BLUE</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-number">65.</tt><tt class="py-op">/</tt><tt class="py-number">255.</tt><tt class="py-op">,</tt><tt class="py-number">105.</tt><tt class="py-op">/</tt><tt class="py-number">255.</tt><tt class="py-op">,</tt><tt class="py-number">225.</tt><tt class="py-op">/</tt><tt class="py-number">255.</tt><tt class="py-op">)</tt> </tt>
+<a name="L23"></a><tt class="py-lineno"> 23</tt>  <tt class="py-line"><tt id="link-5" class="py-name" targets="Variable zen.drawing.mpl.STEEL_BLUE=zen.drawing.mpl-module.html#STEEL_BLUE"><a title="zen.drawing.mpl.STEEL_BLUE" class="py-name" href="#" onclick="return doclink('link-5', 'STEEL_BLUE', 'link-5');">STEEL_BLUE</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-number">176.</tt><tt class="py-op">/</tt><tt class="py-number">255.</tt><tt class="py-op">,</tt><tt class="py-number">196.</tt><tt class="py-op">/</tt><tt class="py-number">255.</tt><tt class="py-op">,</tt><tt class="py-number">222.</tt><tt class="py-op">/</tt><tt class="py-number">255.</tt><tt class="py-op">)</tt> </tt>
+<a name="L24"></a><tt class="py-lineno"> 24</tt>  <tt class="py-line"><tt id="link-6" class="py-name" targets="Variable zen.drawing.mpl.GREY_70=zen.drawing.mpl-module.html#GREY_70"><a title="zen.drawing.mpl.GREY_70" class="py-name" href="#" onclick="return doclink('link-6', 'GREY_70', 'link-6');">GREY_70</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-number">179.</tt><tt class="py-op">/</tt><tt class="py-number">255.</tt><tt class="py-op">,</tt><tt class="py-number">179.</tt><tt class="py-op">/</tt><tt class="py-number">255.</tt><tt class="py-op">,</tt><tt class="py-number">179.</tt><tt class="py-op">/</tt><tt class="py-number">255.</tt><tt class="py-op">)</tt> </tt>
+<a name="L25"></a><tt class="py-lineno"> 25</tt>  <tt class="py-line"> </tt>
+<a name="L26"></a><tt class="py-lineno"> 26</tt>  <tt class="py-line"><tt id="link-7" class="py-name" targets="Variable zen.drawing.mpl.DEFAULT_NODE_COLOR=zen.drawing.mpl-module.html#DEFAULT_NODE_COLOR"><a title="zen.drawing.mpl.DEFAULT_NODE_COLOR" class="py-name" href="#" onclick="return doclink('link-7', 'DEFAULT_NODE_COLOR', 'link-7');">DEFAULT_NODE_COLOR</a></tt> <tt class="py-op">=</tt> <tt id="link-8" class="py-name"><a title="zen.drawing.mpl.ROYAL_BLUE" class="py-name" href="#" onclick="return doclink('link-8', 'ROYAL_BLUE', 'link-4');">ROYAL_BLUE</a></tt> </tt>
+<a name="L27"></a><tt class="py-lineno"> 27</tt>  <tt class="py-line"><tt id="link-9" class="py-name" targets="Variable zen.drawing.mpl.DEFAULT_EDGE_COLOR=zen.drawing.mpl-module.html#DEFAULT_EDGE_COLOR"><a title="zen.drawing.mpl.DEFAULT_EDGE_COLOR" class="py-name" href="#" onclick="return doclink('link-9', 'DEFAULT_EDGE_COLOR', 'link-9');">DEFAULT_EDGE_COLOR</a></tt> <tt class="py-op">=</tt> <tt id="link-10" class="py-name"><a title="zen.drawing.mpl.GREY_70" class="py-name" href="#" onclick="return doclink('link-10', 'GREY_70', 'link-6');">GREY_70</a></tt> </tt>
+<a name="L28"></a><tt class="py-lineno"> 28</tt>  <tt class="py-line"> </tt>
+<a name="L29"></a><tt class="py-lineno"> 29</tt>  <tt class="py-line"><tt id="link-11" class="py-name" targets="Variable zen.drawing.mpl.DEFAULT_EDGE_WIDTH=zen.drawing.mpl-module.html#DEFAULT_EDGE_WIDTH"><a title="zen.drawing.mpl.DEFAULT_EDGE_WIDTH" class="py-name" href="#" onclick="return doclink('link-11', 'DEFAULT_EDGE_WIDTH', 'link-11');">DEFAULT_EDGE_WIDTH</a></tt> <tt class="py-op">=</tt> <tt class="py-number">1</tt> </tt>
+<a name="L30"></a><tt class="py-lineno"> 30</tt>  <tt class="py-line"> </tt>
+<a name="L31"></a><tt class="py-lineno"> 31</tt>  <tt class="py-line"><tt id="link-12" class="py-name" targets="Variable zen.drawing.mpl.DEFAULT_NODE_SHAPE=zen.drawing.mpl-module.html#DEFAULT_NODE_SHAPE"><a title="zen.drawing.mpl.DEFAULT_NODE_SHAPE" class="py-name" href="#" onclick="return doclink('link-12', 'DEFAULT_NODE_SHAPE', 'link-12');">DEFAULT_NODE_SHAPE</a></tt> <tt class="py-op">=</tt> <tt id="link-13" class="py-name" targets="Variable zen.view.CIRCLE=zen.view-module.html#CIRCLE"><a title="zen.view.CIRCLE" class="py-name" href="#" onclick="return doclink('link-13', 'CIRCLE', 'link-13');">CIRCLE</a></tt> </tt>
+<a name="L32"></a><tt class="py-lineno"> 32</tt>  <tt class="py-line"><tt id="link-14" class="py-name" targets="Variable zen.drawing.mpl.DEFAULT_NODE_SHAPE_DIM=zen.drawing.mpl-module.html#DEFAULT_NODE_SHAPE_DIM"><a title="zen.drawing.mpl.DEFAULT_NODE_SHAPE_DIM" class="py-name" href="#" onclick="return doclink('link-14', 'DEFAULT_NODE_SHAPE_DIM', 'link-14');">DEFAULT_NODE_SHAPE_DIM</a></tt> <tt class="py-op">=</tt> <tt class="py-op">(</tt><tt class="py-number">2</tt><tt class="py-op">,</tt><tt class="py-op">)</tt> </tt>
+<a name="L33"></a><tt class="py-lineno"> 33</tt>  <tt class="py-line"> </tt>
+<a name="draw_to_axes"></a><div id="draw_to_axes-def"><a name="L34"></a><tt class="py-lineno"> 34</tt> <a class="py-toggle" href="#" id="draw_to_axes-toggle" onclick="return toggle('draw_to_axes');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.drawing.mpl-module.html#draw_to_axes">draw_to_axes</a><tt class="py-op">(</tt><tt class="py-param">view</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="draw_to_axes-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="draw_to_axes-expanded"><a name="L35"></a><tt class="py-lineno"> 35</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L36"></a><tt class="py-lineno"> 36</tt>  <tt class="py-line"><tt class="py-docstring">        Draw the network view to an axes object.  </tt> </tt>
+<a name="L37"></a><tt class="py-lineno"> 37</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L38"></a><tt class="py-lineno"> 38</tt>  <tt class="py-line"><tt class="py-docstring">        If no axes are specified, then the current axes are used.  If no axes exist,</tt> </tt>
+<a name="L39"></a><tt class="py-lineno"> 39</tt>  <tt class="py-line"><tt class="py-docstring">        one will be created.</tt> </tt>
+<a name="L40"></a><tt class="py-lineno"> 40</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L41"></a><tt class="py-lineno"> 41</tt>  <tt class="py-line"><tt class="py-docstring">        **Args**:</tt> </tt>
+<a name="L42"></a><tt class="py-lineno"> 42</tt>  <tt class="py-line"><tt class="py-docstring">                * ``view`` (:py:class:`zen.View`): the view to draw to the figure</tt> </tt>
+<a name="L43"></a><tt class="py-lineno"> 43</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L44"></a><tt class="py-lineno"> 44</tt>  <tt class="py-line"><tt class="py-docstring">        **KwArgs**:</tt> </tt>
+<a name="L45"></a><tt class="py-lineno"> 45</tt>  <tt class="py-line"><tt class="py-docstring">                * ``ax [=None]`` (matplotlib axes): the specific axes to draw the graph on.</tt> </tt>
+<a name="L46"></a><tt class="py-lineno"> 46</tt>  <tt class="py-line"><tt class="py-docstring">                </tt> </tt>
+<a name="L47"></a><tt class="py-lineno"> 47</tt>  <tt class="py-line"><tt class="py-docstring">        **Returns**:</tt> </tt>
+<a name="L48"></a><tt class="py-lineno"> 48</tt>  <tt class="py-line"><tt class="py-docstring">                *matplotlib axes*. The axes the graph was drawn to.</tt> </tt>
+<a name="L49"></a><tt class="py-lineno"> 49</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L50"></a><tt class="py-lineno"> 50</tt>  <tt class="py-line">        <tt class="py-name">ax</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-string">'ax'</tt><tt class="py-op">,</tt><tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L51"></a><tt class="py-lineno"> 51</tt>  <tt class="py-line">         </tt>
+<a name="L52"></a><tt class="py-lineno"> 52</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L53"></a><tt class="py-lineno"> 53</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt id="link-15" class="py-name" targets="Class zen.exceptions.ZenException=zen.exceptions.ZenException-class.html"><a title="zen.exceptions.ZenException" class="py-name" href="#" onclick="return doclink('link-15', 'ZenException', 'link-15');">ZenException</a></tt><tt class="py-op">,</tt> <tt class="py-string">'Unexpected keyword arguments: %s'</tt> <tt class="py-op">%</tt> <tt class="py-string">','</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt class="py-name">keys</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L54"></a><tt class="py-lineno"> 54</tt>  <tt class="py-line">                 </tt>
+<a name="L55"></a><tt class="py-lineno"> 55</tt>  <tt class="py-line">        <tt class="py-name">G</tt> <tt class="py-op">=</tt> <tt id="link-16" class="py-name"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-16', 'view', 'link-1');">view</a></tt><tt class="py-op">.</tt><tt id="link-17" class="py-name" targets="Module zen.benchmarks.graph=zen.benchmarks.graph-module.html,Variable zen.drawing.ubigraph.UbigraphRenderer.graph=zen.drawing.ubigraph.UbigraphRenderer-class.html#graph,Module zen.graph=zen.graph-module.html,Module zen.tests.graph=zen.tests.graph-module.html,Method zen.view.View.graph()=zen.view.View-class.html#graph"><a title="zen.benchmarks.graph
+zen.drawing.ubigraph.UbigraphRenderer.graph
+zen.graph
+zen.tests.graph
+zen.view.View.graph" class="py-name" href="#" onclick="return doclink('link-17', 'graph', 'link-17');">graph</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L56"></a><tt class="py-lineno"> 56</tt>  <tt class="py-line">        <tt class="py-name">pos</tt> <tt class="py-op">=</tt> <tt id="link-18" class="py-name"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-18', 'view', 'link-1');">view</a></tt><tt class="py-op">.</tt><tt id="link-19" class="py-name" targets="Method zen.view.View.pos_array()=zen.view.View-class.html#pos_array"><a title="zen.view.View.pos_array" class="py-name" href="#" onclick="return doclink('link-19', 'pos_array', 'link-19');">pos_array</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L57"></a><tt class="py-lineno"> 57</tt>  <tt class="py-line">         </tt>
+<a name="L58"></a><tt class="py-lineno"> 58</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">pos</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L59"></a><tt class="py-lineno"> 59</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt id="link-20" class="py-name"><a title="zen.exceptions.ZenException" class="py-name" href="#" onclick="return doclink('link-20', 'ZenException', 'link-15');">ZenException</a></tt><tt class="py-op">,</tt> <tt class="py-string">'No position information is in view object'</tt> </tt>
+<a name="L60"></a><tt class="py-lineno"> 60</tt>  <tt class="py-line">         </tt>
+<a name="L61"></a><tt class="py-lineno"> 61</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">ax</tt> <tt class="py-op">==</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L62"></a><tt class="py-lineno"> 62</tt>  <tt class="py-line">                <tt class="py-name">ax</tt> <tt class="py-op">=</tt> <tt class="py-name">pl</tt><tt class="py-op">.</tt><tt class="py-name">gca</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L63"></a><tt class="py-lineno"> 63</tt>  <tt class="py-line">                 </tt>
+<a name="L64"></a><tt class="py-lineno"> 64</tt>  <tt class="py-line">        <tt class="py-comment"># draw nodes</tt> </tt>
+<a name="L65"></a><tt class="py-lineno"> 65</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">nidx</tt> <tt class="py-keyword">in</tt> <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-21" class="py-name" targets="Method zen.digraph.DiGraph.nodes_iter_()=zen.digraph.DiGraph-class.html#nodes_iter_,Method zen.graph.Graph.nodes_iter_()=zen.graph.Graph-class.html#nodes_iter_,Method zen.hypergraph.HyperGraph.nodes_iter_()=zen.hypergraph.HyperGraph-class.html#nodes_iter_"><a title="zen.digraph.DiGraph.nodes_iter_
+zen.graph.Graph.nodes_iter_
+zen.hypergraph.HyperGraph.nodes_iter_" class="py-name" href="#" onclick="return doclink('link-21', 'nodes_iter_', 'link-21');">nodes_iter_</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L66"></a><tt class="py-lineno"> 66</tt>  <tt class="py-line">                <tt class="py-name">color</tt> <tt class="py-op">=</tt> <tt id="link-22" class="py-name"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-22', 'view', 'link-1');">view</a></tt><tt class="py-op">.</tt><tt id="link-23" class="py-name" targets="Method zen.view.View.node_color_()=zen.view.View-class.html#node_color_"><a title="zen.view.View.node_color_" class="py-name" href="#" onclick="return doclink('link-23', 'node_color_', 'link-23');">node_color_</a></tt><tt class="py-op">(</tt><tt class="py-name">nidx</tt><tt class="py-op">)</tt> </tt>
+<a name="L67"></a><tt class="py-lineno"> 67</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">color</tt> <tt class="py-op">==</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L68"></a><tt class="py-lineno"> 68</tt>  <tt class="py-line">                        <tt class="py-name">color</tt> <tt class="py-op">=</tt> <tt id="link-24" class="py-name"><a title="zen.drawing.mpl.DEFAULT_NODE_COLOR" class="py-name" href="#" onclick="return doclink('link-24', 'DEFAULT_NODE_COLOR', 'link-7');">DEFAULT_NODE_COLOR</a></tt> </tt>
+<a name="L69"></a><tt class="py-lineno"> 69</tt>  <tt class="py-line"> </tt>
+<a name="L70"></a><tt class="py-lineno"> 70</tt>  <tt class="py-line">                <tt class="py-name">bcolor</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L71"></a><tt class="py-lineno"> 71</tt>  <tt class="py-line">                <tt class="py-name">bwidth</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L72"></a><tt class="py-lineno"> 72</tt>  <tt class="py-line">                <tt class="py-name">binfo</tt> <tt class="py-op">=</tt> <tt id="link-25" class="py-name"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-25', 'view', 'link-1');">view</a></tt><tt class="py-op">.</tt><tt id="link-26" class="py-name" targets="Method zen.view.View.node_border_()=zen.view.View-class.html#node_border_"><a title="zen.view.View.node_border_" class="py-name" href="#" onclick="return doclink('link-26', 'node_border_', 'link-26');">node_border_</a></tt><tt class="py-op">(</tt><tt class="py-name">nidx</tt><tt class="py-op">)</tt> </tt>
+<a name="L73"></a><tt class="py-lineno"> 73</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">binfo</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L74"></a><tt class="py-lineno"> 74</tt>  <tt class="py-line">                        <tt class="py-name">bcolor</tt> <tt class="py-op">=</tt> <tt class="py-name">None</tt> </tt>
+<a name="L75"></a><tt class="py-lineno"> 75</tt>  <tt class="py-line">                        <tt class="py-name">bwidth</tt> <tt class="py-op">=</tt> <tt class="py-number">0</tt> </tt>
+<a name="L76"></a><tt class="py-lineno"> 76</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L77"></a><tt class="py-lineno"> 77</tt>  <tt class="py-line">                        <tt class="py-name">bcolor</tt><tt class="py-op">,</tt><tt class="py-name">bwidth</tt> <tt class="py-op">=</tt> <tt class="py-name">binfo</tt> </tt>
+<a name="L78"></a><tt class="py-lineno"> 78</tt>  <tt class="py-line">                         </tt>
+<a name="L79"></a><tt class="py-lineno"> 79</tt>  <tt class="py-line">                <tt id="link-27" class="py-name" targets="Variable zen.io.gml.x=zen.io.gml-module.html#x,Variable zen.io.gml_codec.Decoder.x=zen.io.gml_codec.Decoder-class.html#x"><a title="zen.io.gml.x
+zen.io.gml_codec.Decoder.x" class="py-name" href="#" onclick="return doclink('link-27', 'x', 'link-27');">x</a></tt> <tt class="py-op">=</tt> <tt class="py-name">pos</tt><tt class="py-op">[</tt><tt class="py-name">nidx</tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt> </tt>
+<a name="L80"></a><tt class="py-lineno"> 80</tt>  <tt class="py-line">                <tt class="py-name">y</tt> <tt class="py-op">=</tt> <tt class="py-name">pos</tt><tt class="py-op">[</tt><tt class="py-name">nidx</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">]</tt> </tt>
+<a name="L81"></a><tt class="py-lineno"> 81</tt>  <tt class="py-line">                <tt class="py-name">shape</tt><tt class="py-op">,</tt><tt class="py-name">dim</tt> <tt class="py-op">=</tt> <tt id="link-28" class="py-name"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-28', 'view', 'link-1');">view</a></tt><tt class="py-op">.</tt><tt id="link-29" class="py-name" targets="Method zen.view.View.shape_()=zen.view.View-class.html#shape_"><a title="zen.view.View.shape_" class="py-name" href="#" onclick="return doclink('link-29', 'shape_', 'link-29');">shape_</a></tt><tt class="py-op">(</tt><tt class="py-name">nidx</tt><tt class="py-op">)</tt> </tt>
+<a name="L82"></a><tt class="py-lineno"> 82</tt>  <tt class="py-line">                 </tt>
+<a name="L83"></a><tt class="py-lineno"> 83</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">shape</tt> <tt class="py-op">==</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L84"></a><tt class="py-lineno"> 84</tt>  <tt class="py-line">                        <tt class="py-name">shape</tt> <tt class="py-op">=</tt> <tt id="link-30" class="py-name"><a title="zen.drawing.mpl.DEFAULT_NODE_SHAPE" class="py-name" href="#" onclick="return doclink('link-30', 'DEFAULT_NODE_SHAPE', 'link-12');">DEFAULT_NODE_SHAPE</a></tt> </tt>
+<a name="L85"></a><tt class="py-lineno"> 85</tt>  <tt class="py-line">                        <tt class="py-name">dim</tt> <tt class="py-op">=</tt> <tt id="link-31" class="py-name"><a title="zen.drawing.mpl.DEFAULT_NODE_SHAPE_DIM" class="py-name" href="#" onclick="return doclink('link-31', 'DEFAULT_NODE_SHAPE_DIM', 'link-14');">DEFAULT_NODE_SHAPE_DIM</a></tt> </tt>
+<a name="L86"></a><tt class="py-lineno"> 86</tt>  <tt class="py-line">                 </tt>
+<a name="L87"></a><tt class="py-lineno"> 87</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">shape</tt> <tt class="py-op">==</tt> <tt id="link-32" class="py-name"><a title="zen.view.CIRCLE" class="py-name" href="#" onclick="return doclink('link-32', 'CIRCLE', 'link-13');">CIRCLE</a></tt><tt class="py-op">:</tt> </tt>
+<a name="L88"></a><tt class="py-lineno"> 88</tt>  <tt class="py-line">                        <tt class="py-name">ax</tt><tt class="py-op">.</tt><tt class="py-name">add_patch</tt><tt class="py-op">(</tt><tt class="py-name">Circle</tt><tt class="py-op">(</tt> <tt class="py-op">(</tt><tt id="link-33" class="py-name"><a title="zen.io.gml.x
+zen.io.gml_codec.Decoder.x" class="py-name" href="#" onclick="return doclink('link-33', 'x', 'link-27');">x</a></tt><tt class="py-op">,</tt><tt class="py-name">y</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">radius</tt><tt class="py-op">=</tt><tt class="py-name">dim</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt> <tt class="py-name">facecolor</tt><tt class="py-op">=</tt><tt class="py-name">color</tt><tt class="py-op">,</tt> <tt class="py-name">edgecolor</tt><tt class="py-op">=</tt><tt class="py-name">bcolor</tt><tt class="py-op">,</tt> <tt class="py-name">linewidth</tt><tt class="py-op">=</tt><tt class="py-name">bwidth</tt><tt class="py-op">,</tt> <tt class="py-name">zorder</tt><tt class="py-op">=</tt><tt class="py-number">2</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L89"></a><tt class="py-lineno"> 89</tt>  <tt class="py-line">                <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L90"></a><tt class="py-lineno"> 90</tt>  <tt class="py-line">                        <tt class="py-keyword">raise</tt> <tt id="link-34" class="py-name"><a title="zen.exceptions.ZenException" class="py-name" href="#" onclick="return doclink('link-34', 'ZenException', 'link-15');">ZenException</a></tt><tt class="py-op">,</tt> <tt class="py-string">'Node shape %s not supported'</tt> <tt class="py-op">%</tt> <tt class="py-name">shape</tt> </tt>
+<a name="L91"></a><tt class="py-lineno"> 91</tt>  <tt class="py-line"> </tt>
+<a name="L92"></a><tt class="py-lineno"> 92</tt>  <tt class="py-line">        <tt class="py-comment"># draw edges</tt> </tt>
+<a name="L93"></a><tt class="py-lineno"> 93</tt>  <tt class="py-line">        <tt class="py-keyword">for</tt> <tt class="py-name">eidx</tt> <tt class="py-keyword">in</tt> <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-35" class="py-name" targets="Method zen.digraph.DiGraph.edges_iter_()=zen.digraph.DiGraph-class.html#edges_iter_,Method zen.graph.Graph.edges_iter_()=zen.graph.Graph-class.html#edges_iter_,Method zen.hypergraph.HyperGraph.edges_iter_()=zen.hypergraph.HyperGraph-class.html#edges_iter_"><a title="zen.digraph.DiGraph.edges_iter_
+zen.graph.Graph.edges_iter_
+zen.hypergraph.HyperGraph.edges_iter_" class="py-name" href="#" onclick="return doclink('link-35', 'edges_iter_', 'link-35');">edges_iter_</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+<a name="L94"></a><tt class="py-lineno"> 94</tt>  <tt class="py-line">                <tt class="py-name">alpha</tt> <tt class="py-op">=</tt> <tt class="py-number">1.0</tt> </tt>
+<a name="L95"></a><tt class="py-lineno"> 95</tt>  <tt class="py-line">                <tt class="py-name">ecolor</tt> <tt class="py-op">=</tt> <tt id="link-36" class="py-name"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-36', 'view', 'link-1');">view</a></tt><tt class="py-op">.</tt><tt id="link-37" class="py-name" targets="Method zen.view.View.edge_color_()=zen.view.View-class.html#edge_color_"><a title="zen.view.View.edge_color_" class="py-name" href="#" onclick="return doclink('link-37', 'edge_color_', 'link-37');">edge_color_</a></tt><tt class="py-op">(</tt><tt class="py-name">eidx</tt><tt class="py-op">)</tt> </tt>
+<a name="L96"></a><tt class="py-lineno"> 96</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">ecolor</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L97"></a><tt class="py-lineno"> 97</tt>  <tt class="py-line">                        <tt class="py-name">ecolor</tt> <tt class="py-op">=</tt> <tt id="link-38" class="py-name"><a title="zen.drawing.mpl.DEFAULT_EDGE_COLOR" class="py-name" href="#" onclick="return doclink('link-38', 'DEFAULT_EDGE_COLOR', 'link-9');">DEFAULT_EDGE_COLOR</a></tt> </tt>
+<a name="L98"></a><tt class="py-lineno"> 98</tt>  <tt class="py-line">                 </tt>
+<a name="L99"></a><tt class="py-lineno"> 99</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">ecolor</tt><tt class="py-op">)</tt> <tt class="py-op">==</tt> <tt class="py-number">4</tt><tt class="py-op">:</tt> </tt>
+<a name="L100"></a><tt class="py-lineno">100</tt>  <tt class="py-line">                        <tt class="py-name">alpha</tt> <tt class="py-op">=</tt> <tt class="py-name">ecolor</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">]</tt> </tt>
+<a name="L101"></a><tt class="py-lineno">101</tt>  <tt class="py-line">                 </tt>
+<a name="L102"></a><tt class="py-lineno">102</tt>  <tt class="py-line">                <tt class="py-name">ewidth</tt> <tt class="py-op">=</tt> <tt id="link-39" class="py-name"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-39', 'view', 'link-1');">view</a></tt><tt class="py-op">.</tt><tt id="link-40" class="py-name" targets="Method zen.view.View.edge_width_()=zen.view.View-class.html#edge_width_"><a title="zen.view.View.edge_width_" class="py-name" href="#" onclick="return doclink('link-40', 'edge_width_', 'link-40');">edge_width_</a></tt><tt class="py-op">(</tt><tt class="py-name">eidx</tt><tt class="py-op">)</tt> </tt>
+<a name="L103"></a><tt class="py-lineno">103</tt>  <tt class="py-line">                <tt class="py-keyword">if</tt> <tt class="py-name">ewidth</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L104"></a><tt class="py-lineno">104</tt>  <tt class="py-line">                        <tt class="py-name">ewidth</tt> <tt class="py-op">=</tt> <tt id="link-41" class="py-name"><a title="zen.drawing.mpl.DEFAULT_EDGE_WIDTH" class="py-name" href="#" onclick="return doclink('link-41', 'DEFAULT_EDGE_WIDTH', 'link-11');">DEFAULT_EDGE_WIDTH</a></tt> </tt>
+<a name="L105"></a><tt class="py-lineno">105</tt>  <tt class="py-line">                         </tt>
+<a name="L106"></a><tt class="py-lineno">106</tt>  <tt class="py-line">                <tt id="link-42" class="py-name"><a title="zen.io.gml.x
+zen.io.gml_codec.Decoder.x" class="py-name" href="#" onclick="return doclink('link-42', 'x', 'link-27');">x</a></tt><tt class="py-op">,</tt><tt class="py-name">y</tt> <tt class="py-op">=</tt> <tt class="py-name">G</tt><tt class="py-op">.</tt><tt id="link-43" class="py-name" targets="Method zen.digraph.DiGraph.endpoints_()=zen.digraph.DiGraph-class.html#endpoints_,Method zen.graph.Graph.endpoints_()=zen.graph.Graph-class.html#endpoints_,Method zen.hypergraph.HyperGraph.endpoints_()=zen.hypergraph.HyperGraph-class.html#endpoints_"><a title="zen.digraph.DiGraph.endpoints_
+zen.graph.Graph.endpoints_
+zen.hypergraph.HyperGraph.endpoints_" class="py-name" href="#" onclick="return doclink('link-43', 'endpoints_', 'link-43');">endpoints_</a></tt><tt class="py-op">(</tt><tt class="py-name">eidx</tt><tt class="py-op">)</tt> </tt>
+<a name="L107"></a><tt class="py-lineno">107</tt>  <tt class="py-line">                <tt class="py-name">ax</tt><tt class="py-op">.</tt><tt class="py-name">add_line</tt><tt class="py-op">(</tt> <tt class="py-name">Line2D</tt><tt class="py-op">(</tt> <tt class="py-op">(</tt><tt class="py-name">pos</tt><tt class="py-op">[</tt><tt id="link-44" class="py-name"><a title="zen.io.gml.x
+zen.io.gml_codec.Decoder.x" class="py-name" href="#" onclick="return doclink('link-44', 'x', 'link-27');">x</a></tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">pos</tt><tt class="py-op">[</tt><tt class="py-name">y</tt><tt class="py-op">,</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-op">(</tt><tt class="py-name">pos</tt><tt class="py-op">[</tt><tt id="link-45" class="py-name"><a title="zen.io.gml.x
+zen.io.gml_codec.Decoder.x" class="py-name" href="#" onclick="return doclink('link-45', 'x', 'link-27');">x</a></tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">pos</tt><tt class="py-op">[</tt><tt class="py-name">y</tt><tt class="py-op">,</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt><tt class="py-op">,</tt> <tt class="py-name">linewidth</tt><tt class="py-op">=</tt><tt class="py-name">ewidth</tt><tt class="py-op">,</tt> <tt class="py-name">color</tt><tt class="py-op">=</tt><tt class="py-name">ecolor</tt><tt class="py-op">,</tt> <tt class="py-name">alpha</tt><tt class="py-op">=</tt><tt class="py-name">alpha</tt><tt class="py-op">,</tt> <tt class="py-name">zorder</tt><tt class="py-op">=</tt><tt class="py-number">1</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L108"></a><tt class="py-lineno">108</tt>  <tt class="py-line">                 </tt>
+<a name="L109"></a><tt class="py-lineno">109</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">ax</tt> </tt>
+</div><a name="L110"></a><tt class="py-lineno">110</tt>  <tt class="py-line"> </tt>
+<a name="draw"></a><div id="draw-def"><a name="L111"></a><tt class="py-lineno">111</tt> <a class="py-toggle" href="#" id="draw-toggle" onclick="return toggle('draw');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.drawing.mpl-module.html#draw">draw</a><tt class="py-op">(</tt><tt class="py-param">view</tt><tt class="py-op">,</tt><tt class="py-op">**</tt><tt class="py-param">kwargs</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="draw-collapsed" style="display:none;" pad="+++" indent="++++"></div><div id="draw-expanded"><a name="L112"></a><tt class="py-lineno">112</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L113"></a><tt class="py-lineno">113</tt>  <tt class="py-line"><tt class="py-docstring">        Draw the network view to a figure.  </tt> </tt>
+<a name="L114"></a><tt class="py-lineno">114</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L115"></a><tt class="py-lineno">115</tt>  <tt class="py-line"><tt class="py-docstring">        If no figure is specified, then the current figure is used.  If no figure exists,</tt> </tt>
+<a name="L116"></a><tt class="py-lineno">116</tt>  <tt class="py-line"><tt class="py-docstring">        one will be created.  The network will be drawn to the axes of the figure.</tt> </tt>
+<a name="L117"></a><tt class="py-lineno">117</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L118"></a><tt class="py-lineno">118</tt>  <tt class="py-line"><tt class="py-docstring">        .. note::</tt> </tt>
+<a name="L119"></a><tt class="py-lineno">119</tt>  <tt class="py-line"><tt class="py-docstring">                This function is also defined as ``zen.drawing.mpl.draw_to_figure``.</tt> </tt>
+<a name="L120"></a><tt class="py-lineno">120</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L121"></a><tt class="py-lineno">121</tt>  <tt class="py-line"><tt class="py-docstring">        **Args**:</tt> </tt>
+<a name="L122"></a><tt class="py-lineno">122</tt>  <tt class="py-line"><tt class="py-docstring">                * ``view`` (:py:class:`zen.View`): the view to draw to the figure</tt> </tt>
+<a name="L123"></a><tt class="py-lineno">123</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L124"></a><tt class="py-lineno">124</tt>  <tt class="py-line"><tt class="py-docstring">        **KwArgs**:</tt> </tt>
+<a name="L125"></a><tt class="py-lineno">125</tt>  <tt class="py-line"><tt class="py-docstring">                * ``fig [=None]`` (matplotlib figure): the specific figure to draw the graph on.</tt> </tt>
+<a name="L126"></a><tt class="py-lineno">126</tt>  <tt class="py-line"><tt class="py-docstring">                * ``bounds [=None]`` (:py:class:`tuple`): a tuple indicating the bounds of the plot. </tt> </tt>
+<a name="L127"></a><tt class="py-lineno">127</tt>  <tt class="py-line"><tt class="py-docstring">                  This influences the portion of the graph that will be visible and where the graph's</tt> </tt>
+<a name="L128"></a><tt class="py-lineno">128</tt>  <tt class="py-line"><tt class="py-docstring">                  components will be positioned in the plot.  If ``None``, then bounds will be chosen</tt> </tt>
+<a name="L129"></a><tt class="py-lineno">129</tt>  <tt class="py-line"><tt class="py-docstring">                  that fit all nodes and edges in the graph with a 10% buffer on all sides.</tt> </tt>
+<a name="L130"></a><tt class="py-lineno">130</tt>  <tt class="py-line"><tt class="py-docstring">                </tt> </tt>
+<a name="L131"></a><tt class="py-lineno">131</tt>  <tt class="py-line"><tt class="py-docstring">        **Returns**:</tt> </tt>
+<a name="L132"></a><tt class="py-lineno">132</tt>  <tt class="py-line"><tt class="py-docstring">                *matplotlib figure*. The figure the graph was drawn to.</tt> </tt>
+<a name="L133"></a><tt class="py-lineno">133</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L134"></a><tt class="py-lineno">134</tt>  <tt class="py-line">        <tt class="py-name">fig</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-string">'fig'</tt><tt class="py-op">,</tt><tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L135"></a><tt class="py-lineno">135</tt>  <tt class="py-line">        <tt class="py-name">bounds</tt> <tt class="py-op">=</tt> <tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt class="py-name">pop</tt><tt class="py-op">(</tt><tt class="py-string">'bounds'</tt><tt class="py-op">,</tt><tt class="py-name">None</tt><tt class="py-op">)</tt> </tt>
+<a name="L136"></a><tt class="py-lineno">136</tt>  <tt class="py-line">         </tt>
+<a name="L137"></a><tt class="py-lineno">137</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">len</tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">)</tt> <tt class="py-op">&gt;</tt> <tt class="py-number">0</tt><tt class="py-op">:</tt> </tt>
+<a name="L138"></a><tt class="py-lineno">138</tt>  <tt class="py-line">                <tt class="py-keyword">raise</tt> <tt id="link-46" class="py-name"><a title="zen.exceptions.ZenException" class="py-name" href="#" onclick="return doclink('link-46', 'ZenException', 'link-15');">ZenException</a></tt><tt class="py-op">,</tt> <tt class="py-string">'Unexpected keyword arguments: %s'</tt> <tt class="py-op">%</tt> <tt class="py-string">','</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">kwargs</tt><tt class="py-op">.</tt><tt class="py-name">keys</tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt> </tt>
+<a name="L139"></a><tt class="py-lineno">139</tt>  <tt class="py-line">         </tt>
+<a name="L140"></a><tt class="py-lineno">140</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">fig</tt> <tt class="py-op">==</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L141"></a><tt class="py-lineno">141</tt>  <tt class="py-line">                <tt class="py-name">fig</tt> <tt class="py-op">=</tt> <tt class="py-name">pl</tt><tt class="py-op">.</tt><tt class="py-name">gcf</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L142"></a><tt class="py-lineno">142</tt>  <tt class="py-line">                 </tt>
+<a name="L143"></a><tt class="py-lineno">143</tt>  <tt class="py-line">        <tt class="py-name">ax</tt> <tt class="py-op">=</tt> <tt class="py-name">pl</tt><tt class="py-op">.</tt><tt class="py-name">gca</tt><tt class="py-op">(</tt><tt class="py-op">)</tt> </tt>
+<a name="L144"></a><tt class="py-lineno">144</tt>  <tt class="py-line">        <tt class="py-name">pl</tt><tt class="py-op">.</tt><tt class="py-name">xticks</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L145"></a><tt class="py-lineno">145</tt>  <tt class="py-line">        <tt class="py-name">pl</tt><tt class="py-op">.</tt><tt class="py-name">yticks</tt><tt class="py-op">(</tt><tt class="py-op">[</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L146"></a><tt class="py-lineno">146</tt>  <tt class="py-line">         </tt>
+<a name="L147"></a><tt class="py-lineno">147</tt>  <tt class="py-line">        <tt class="py-keyword">if</tt> <tt class="py-name">bounds</tt> <tt class="py-keyword">is</tt> <tt class="py-name">None</tt><tt class="py-op">:</tt> </tt>
+<a name="L148"></a><tt class="py-lineno">148</tt>  <tt class="py-line">                <tt class="py-name">buffer_size</tt> <tt class="py-op">=</tt> <tt class="py-name">float</tt><tt class="py-op">(</tt><tt id="link-47" class="py-name"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-47', 'view', 'link-1');">view</a></tt><tt class="py-op">.</tt><tt id="link-48" class="py-name" targets="Method zen.view.View.max_x()=zen.view.View-class.html#max_x"><a title="zen.view.View.max_x" class="py-name" href="#" onclick="return doclink('link-48', 'max_x', 'link-48');">max_x</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">-</tt><tt id="link-49" class="py-name"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-49', 'view', 'link-1');">view</a></tt><tt class="py-op">.</tt><tt id="link-50" class="py-name" targets="Method zen.view.View.min_x()=zen.view.View-class.html#min_x"><a title="zen.view.View.min_x" class="py-name" href="#" onclick="return doclink('link-50', 'min_x', 'link-50');">min_x</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">)</tt><tt class="py-op">*</tt><tt class="py-number">0.1</tt> </tt>
+<a name="L149"></a><tt class="py-lineno">149</tt>  <tt class="py-line">                <tt class="py-name">ax</tt><tt class="py-op">.</tt><tt class="py-name">set_xbound</tt><tt class="py-op">(</tt><tt id="link-51" class="py-name"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-51', 'view', 'link-1');">view</a></tt><tt class="py-op">.</tt><tt id="link-52" class="py-name"><a title="zen.view.View.min_x" class="py-name" href="#" onclick="return doclink('link-52', 'min_x', 'link-50');">min_x</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">-</tt><tt class="py-name">buffer_size</tt><tt class="py-op">,</tt><tt id="link-53" class="py-name"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-53', 'view', 'link-1');">view</a></tt><tt class="py-op">.</tt><tt id="link-54" class="py-name"><a title="zen.view.View.max_x" class="py-name" href="#" onclick="return doclink('link-54', 'max_x', 'link-48');">max_x</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-name">buffer_size</tt><tt class="py-op">)</tt> </tt>
+<a name="L150"></a><tt class="py-lineno">150</tt>  <tt class="py-line">                <tt class="py-name">ax</tt><tt class="py-op">.</tt><tt class="py-name">set_ybound</tt><tt class="py-op">(</tt><tt id="link-55" class="py-name"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-55', 'view', 'link-1');">view</a></tt><tt class="py-op">.</tt><tt id="link-56" class="py-name" targets="Method zen.view.View.min_y()=zen.view.View-class.html#min_y"><a title="zen.view.View.min_y" class="py-name" href="#" onclick="return doclink('link-56', 'min_y', 'link-56');">min_y</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">-</tt><tt class="py-name">buffer_size</tt><tt class="py-op">,</tt><tt id="link-57" class="py-name"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-57', 'view', 'link-1');">view</a></tt><tt class="py-op">.</tt><tt id="link-58" class="py-name" targets="Method zen.view.View.max_y()=zen.view.View-class.html#max_y"><a title="zen.view.View.max_y" class="py-name" href="#" onclick="return doclink('link-58', 'max_y', 'link-58');">max_y</a></tt><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">+</tt><tt class="py-name">buffer_size</tt><tt class="py-op">)</tt> </tt>
+<a name="L151"></a><tt class="py-lineno">151</tt>  <tt class="py-line">        <tt class="py-keyword">else</tt><tt class="py-op">:</tt> </tt>
+<a name="L152"></a><tt class="py-lineno">152</tt>  <tt class="py-line">                <tt class="py-name">ax</tt><tt class="py-op">.</tt><tt class="py-name">set_xbound</tt><tt class="py-op">(</tt><tt class="py-name">bounds</tt><tt class="py-op">[</tt><tt class="py-number">0</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">bounds</tt><tt class="py-op">[</tt><tt class="py-number">1</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L153"></a><tt class="py-lineno">153</tt>  <tt class="py-line">                <tt class="py-name">ax</tt><tt class="py-op">.</tt><tt class="py-name">set_ybound</tt><tt class="py-op">(</tt><tt class="py-name">bounds</tt><tt class="py-op">[</tt><tt class="py-number">2</tt><tt class="py-op">]</tt><tt class="py-op">,</tt><tt class="py-name">bounds</tt><tt class="py-op">[</tt><tt class="py-number">3</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+<a name="L154"></a><tt class="py-lineno">154</tt>  <tt class="py-line">                 </tt>
+<a name="L155"></a><tt class="py-lineno">155</tt>  <tt class="py-line">        <tt id="link-59" class="py-name" targets="Function zen.drawing.mpl.draw_to_axes()=zen.drawing.mpl-module.html#draw_to_axes"><a title="zen.drawing.mpl.draw_to_axes" class="py-name" href="#" onclick="return doclink('link-59', 'draw_to_axes', 'link-59');">draw_to_axes</a></tt><tt class="py-op">(</tt><tt id="link-60" class="py-name"><a title="zen.view" class="py-name" href="#" onclick="return doclink('link-60', 'view', 'link-1');">view</a></tt><tt class="py-op">,</tt><tt class="py-name">ax</tt><tt class="py-op">=</tt><tt class="py-name">ax</tt><tt class="py-op">)</tt> </tt>
+<a name="L156"></a><tt class="py-lineno">156</tt>  <tt class="py-line">         </tt>
+<a name="L157"></a><tt class="py-lineno">157</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt class="py-name">fig</tt> </tt>
+</div><a name="L158"></a><tt class="py-lineno">158</tt>  <tt class="py-line">         </tt>
+<a name="L159"></a><tt class="py-lineno">159</tt>  <tt class="py-line"><tt class="py-name">draw_to_figure</tt> <tt class="py-op">=</tt> <tt id="link-61" class="py-name" targets="Function zen.drawing.mpl.draw()=zen.drawing.mpl-module.html#draw"><a title="zen.drawing.mpl.draw" class="py-name" href="#" onclick="return doclink('link-61', 'draw', 'link-61');">draw</a></tt> </tt>
+<a name="L160"></a><tt class="py-lineno">160</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Mar 14 14:30:09 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

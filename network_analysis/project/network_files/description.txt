@@ -1,0 +1,22 @@
+Authors:
+Guo Ziqi, Liu Sidian, Zhu Liying
+
+Description:
+This is a visa requirements (directed, unweighted) network, in which countries are connected if there exists special visa relation between any two. The special visa relation encompasses different levels of reduction in terms of application procedure, including exemption, visa on-arrival or free visa. For example, if country A is allowed to visit country B with loosened requirement, a directed edge starting from country A pointing to country B will be created. All edges will be assigned weight 1, as we are interested in only the existence of such relation. All the information is extracted from http://www.projectvisa.com/fullcountrylist.asp. The continents the countries belong to were also noted down and saved as node data.
+
+Nodes: 238
+Edges: 15156
+Mean Degree: 63
+Density: 0.27
+Clustering: 0.54(GCC),0.67(NCC)
+Diameter: 6
+
+
+Technical Details:
+There might be some ambiguities or complexities in the description in the visa policies that are neglected by our parsing script.
+
+Data Source:
+http://www.projectvisa.com/fullcountrylist.asp
+
+Data Source Author/Organization:
+None

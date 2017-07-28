@@ -1,0 +1,400 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>zen</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        Package&nbsp;zen
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="zen-module.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<!-- ==================== PACKAGE DESCRIPTION ==================== -->
+<h1 class="epydoc">Package zen</h1><p class="nomargin-top"><span class="codelink"><a href="zen-pysrc.html">source&nbsp;code</a></span></p>
+<p>Zen is designed to be a Zero-Effort Network library - meaning that 
+  whether you just want to prototype code or need to implement a high-speed
+  routine, Zen makes it possible for you to do it easily.  In order to 
+  acheive this, Zen has made use of several specific architectural features
+  which enable (1) ease in learning and using the library and (2) the 
+  ability for the library to offer maximally fast routines.</p>
+  <p>Most fundamentally, every node and edge in a Zen graph has three 
+  properties:</p>
+  <ul>
+    <li>
+      an index: this is a unique integer which is assigned to the entity.  
+      In the underlying implementation, this index provides a very fast 
+      lookup to information about the object, which is important when 
+      writing code where execution time is important.  Because this index 
+      is a direct lookup, this value may not be perserved across instances 
+      of the graph.
+    </li>
+    <li>
+      an object: this is a higher-level identifier for the entity.  Nodes 
+      can be given arbitrary objects, so long as they are hashable.  In 
+      ordinary directed and undirected graphs, the identifier for an edge 
+      is its endpoints (ordered endpoints, in the case of a directed 
+      graph).  The object for a node and edge must be both hashtable and 
+      immutable - at least with regard to the features that determine its 
+      hashcode and comparison to other objects.
+    </li>
+    <li>
+      data: this is an object (often a dictionary) that contains attributes
+      of the node or edge.
+    </li>
+  </ul>
+  <p>When operating on nodes and edges in a graph, they can be referred to 
+  using either their index or their object. Except where it wouldn't make 
+  sense, every method that accepts nodes or edges as input has two versions
+  - one that takes an object and one that takes an index.  Methods that use
+  an index will **always** be faster than one that takes an object.  In 
+  order to facilitatevreadability and easy learning of method and function 
+  names, everywhere in Zen we use the following conventions:</p>
+  <ul>
+    <li>
+      If a specific function accepts a node or edge, then the version that 
+      accepts objects will be called &quot;&lt;fxn&gt;(...)&quot;.  The one
+      which takes the index will be called &quot;&lt;fxn&gt;_(...)&quot;.
+    </li>
+    <li>
+      Any function that is called &quot;&lt;fxn&gt;(...)&quot; and returns 
+      an edge or node will return an object. Any function that is called 
+      &quot;&lt;fxn&gt;_(...)&quot; and returns an edge or node will return
+      an index.
+    </li>
+  </ul>
+
+<!-- ==================== SUBMODULES ==================== -->
+<a name="section-Submodules"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Submodules</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Submodules"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+  <tr><td class="summary">
+  <ul class="nomargin">
+    <li> <strong class="uidlink"><a href="zen.algorithms-module.html">zen.algorithms</a></strong>
+    <ul>
+    <li> <strong class="uidlink"><a href="zen.algorithms.centrality-module.html">zen.algorithms.centrality</a></strong>: <em class="summary">The ``zen.algorithms.centrality`` module provides a number of centrality measures on graphs.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.clustering-module.html">zen.algorithms.clustering</a></strong>: <em class="summary">The ``zen.algorithms.clustering`` module (available as ``zen.clustering``) implements three measures of the degree of local clustering of nodes
+in a network's connectivity:</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.community-module.html">zen.algorithms.community</a></strong>: <em class="summary"># TODO: Wherever you mention a class, actually provide the link 
+        (rather than just naming it)</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="zen.algorithms.community.community_common-module.html">zen.algorithms.community.community_common</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.community.communityset-module.html">zen.algorithms.community.communityset</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.community.label_rank%27-module.html">zen.algorithms.community.label_rank'</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.community.louvain%27-module.html">zen.algorithms.community.louvain'</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.community.lpa%27-module.html">zen.algorithms.community.lpa'</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.community.overlapping_communityset-module.html">zen.algorithms.community.overlapping_communityset</a></strong>    </li>
+    <li> <strong class="uidlink">zen.algorithms.community.slpa</strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.community.slpa%27-module.html">zen.algorithms.community.slpa'</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.community.spectral_modularity%27-module.html">zen.algorithms.community.spectral_modularity'</a></strong>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.components%27-module.html">zen.algorithms.components'</a></strong>: <em class="summary">The ``zen.algorithms.components`` module provides functions related
+        to detecting and identifying connected groups of nodes within 
+        graphs.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.flow-module.html">zen.algorithms.flow</a></strong>: <em class="summary">The ``zen.algorithms.flow`` package provides functions for computing network flows and flow-related network cuts.</em>
+    <ul>
+    <li> <strong class="uidlink">zen.algorithms.flow.min_cut</strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.flow.min_cut%27-module.html">zen.algorithms.flow.min_cut'</a></strong>: <em class="summary">The ``zen.algorithms.flow.min_cut`` module implements functions for
+        computing the minimum cut of a network.</em>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.matching-module.html">zen.algorithms.matching</a></strong>: <em class="summary">The ``zen.algorithms.matching`` module provides routines for 
+        computing `maximum-matchings &lt;???&gt;`_ on various types of 
+        graphs.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.max_weight_matching-module.html">zen.algorithms.max_weight_matching</a></strong>: <em class="summary">This module implements weighted maximum matching.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.modularity%27-module.html">zen.algorithms.modularity'</a></strong>: <em class="summary">The ``zen.algorithms.modularity`` module implements functions 
+        concerning the quantification of the presence of sub-groupings of 
+        nodes in the network.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.properties-module.html">zen.algorithms.properties</a></strong>: <em class="summary">This module provides functions that measure of distances within a 
+        network.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.shortest_path-module.html">zen.algorithms.shortest_path</a></strong>: <em class="summary">The ``zen.algorithms.shortest_path`` module provides a number of functions for finding shortest paths in 
+directed and undirected graphs.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.algorithms.spanning-module.html">zen.algorithms.spanning</a></strong>: <em class="summary">The ``zen.algorithms.spanning`` module provides functions that 
+        calculate spanning trees of a network.</em>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="zen.benchmark-module.html">zen.benchmark</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.benchmarks-module.html">zen.benchmarks</a></strong>
+    <ul>
+    <li> <strong class="uidlink"><a href="zen.benchmarks.edgelist-module.html">zen.benchmarks.edgelist</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.benchmarks.graph-module.html">zen.benchmarks.graph</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.benchmarks.shortest_path-module.html">zen.benchmarks.shortest_path</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.benchmarks.spanning-module.html">zen.benchmarks.spanning</a></strong>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="zen.bipartite-module.html">zen.bipartite</a></strong>: <em class="summary">The ``zen.BipartiteGraph`` class provides an undirected `bipartite graph &lt;http://en.wikipedia.org/wiki/Bipartite_graph&gt;`_.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.constants-module.html">zen.constants</a></strong>: <em class="summary">Constants that are used throughout Zen.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.control-module.html">zen.control</a></strong>: <em class="summary">The ``zen.control`` package provides functions and classes for analyzing the control structure of a network.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="zen.control.cacti-module.html">zen.control.cacti</a></strong>: <em class="summary">This module provides functionality for building, querying, and 
+        manipulating the cacti structure of a directed network.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.control.dilations-module.html">zen.control.dilations</a></strong>: <em class="summary">This module implements a number of experimental methods for 
+        extracting the fine-dilation structure from a network.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.control.generic_rank-module.html">zen.control.generic_rank</a></strong>: <em class="summary">This module provides implementations of generic rank-related 
+        functions.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.control.io_shuffle-module.html">zen.control.io_shuffle</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.control.pplot-module.html">zen.control.pplot</a></strong>: <em class="summary">This module implements core control profile plotting functionality.</em>    </li>
+    <li> <strong class="uidlink">zen.control.profile</strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.control.profile%27-module.html">zen.control.profile'</a></strong>: <em class="summary">This module implements functions surrounding the calculation of 
+        control profiles for networks.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.control.profile_plot-module.html">zen.control.profile_plot</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.control.reachability-module.html">zen.control.reachability</a></strong>: <em class="summary">This module provides implementations of reachability-related 
+        functions.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.control.robustness-module.html">zen.control.robustness</a></strong>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="zen.data-module.html">zen.data</a></strong>: <em class="summary">The ``zen.data`` package bundles a number of public, frequently-used network datasets into the Zen library.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.degree-module.html">zen.degree</a></strong>: <em class="summary">This module provides functions that measure of degree distributions
+        within a network.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.digraph-module.html">zen.digraph</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.drawing-module.html">zen.drawing</a></strong>: <em class="summary">The ``zen.drawing`` package contains modules that support drawing graph views to various drawing surfaces/devices.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="zen.drawing.mpl-module.html">zen.drawing.mpl</a></strong>: <em class="summary">The ``zen.drawing.mpl`` module provides code for rendering graph views to `matplotlib &lt;http://matplotlib.sourceforge.net/&gt;`_ figures.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.drawing.ubigraph-module.html">zen.drawing.ubigraph</a></strong>: <em class="summary">The ``zen.drawing.ubigraph`` module provides support for rendering Zen graphs in the `Ubigraph visualization environment &lt;http://ubietylab.net/ubigraph/&gt;`_.</em>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="zen.exceptions-module.html">zen.exceptions</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.generating-module.html">zen.generating</a></strong>: <em class="summary">The ``zen.generating`` package contains functions for generating various standard graphs and networks.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="zen.generating.duplication-module.html">zen.generating.duplication</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.generating.local-module.html">zen.generating.local</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.generating.rgm-module.html">zen.generating.rgm</a></strong>: <em class="summary">This module implements standard random graph models.</em>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="zen.graph-module.html">zen.graph</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.hypergraph-module.html">zen.hypergraph</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.io-module.html">zen.io</a></strong>: <em class="summary">The ``zen.io`` package provides functions for reading and writing networks to and from storage (whether files, databases, or otherwise).</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="zen.io.bel-module.html">zen.io.bel</a></strong>: <em class="summary">The ``zen.io.bel`` module (available as ``zen.bel``) supports the reading and writing of edge lists in binary format.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.io.edgelist-module.html">zen.io.edgelist</a></strong>: <em class="summary">The ``zen.io.edgelist`` module (available as ``zen.edgelist``) 
+        supports the reading and writing of the edgelist format.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.io.gml-module.html">zen.io.gml</a></strong>: <em class="summary">The ``zen.io.gml`` module (available as ``zen.gml``) supports the reading and 
+writing network data in the `Graph Modeling Language (GML) 
+&lt;http://en.wikipedia.org/wiki/Graph_Modelling_Language&gt;`_.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.io.gml_codec-module.html">zen.io.gml_codec</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.io.gml_interpreter-module.html">zen.io.gml_interpreter</a></strong>: <em class="summary">GMLInterpreter maps a list of gml tokens into an in-memory 
+        representation using python dicts and lists.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.io.gml_tokenizer-module.html">zen.io.gml_tokenizer</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.io.hedgelist-module.html">zen.io.hedgelist</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.io.memlist-module.html">zen.io.memlist</a></strong>: <em class="summary">The ``zen.io.memlist`` module (available as ``zen.memlist``) implements a memory-mapped edge list in which 
+edges are specified by their node index pairs.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.io.rdot-module.html">zen.io.rdot</a></strong>: <em class="summary">This module provides code for reading and writing networks in the 
+        restricted dot (rdot) format.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.io.scn-module.html">zen.io.scn</a></strong>: <em class="summary">The ``zen.io.scn`` module (available as ``zen.scn``) supports the reading and writing of graph data in a simple, concise network (SCN) format designed for quick parsing that resembles the :doc:`edgelist format &lt;edgelist&gt;`.</em>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="zen.layout-module.html">zen.layout</a></strong>: <em class="summary">The ``zen.layout`` module provides functions for assigning positions to nodes and paths to edges according to a
+selected algorithm.</em>
+    <ul>
+    <li> <strong class="uidlink"><a href="zen.layout.forceatlas_layout-module.html">zen.layout.forceatlas_layout</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.layout.fruchtermanreingold_layout-module.html">zen.layout.fruchtermanreingold_layout</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.layout.random_layout-module.html">zen.layout.random_layout</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.layout.spring_layout-module.html">zen.layout.spring_layout</a></strong>: <em class="summary">Implement spring force layout algorithms.</em>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="zen.nx-module.html">zen.nx</a></strong>: <em class="summary">The ``zen.nx`` module provides functions for converting graph 
+        objects to and from the `NetworkX 
+        &lt;http://networkx.lanl.gov/&gt;`_ library.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.randomize-module.html">zen.randomize</a></strong>: <em class="summary">This module provides functions that randomly sample from existing networks.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.test-module.html">zen.test</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests-module.html">zen.tests</a></strong>
+    <ul>
+    <li> <strong class="uidlink"><a href="zen.tests.bel-module.html">zen.tests.bel</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.bellman_ford-module.html">zen.tests.bellman_ford</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.bipartite-module.html">zen.tests.bipartite</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.cacti-module.html">zen.tests.cacti</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.centrality-module.html">zen.tests.centrality</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.clustering-module.html">zen.tests.clustering</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.community-module.html">zen.tests.community</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.communityset-module.html">zen.tests.communityset</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.components-module.html">zen.tests.components</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.data-module.html">zen.tests.data</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.digraph-module.html">zen.tests.digraph</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.dijkstra-module.html">zen.tests.dijkstra</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.drawing-module.html">zen.tests.drawing</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.edgelist-module.html">zen.tests.edgelist</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.fibheap-module.html">zen.tests.fibheap</a></strong>: <em class="summary">heap.py</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.fiboheap-module.html">zen.tests.fiboheap</a></strong>: <em class="summary">heap.py</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.flow-module.html">zen.tests.flow</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.floyd_warshall-module.html">zen.tests.floyd_warshall</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.generating_ba-module.html">zen.tests.generating_ba</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.generating_duplication-module.html">zen.tests.generating_duplication</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.generating_er-module.html">zen.tests.generating_er</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.generating_local-module.html">zen.tests.generating_local</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.gml-module.html">zen.tests.gml</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.gml_interpreter-module.html">zen.tests.gml_interpreter</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.gml_tokenizer-module.html">zen.tests.gml_tokenizer</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.graph-module.html">zen.tests.graph</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.hypergraph-module.html">zen.tests.hypergraph</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.layout-module.html">zen.tests.layout</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.lpa-module.html">zen.tests.lpa</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.max_matching-module.html">zen.tests.max_matching</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.memlist-module.html">zen.tests.memlist</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.modularity-module.html">zen.tests.modularity</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.nx-module.html">zen.tests.nx</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.profiles-module.html">zen.tests.profiles</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.properties-module.html">zen.tests.properties</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.randomize-module.html">zen.tests.randomize</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.rdot-module.html">zen.tests.rdot</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.reachability-module.html">zen.tests.reachability</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.scn-module.html">zen.tests.scn</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.shortest_path-module.html">zen.tests.shortest_path</a></strong>: <em class="summary">Test for shortest path utility functions.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.spanning-module.html">zen.tests.spanning</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.tests.unweighted_sssp-module.html">zen.tests.unweighted_sssp</a></strong>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="zen.util-module.html">zen.util</a></strong>
+    <ul>
+    <li> <strong class="uidlink"><a href="zen.util.BeautifulSoup-module.html">zen.util.BeautifulSoup</a></strong>: <em class="summary">Beautiful Soup
+Elixir and Tonic
+&quot;The Screen-Scraper's Friend&quot;
+http://www.crummy.com/software/BeautifulSoup/</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.util.benchmark-module.html">zen.util.benchmark</a></strong>: <em class="summary">A core objective of Zen is to provide among the fastest network-based functionality available.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.util.bitvector-module.html">zen.util.bitvector</a></strong>: <em class="summary">This module provides a BitVector class with expansive capabilities.</em>    </li>
+    <li> <strong class="uidlink"><a href="zen.util.fiboheap-module.html">zen.util.fiboheap</a></strong>    </li>
+    <li> <strong class="uidlink"><a href="zen.util.queue-module.html">zen.util.queue</a></strong>    </li>
+    </ul>
+    </li>
+    <li> <strong class="uidlink"><a href="zen.view-module.html">zen.view</a></strong>: <em class="summary">The ``zen.View`` class encapsulates a graphical description of a graph.</em>    </li>
+  </ul></td></tr>
+</table>
+
+<br />
+<!-- ==================== VARIABLES ==================== -->
+<a name="section-Variables"></a>
+<table class="summary" border="1" cellpadding="3"
+       cellspacing="0" width="100%" bgcolor="white">
+<tr bgcolor="#70b0f0" class="table-header">
+  <td colspan="2" class="table-header">
+    <table border="0" cellpadding="0" cellspacing="0" width="100%">
+      <tr valign="top">
+        <td align="left"><span class="table-header">Variables</span></td>
+        <td align="right" valign="top"
+         ><span class="options">[<a href="#section-Variables"
+         class="privatelink" onclick="toggle_private();"
+         >hide private</a>]</span></td>
+      </tr>
+    </table>
+  </td>
+</tr>
+<tr>
+    <td width="15%" align="right" valign="top" class="summary">
+      <span class="summary-type">&nbsp;</span>
+    </td><td class="summary">
+        <a name="__package__"></a><span class="summary-name">__package__</span> = <code title="'zen'"><code class="variable-quote">'</code><code class="variable-string">zen</code><code class="variable-quote">'</code></code>
+    </td>
+  </tr>
+</table>
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th bgcolor="#70b0f0" class="navbar-select"
+          >&nbsp;&nbsp;&nbsp;Home&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Mar 14 14:30:07 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

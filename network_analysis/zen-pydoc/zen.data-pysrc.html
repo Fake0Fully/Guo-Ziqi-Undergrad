@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="ascii"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+          "DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <title>zen.data</title>
+  <link rel="stylesheet" href="epydoc.css" type="text/css" />
+  <script type="text/javascript" src="epydoc.js"></script>
+</head>
+
+<body bgcolor="white" text="black" link="blue" vlink="#204080"
+      alink="#204080">
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table width="100%" cellpadding="0" cellspacing="0">
+  <tr valign="top">
+    <td width="100%">
+      <span class="breadcrumbs">
+        <a href="zen-module.html">Package&nbsp;zen</a> ::
+        Package&nbsp;data
+      </span>
+    </td>
+    <td>
+      <table cellpadding="0" cellspacing="0">
+        <!-- hide/show private -->
+        <tr><td align="right"><span class="options">[<a href="javascript:void(0);" class="privatelink"
+    onclick="toggle_private();">hide&nbsp;private</a>]</span></td></tr>
+        <tr><td align="right"><span class="options"
+            >[<a href="frames.html" target="_top">frames</a
+            >]&nbsp;|&nbsp;<a href="zen.data-pysrc.html"
+            target="_top">no&nbsp;frames</a>]</span></td></tr>
+      </table>
+    </td>
+  </tr>
+</table>
+<h1 class="epydoc">Source Code for <a href="zen.data-module.html">Package zen.data</a></h1>
+<pre class="py-src">
+<a name="L1"></a><tt class="py-lineno"> 1</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L2"></a><tt class="py-lineno"> 2</tt>  <tt class="py-line"><tt class="py-docstring">The ``zen.data`` package bundles a number of public, frequently-used network datasets into the Zen library.  The intent of including these is to both make it easier for new users to play with real data and to enable established users to rapidly test ideas (algorithms, analysis, etc...) on known datasets.</tt> </tt>
+<a name="L3"></a><tt class="py-lineno"> 3</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L4"></a><tt class="py-lineno"> 4</tt>  <tt class="py-line"><tt class="py-docstring">While the ``zen.data`` package contains the data files for the various datasets, convenience functions are provided for loading each of the different datasets that are included.  Presently, the following datasets are included:</tt> </tt>
+<a name="L5"></a><tt class="py-lineno"> 5</tt>  <tt class="py-line"><tt class="py-docstring"></tt> </tt>
+<a name="L6"></a><tt class="py-lineno"> 6</tt>  <tt class="py-line"><tt class="py-docstring">        * Knuth's *Les Miserable* dataset (``lesmis.gml``)</tt> </tt>
+<a name="L7"></a><tt class="py-lineno"> 7</tt>  <tt class="py-line"><tt class="py-docstring">        * Padgett's *Florentine marriage* network (``florentine.scn``)</tt> </tt>
+<a name="L8"></a><tt class="py-lineno"> 8</tt>  <tt class="py-line"><tt class="py-docstring">        * Zachary's Karate club network (``karate.scn``)</tt> </tt>
+<a name="L9"></a><tt class="py-lineno"> 9</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L10"></a><tt class="py-lineno">10</tt>  <tt class="py-line"><tt class="py-docstring">"""</tt> </tt>
+<a name="L11"></a><tt class="py-lineno">11</tt>  <tt class="py-line"> </tt>
+<a name="L12"></a><tt class="py-lineno">12</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt> </tt>
+<a name="L13"></a><tt class="py-lineno">13</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt> </tt>
+<a name="L14"></a><tt class="py-lineno">14</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-0" class="py-name" targets="Package zen=zen-module.html"><a title="zen" class="py-name" href="#" onclick="return doclink('link-0', 'zen', 'link-0');">zen</a></tt><tt class="py-op">.</tt><tt id="link-1" class="py-name" targets="Package zen.io=zen.io-module.html"><a title="zen.io" class="py-name" href="#" onclick="return doclink('link-1', 'io', 'link-1');">io</a></tt><tt class="py-op">.</tt><tt id="link-2" class="py-name" targets="Module zen.io.scn=zen.io.scn-module.html,Module zen.tests.scn=zen.tests.scn-module.html"><a title="zen.io.scn
+zen.tests.scn" class="py-name" href="#" onclick="return doclink('link-2', 'scn', 'link-2');">scn</a></tt> <tt class="py-keyword">as</tt> <tt id="link-3" class="py-name"><a title="zen.io.scn
+zen.tests.scn" class="py-name" href="#" onclick="return doclink('link-3', 'scn', 'link-2');">scn</a></tt> </tt>
+<a name="L15"></a><tt class="py-lineno">15</tt>  <tt class="py-line"><tt class="py-keyword">import</tt> <tt id="link-4" class="py-name"><a title="zen" class="py-name" href="#" onclick="return doclink('link-4', 'zen', 'link-0');">zen</a></tt><tt class="py-op">.</tt><tt id="link-5" class="py-name"><a title="zen.io" class="py-name" href="#" onclick="return doclink('link-5', 'io', 'link-1');">io</a></tt><tt class="py-op">.</tt><tt id="link-6" class="py-name" targets="Module zen.io.gml=zen.io.gml-module.html,Module zen.tests.gml=zen.tests.gml-module.html"><a title="zen.io.gml
+zen.tests.gml" class="py-name" href="#" onclick="return doclink('link-6', 'gml', 'link-6');">gml</a></tt> <tt class="py-keyword">as</tt> <tt id="link-7" class="py-name"><a title="zen.io.gml
+zen.tests.gml" class="py-name" href="#" onclick="return doclink('link-7', 'gml', 'link-6');">gml</a></tt> </tt>
+<a name="L16"></a><tt class="py-lineno">16</tt>  <tt class="py-line"> </tt>
+<a name="L17"></a><tt class="py-lineno">17</tt>  <tt class="py-line"><tt class="py-name">__all__</tt> <tt class="py-op">=</tt> <tt class="py-op">[</tt><tt class="py-string">'les_miserable'</tt><tt class="py-op">,</tt><tt class="py-string">'karate_club'</tt><tt class="py-op">,</tt><tt class="py-string">'florentine'</tt><tt class="py-op">,</tt><tt class="py-string">'axis_allies'</tt><tt class="py-op">]</tt> </tt>
+<a name="L18"></a><tt class="py-lineno">18</tt>  <tt class="py-line"> </tt>
+<a name="les_miserable"></a><div id="les_miserable-def"><a name="L19"></a><tt class="py-lineno">19</tt> <a class="py-toggle" href="#" id="les_miserable-toggle" onclick="return toggle('les_miserable');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.data-module.html#les_miserable">les_miserable</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="les_miserable-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="les_miserable-expanded"><a name="L20"></a><tt class="py-lineno">20</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L21"></a><tt class="py-lineno">21</tt>  <tt class="py-line"><tt class="py-docstring">        Loads and returns an undirected network of the coappearances among the characters in the novel :title:`Les Miserable`.</tt> </tt>
+<a name="L22"></a><tt class="py-lineno">22</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L23"></a><tt class="py-lineno">23</tt>  <tt class="py-line"><tt class="py-docstring">        .. note::</tt> </tt>
+<a name="L24"></a><tt class="py-lineno">24</tt>  <tt class="py-line"><tt class="py-docstring">                Source: D. E. Knuth, :title:`The Stanford GraphBase: A Platform for Combinatorial Computing`, Addison-Wesley, Reading, MA (1993).</tt> </tt>
+<a name="L25"></a><tt class="py-lineno">25</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L26"></a><tt class="py-lineno">26</tt>  <tt class="py-line">        <tt class="py-name">fname</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">'lesmis.gml'</tt><tt class="py-op">)</tt> </tt>
+<a name="L27"></a><tt class="py-lineno">27</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-8" class="py-name"><a title="zen.io.gml
+zen.tests.gml" class="py-name" href="#" onclick="return doclink('link-8', 'gml', 'link-6');">gml</a></tt><tt class="py-op">.</tt><tt id="link-9" class="py-name" targets="Function zen.io.bel.read()=zen.io.bel-module.html#read,Function zen.io.edgelist.read()=zen.io.edgelist-module.html#read,Function zen.io.gml.read()=zen.io.gml-module.html#read,Function zen.io.hedgelist.read()=zen.io.hedgelist-module.html#read,Function zen.io.memlist.read()=zen.io.memlist-module.html#read,Function zen.io.rdot.read()=zen.io.rdot-module.html#read,Function zen.io.scn.read()=zen.io.scn-module.html#read"><a title="zen.io.bel.read
+zen.io.edgelist.read
+zen.io.gml.read
+zen.io.hedgelist.read
+zen.io.memlist.read
+zen.io.rdot.read
+zen.io.scn.read" class="py-name" href="#" onclick="return doclink('link-9', 'read', 'link-9');">read</a></tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">,</tt><tt class="py-name">weight_fxn</tt><tt class="py-op">=</tt><tt class="py-keyword">lambda</tt> <tt id="link-10" class="py-name" targets="Variable zen.io.gml.x=zen.io.gml-module.html#x,Variable zen.io.gml_codec.Decoder.x=zen.io.gml_codec.Decoder-class.html#x"><a title="zen.io.gml.x
+zen.io.gml_codec.Decoder.x" class="py-name" href="#" onclick="return doclink('link-10', 'x', 'link-10');">x</a></tt><tt class="py-op">:</tt> <tt id="link-11" class="py-name"><a title="zen.io.gml.x
+zen.io.gml_codec.Decoder.x" class="py-name" href="#" onclick="return doclink('link-11', 'x', 'link-10');">x</a></tt><tt class="py-op">[</tt><tt class="py-string">'value'</tt><tt class="py-op">]</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L28"></a><tt class="py-lineno">28</tt>  <tt class="py-line">         </tt>
+<a name="karate_club"></a><div id="karate_club-def"><a name="L29"></a><tt class="py-lineno">29</tt> <a class="py-toggle" href="#" id="karate_club-toggle" onclick="return toggle('karate_club');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.data-module.html#karate_club">karate_club</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="karate_club-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="karate_club-expanded"><a name="L30"></a><tt class="py-lineno">30</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L31"></a><tt class="py-lineno">31</tt>  <tt class="py-line"><tt class="py-docstring">        Loads and returns an undirected social network of friendships among 34 members of a karate club in the 1970s.</tt> </tt>
+<a name="L32"></a><tt class="py-lineno">32</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L33"></a><tt class="py-lineno">33</tt>  <tt class="py-line"><tt class="py-docstring">        .. note::</tt> </tt>
+<a name="L34"></a><tt class="py-lineno">34</tt>  <tt class="py-line"><tt class="py-docstring">                Source: W. W. Zachary, *An information flow model for conflict and fission in small groups*, Journal of Anthropological Research 33, 452-473 (1977).</tt> </tt>
+<a name="L35"></a><tt class="py-lineno">35</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L36"></a><tt class="py-lineno">36</tt>  <tt class="py-line">        <tt class="py-name">fname</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">'karate.scn'</tt><tt class="py-op">)</tt> </tt>
+<a name="L37"></a><tt class="py-lineno">37</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-12" class="py-name"><a title="zen.io.scn
+zen.tests.scn" class="py-name" href="#" onclick="return doclink('link-12', 'scn', 'link-2');">scn</a></tt><tt class="py-op">.</tt><tt id="link-13" class="py-name"><a title="zen.io.bel.read
+zen.io.edgelist.read
+zen.io.gml.read
+zen.io.hedgelist.read
+zen.io.memlist.read
+zen.io.rdot.read
+zen.io.scn.read" class="py-name" href="#" onclick="return doclink('link-13', 'read', 'link-9');">read</a></tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">,</tt><tt class="py-name">directed</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L38"></a><tt class="py-lineno">38</tt>  <tt class="py-line">         </tt>
+<a name="florentine"></a><div id="florentine-def"><a name="L39"></a><tt class="py-lineno">39</tt> <a class="py-toggle" href="#" id="florentine-toggle" onclick="return toggle('florentine');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.data-module.html#florentine">florentine</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="florentine-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="florentine-expanded"><a name="L40"></a><tt class="py-lineno">40</tt>  <tt class="py-line">        <tt class="py-docstring">"""</tt> </tt>
+<a name="L41"></a><tt class="py-lineno">41</tt>  <tt class="py-line"><tt class="py-docstring">        Loads and returns the undirected Florentine marriage network.</tt> </tt>
+<a name="L42"></a><tt class="py-lineno">42</tt>  <tt class="py-line"><tt class="py-docstring">        </tt> </tt>
+<a name="L43"></a><tt class="py-lineno">43</tt>  <tt class="py-line"><tt class="py-docstring">        .. note::</tt> </tt>
+<a name="L44"></a><tt class="py-lineno">44</tt>  <tt class="py-line"><tt class="py-docstring">                Source: Padgett, John F. 1994. *Marriage and Elite Structure in Renaissance Florence*, 1282-1500. Paper delivered to the Social Science History Association.</tt> </tt>
+<a name="L45"></a><tt class="py-lineno">45</tt>  <tt class="py-line"><tt class="py-docstring">        """</tt> </tt>
+<a name="L46"></a><tt class="py-lineno">46</tt>  <tt class="py-line">        <tt class="py-name">fname</tt> <tt class="py-op">=</tt> <tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">join</tt><tt class="py-op">(</tt><tt class="py-name">os</tt><tt class="py-op">.</tt><tt class="py-name">path</tt><tt class="py-op">.</tt><tt class="py-name">dirname</tt><tt class="py-op">(</tt><tt class="py-name">__file__</tt><tt class="py-op">)</tt><tt class="py-op">,</tt><tt class="py-string">'florentine.scn'</tt><tt class="py-op">)</tt> </tt>
+<a name="L47"></a><tt class="py-lineno">47</tt>  <tt class="py-line">        <tt class="py-keyword">return</tt> <tt id="link-14" class="py-name"><a title="zen.io.scn
+zen.tests.scn" class="py-name" href="#" onclick="return doclink('link-14', 'scn', 'link-2');">scn</a></tt><tt class="py-op">.</tt><tt id="link-15" class="py-name"><a title="zen.io.bel.read
+zen.io.edgelist.read
+zen.io.gml.read
+zen.io.hedgelist.read
+zen.io.memlist.read
+zen.io.rdot.read
+zen.io.scn.read" class="py-name" href="#" onclick="return doclink('link-15', 'read', 'link-9');">read</a></tt><tt class="py-op">(</tt><tt class="py-name">fname</tt><tt class="py-op">,</tt><tt class="py-name">directed</tt><tt class="py-op">=</tt><tt class="py-name">False</tt><tt class="py-op">)</tt> </tt>
+</div><a name="L48"></a><tt class="py-lineno">48</tt>  <tt class="py-line">         </tt>
+<a name="axis_allies"></a><div id="axis_allies-def"><a name="L49"></a><tt class="py-lineno">49</tt> <a class="py-toggle" href="#" id="axis_allies-toggle" onclick="return toggle('axis_allies');">-</a><tt class="py-line"><tt class="py-keyword">def</tt> <a class="py-def-name" href="zen.data-module.html#axis_allies">axis_allies</a><tt class="py-op">(</tt><tt class="py-op">)</tt><tt class="py-op">:</tt> </tt>
+</div><div id="axis_allies-collapsed" style="display:none;" pad="++" indent="++++"></div><div id="axis_allies-expanded"><a name="L50"></a><tt class="py-lineno">50</tt>  <tt class="py-line">        <tt class="py-keyword">pass</tt> </tt>
+</div><a name="L51"></a><tt class="py-lineno">51</tt>  <tt class="py-line"> </tt><script type="text/javascript">
+<!--
+expandto(location.href);
+// -->
+</script>
+</pre>
+<br />
+<!-- ==================== NAVIGATION BAR ==================== -->
+<table class="navbar" border="0" width="100%" cellpadding="0"
+       bgcolor="#a0c0ff" cellspacing="0">
+  <tr valign="middle">
+  <!-- Home link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="zen-module.html">Home</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Tree link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="module-tree.html">Trees</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Index link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="identifier-index.html">Indices</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Help link -->
+      <th>&nbsp;&nbsp;&nbsp;<a
+        href="help.html">Help</a>&nbsp;&nbsp;&nbsp;</th>
+
+  <!-- Project homepage -->
+      <th class="navbar" align="right" width="100%">
+        <table border="0" cellpadding="0" cellspacing="0">
+          <tr><th class="navbar" align="center"
+            ><a class="navbar" target="_top" href="http://www.ruthsresearch.org/static/zen/pydoc">Zen</a></th>
+          </tr></table></th>
+  </tr>
+</table>
+<table border="0" cellpadding="0" cellspacing="0" width="100%%">
+  <tr>
+    <td align="left" class="footer">
+    Generated by Epydoc 3.0.1 on Sat Mar 14 14:30:08 2015
+    </td>
+    <td align="right" class="footer">
+      <a target="mainFrame" href="http://epydoc.sourceforge.net"
+        >http://epydoc.sourceforge.net</a>
+    </td>
+  </tr>
+</table>
+
+<script type="text/javascript">
+  <!--
+  // Private objects are initially displayed (because if
+  // javascript is turned off then we want them to be
+  // visible); but by default, we want to hide them.  So hide
+  // them unless we have a cookie that says to show them.
+  checkCookie();
+  // -->
+</script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+#### Data collection description
+The data collection activity at Mall 1 took place on the weekdays **<span style='color:red'>Wednesday 24th, Thursday 25th 
+and Firday 26th June 2015</span>**, starting from 6 am and finishing at 6pm. A total of 16 surveyors were employed over three days 
+and two video cameras (although the second camera was deployed only the last day). Surveyors duties were to interview
+the drivers, perform vehicle observations and operate the video cameras. The cameras were collecting data on the traffic outside the mall.
+      
+#### Overview of data collected
+A total of **<span style='color:red'>1808 goods vehicles</span>** have been observed and **<span style='color:red'>347 drivers</span>** 
+were interviewed, over three days of data collection activity.
+                                                                            
+#### Site description
+* **Mall 1**: The mall is located in the north part of Singapore. In the vicinity of the mall there is a subway station and bus interchange.
+                                                 
+   There are a total of **<span style='color:red'>170 stores</span>**, distributed over 3 floors overground (levels 01-03) and two 
+floors underground (levels B1-B3). The combined lettable area is of 21800 squared meters. Among large retailers there is Cold Storage and POPULAR.
+
+* **Service road**: Goods and passenger vehicles can access the mall from a 150 meters-long one-way two-lanes service road,
+on the sides of which two cameras were deployed, one at the beginning of the road, one at the exit.
+The road section analysed contains one traffic light with red clearance of 30 seconds.
+
+* **Passenger car-park**: The passenger car-park is accessible at the end of the service road, there is only one entrance/exit. 
+Each vehicle entering the carpark have to pay SG$ 1.20 for the first hour and SG$ 0.80 for every 
+subsequent 15 minutes.
+
+* **Loading bay**: The loading bay is accessible half-way though the service road and is located outside the mall.
+**<span style='color:red'>It can hosts up to 6 goods vehicles</span>**. 
+Access to the LB is **<span style='color:red'>free</span>**, on-site guards usually regulate the traffic. 
+The stores can be accessed from the loading bay via a service lift.
+
+* **Queue formation**: The queue for accessing the loading bay **<span style='color:red'>immediately spills over in the service road</span>**, 
+and sometimes up to the main road when at least **<span style='color:red'>7 vehicles</span>** are in queue.
+
+* **Street parking**: Illegal parking on the service road was occasionally observed 
+along the sides of the service road as shown in the map (green areas), for a total of approximately **<span style='color:red'>10 goods 
+vehicles</span>** simultaneously.

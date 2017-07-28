@@ -1,0 +1,60 @@
+\documentclass[12pt]{article}
+\pagestyle{empty}
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand{\argmin}{\operatornamewithlimits{argmin}}
+\newcommand{\argmax}{\operatornamewithlimits{argmax}}
+\usepackage[margin=1in]{geometry}
+\usepackage{array}
+\usepackage{amsmath}
+%\usepackage{cyrillic}
+\usepackage{graphicx}
+\usepackage{subcaption}
+\usepackage{float}
+
+\thispagestyle{empty}
+
+\begin{document}
+\begin{center}
+\large\bf Probability of No Consecutive Loss
+\end{center}
+\begin{center}
+\large
+Harvard University - Ziqi Guo
+\bigskip\\
+\end{center}
+\begin{enumerate}
+\item{} \textbf{Analytical Approach}
+\medskip\\
+This problem can be solved by analyzing a recurrence relationship.
+\medskip\\
+We can let $P_n$ denote the probability that a team has no consecutive loss in a season of $n$ games. This probability can be further decomposed into two scenarios, $P_n^0$ and $P_n^1$, where $P_n^0$ is the probability of the case where no consecutive loss occurs \textbf{and} the last game is a win, and $P_n^1$ is the probability of the case where no consecutive loss occurs \textbf{and} the last game is a loss \textbf{and} the second-to-last game is a win. Thus, $$P_n=P_n^0+P_n^1$$
+
+We extend the case to $P_{n+1}^0$. As from $P_n$, the team just has to win one more game to achieve $P_{n+1}^0$, we obtain that $$P_{n+1}^0=0.8\cdot P_n=0.8\cdot P_n^0+0.8\cdot P_n^1$$
+Similarly, from $P_n^0$, the team just has to lose one more game to achieve $P_{n+1}^1$. Thus, $$P_{n+1}^1=0.2\cdot P_n^0$$
+
+Combining the equations, we can get
+
+$$P_n = P_{n+1}^0 / 0.8 = P_n^0+0.2\cdot P_{n-1}^0= 0.8\cdot P_{n-1}+0.8\cdot0.2\cdot P_{n-2}$$
+
+This forms a recurrence relationship that can be solved easily. The boundary cases are $P_0=1$ and $P_1=1$. I used a simple Python program (attached) to build up the recurrence list from bottom up to get $\bf{P_{82}=0.0588=5.88\%}$ (rounded to fourth decimal place) Thus the probability of no consecutive loss in a 82-game season, given independent winning probability of 0.8, is 5.88\%.
+\medskip\\
+
+\item{} \textbf{Simulation Approach}
+\medskip\\
+As we are given the probability distribution of independent games, we can use a Monte Carlo simulation to simulate a large number of seasons and approximate the probability of no consecutive loss based on the proportion of seasons with no consecutive loss. The results are tabulated as follows:
+
+\begin{center}
+\begin{tabular}{ c c } 
+\hline
+Number of trials & Proportion\\
+\hline\hline
+1000 & 0.0540 \\ 
+10000 & 0.0628 \\ 
+100000 & 0.0590 \\ 
+\hline
+\end{tabular}
+\end{center}
+Based on simulation, the probability that the prediction would be true (i.e. that the Warriors would not suffer any consecutive loss in 82 games) is around \textbf{5.8\%}, similarly to the analytical approach.
+
+\end{enumerate}
+\end{document}

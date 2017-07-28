@@ -1,2 +1,0 @@
-Traffic variables aim at capturing the movement of the goods vehicles while it is not parked. From the time it enters the system (i.e. the premises of the mall) to the time it starts the handling operations (loading, unloading or performing some form of service). Most of these variables have been captured with cameras and thereafter processed to extract information such as time of arrival and exit, total dwelling time (the difference between the previous two variables), queueing time (time spent waiting in queue to get into the loading bay) and other variables.
-
